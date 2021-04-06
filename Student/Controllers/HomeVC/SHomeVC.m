@@ -131,7 +131,7 @@
 - (SHomeSelectView *)selectView
 {
     if (!_selectView) {
-        NSArray *itemList = [NSArray arrayWithObjects:@"数学",@"物理",@"化学",@"生物",nil];
+        NSArray *itemList = @[@"数学",@"物理",@"化学"];
         _selectView = [[SHomeSelectView alloc] initWithItemArray:itemList];
     }
     return _selectView;

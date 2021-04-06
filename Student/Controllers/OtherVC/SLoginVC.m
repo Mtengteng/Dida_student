@@ -209,6 +209,7 @@
     
     DefineWeakSelf;
     BWLoginReq *loginReq = [[BWLoginReq alloc] init];
+    loginReq.methodType = httpMethod_POST;
     loginReq.username = name;
     loginReq.password = password;
     [NetManger sendRequest:loginReq withSucessed:^(BWBaseReq *req, BWBaseResp *resp) {

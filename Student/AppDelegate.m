@@ -18,8 +18,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-//    SBaseNavigationVC *nav = [[SBaseNavigationVC alloc] initWithRootViewController:[[SLoginVC alloc] init]];
-    SBaseNavigationVC *nav = [[SBaseNavigationVC alloc] initWithRootViewController:[[SHomeVC alloc] init]];
+    SBaseNavigationVC *nav = [[SBaseNavigationVC alloc] initWithRootViewController:[[SLoginVC alloc] init]];
+//    SBaseNavigationVC *nav = [[SBaseNavigationVC alloc] initWithRootViewController:[[SHomeVC alloc] init]];
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     
