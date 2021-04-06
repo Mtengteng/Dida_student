@@ -22,5 +22,6 @@
 #import "MJRefresh.h"
 #import "BWAlertCtrl.h"
 #import "BaiduMobStat.h"
+#import "MJExtension.h"
 
 #endif /* TPch_pch */

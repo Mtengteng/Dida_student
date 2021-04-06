@@ -11,9 +11,11 @@
 
 #define BaseURL                      @"http://114.67.205.244:8181"                          //测试服务器
 #define LoginURL                     @"/user/login"                                         //登陆
+#define GetAllBookURL                @"/book/allbooks"                                      //首页获取图书
+
+
 
 #define boxURL                      @"/report/knowledgeReport/%@/%@/%@"
-
 #define PrivacyURL                   @"https://appd10.beiwaionline.com/files/login/privacyPolicy.html"      //隐私政策页面
 #define UserProURL                   @"https://appd10.beiwaionline.com/files/login/userAgreement.html"      //用户协议页面
 

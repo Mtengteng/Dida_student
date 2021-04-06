@@ -10,8 +10,9 @@
 
 typedef enum _httpMethod
 {
-    httpMethod_POST = 0,
-    httpMethod_GET = 1
+    httpMethod_GET = 0,
+    httpMethod_POST = 1
+    
 }httpMethod;
 
 @class BWBaseResp;

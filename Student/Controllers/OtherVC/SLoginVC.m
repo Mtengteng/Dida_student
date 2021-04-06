@@ -34,8 +34,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.loginNameField.text = @"b001";
-    self.passwordField.text = @"b001";
+    self.loginNameField.text = @"a001";
+    self.passwordField.text = @"a001";
     
     [self createUI];
 }

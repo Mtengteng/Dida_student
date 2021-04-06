@@ -49,8 +49,8 @@
 #define PAdaptation_x(x) ((x)*SCREEN_WIDTH/375)
 #define PAaptation_y(y) (((y)*(iPhoneX ? SCREEN_HEIGHT - 145*iPhoneXRatio : SCREEN_HEIGHT))/667)
 //横屏使用
-#define LAdaptation_x(x) ((x)*(iPhoneX ? SCREEN_WIDTH - 145*iPhoneXRatio : SCREEN_WIDTH)/960)
-#define LAdaptation_y(y) ((y)*SCREEN_HEIGHT/600)
+#define LAdaptation_x(x) ((x)*(iPhoneX ? SCREEN_WIDTH - 145*iPhoneXRatio : SCREEN_WIDTH)/768)
+#define LAdaptation_y(y) ((y)*SCREEN_HEIGHT/1024)
 
 
 

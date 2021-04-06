@@ -10,6 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SBaseVC : UIViewController
+
 - (void)createUI;
 
 - (void)createLeftBackBtn:(void(^)(void))backBlock;

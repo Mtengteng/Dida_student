@@ -16,6 +16,7 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - BaiduMobStatCodeless (5.2.7)
+  - lottie-ios (2.5.3)
   - Masonry (1.1.0)
   - MJExtension (3.2.2)
   - MJRefresh (3.5.0)
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - AAChartKit
   - AFNetworking
   - BaiduMobStatCodeless
+  - lottie-ios (~> 2.5)
   - Masonry
   - MJExtension
   - MJRefresh
@@ -37,6 +39,7 @@ SPEC REPOS:
     - AAChartKit
     - AFNetworking
     - BaiduMobStatCodeless
+    - lottie-ios
     - Masonry
     - MJExtension
     - MJRefresh
@@ -46,11 +49,12 @@ SPEC CHECKSUMS:
   AAChartKit: 0f69007e943e3d751b02e36df8ef5ea4fea668d9
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   BaiduMobStatCodeless: 09c3738fd435a6c13c248f39aa0f15d3f5ee7daa
+  lottie-ios: a50d5c0160425cd4b01b852bb9578963e6d92d31
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: d9b9c74cbdeb724c1e9ecbb157b318276e62e876
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   SDWebImage: 9169792e9eec3e45bba2a0c02f74bf8bd922d1ee
 
-PODFILE CHECKSUM: 2b1ae49aea1ce692816efc2dfe6f2861051f6f16
+PODFILE CHECKSUM: 638947f3e2816564b666f05e3dc1b0e4d6deffc8
 
 COCOAPODS: 1.10.0

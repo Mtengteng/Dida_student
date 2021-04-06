@@ -13,5 +13,6 @@ target 'Student' do
     pod 'MJRefresh'
     pod 'BaiduMobStatCodeless'
     pod 'AAChartKit'
+    pod 'lottie-ios' , '~> 2.5'
 
 end

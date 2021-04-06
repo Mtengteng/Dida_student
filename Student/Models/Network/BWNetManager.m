@@ -153,11 +153,11 @@
 {
     switch (type) {
         case 0:
-            return @"POST";
+            return @"GET";
             break;
             
         default:
-            return @"GET";
+            return @"POST";
             break;
     }
     return nil;
