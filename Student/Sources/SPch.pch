@@ -1,0 +1,26 @@
+//
+//  TPch.pch
+//  teacher
+//
+//  Created by 马腾 on 2020/12/21.
+//  Copyright © 2020 beiwaionline. All rights reserved.
+//
+
+#ifndef TPch_pch
+#define TPch_pch
+
+#import "NetHeader.h"
+#import "Masonry.h"
+#import "MBProgressHUD.h"
+#import "UIImageView+WebCache.h"
+#import "SConfig.h"
+#import "UserConfig.h"
+#import "SafeObjectHeader.h"
+#import "BWTools.h"
+#import "AppDelegate.h"
+#import "UITableView+AddForPlaceholder.h"
+#import "MJRefresh.h"
+#import "BWAlertCtrl.h"
+#import "BaiduMobStat.h"
+
+#endif /* TPch_pch */
