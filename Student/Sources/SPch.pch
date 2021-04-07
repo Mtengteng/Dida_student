@@ -23,5 +23,6 @@
 #import "BWAlertCtrl.h"
 #import "BaiduMobStat.h"
 #import "MJExtension.h"
+#import "AAGlobalMacro.h"
 
 #endif /* TPch_pch */

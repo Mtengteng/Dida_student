@@ -16,6 +16,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationBar.translucent = NO;
+    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]]; //去掉黑线
 }
 
 
