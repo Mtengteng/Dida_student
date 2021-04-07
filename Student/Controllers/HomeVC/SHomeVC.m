@@ -8,6 +8,8 @@
 #import "SHomeVC.h"
 #import "SHomeSelectView.h"
 #import "SHomeCollectionViewCell.h"
+#import "SMenuItem.h"
+#import "SMenuView.h"
 
 #import "BWGetAllBookReq.h"
 #import "BWGetAllBookResp.h"
@@ -20,6 +22,7 @@
 @property (nonatomic, strong) UILabel *subtitleLabel;
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, assign) NSInteger currentIndex;
+@property (nonatomic, strong) SMenuView *menuView;
 @end
 
 @implementation SHomeVC
@@ -37,7 +40,9 @@
         weakSelf.currentIndex = index;
         [weakSelf.collectionView reloadData];
     };
-    
+    self.menuView.select = ^(SMenuItem * _Nonnull selectItem) {
+        NSLog(@"%@",selectItem.itemName);
+    };
 }
 - (void)createUI
 {
@@ -70,6 +75,24 @@
         make.left.equalTo(self.selectView);
         make.right.equalTo(self.view.mas_right).offset(-LAdaptation_x(24));
         make.bottom.equalTo(self.view.mas_bottom);
+    }];
+    
+    NSMutableArray *itemArray = [[NSMutableArray alloc] init];
+    NSArray *nameArray = @[@"高中",@"竞赛"];
+    for (NSInteger i = 0; i < nameArray.count; i++) {
+        SMenuItem *item = [[SMenuItem alloc] init];
+        item.itemId = [NSString stringWithFormat:@"%ld",i];
+        item.itemName = [nameArray safeObjectAtIndex:i];
+        [itemArray addObject:item];
+    }
+    self.menuView = [[SMenuView alloc] initContentArray:itemArray withSuperView:self.view];
+    [self.navigationController.navigationBar addSubview:self.menuView];
+    
+    [self.menuView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.navigationController.navigationBar);
+        make.left.equalTo(self.navigationController.navigationBar).offset(LAdaptation_x(24));
+        make.width.mas_equalTo(LAdaptation_x(60));
+        make.height.mas_equalTo(44);
     }];
 }
 - (void)startRequest
