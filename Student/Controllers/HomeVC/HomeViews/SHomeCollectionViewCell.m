@@ -49,11 +49,11 @@
 //        _imageView.contentMode = UIViewContentModeScaleAspectFit;
         _imageView.layer.cornerRadius = 10;
         _imageView.layer.masksToBounds = YES;
-        _imageView.layer.shadowOffset = CGSizeMake(0,14);
-        _imageView.layer.shadowOpacity = 1;
-        _imageView.layer.shadowRadius = 7;
+        _imageView.layer.shadowOffset = CGSizeMake(5,5);
+        _imageView.layer.shadowOpacity = 0.8;
+        _imageView.layer.shadowRadius = 4;
         _imageView.layer.borderWidth = 1;
-        _imageView.layer.borderColor = BWColor(93, 133, 193, 0.4).CGColor;
+        _imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     }
     return _imageView;
 }
