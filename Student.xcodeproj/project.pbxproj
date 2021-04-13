@@ -55,6 +55,7 @@
 		9E905C1F25C138BF009BB170 /* StudyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E905C1E25C138BF009BB170 /* StudyVC.m */; };
 		9E905C2225C138D0009BB170 /* SPromoteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E905C2125C138D0009BB170 /* SPromoteVC.m */; };
 		9E905C2525C138DF009BB170 /* SMineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E905C2425C138DF009BB170 /* SMineVC.m */; };
+		9EA793CA261FFACF00757FF1 /* SAssistantCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA793C9261FFACF00757FF1 /* SAssistantCell.m */; };
 		9ECDD0C5261D39CD0037A9FD /* SMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECDD0C4261D39CD0037A9FD /* SMenuView.m */; };
 		9ECDD0CC261D42020037A9FD /* down_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECDD0C9261D42020037A9FD /* down_arrow.png */; };
 		9ECDD0CD261D42020037A9FD /* down_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECDD0CA261D42020037A9FD /* down_arrow@2x.png */; };
@@ -159,6 +160,8 @@
 		9E905C2125C138D0009BB170 /* SPromoteVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPromoteVC.m; sourceTree = "<group>"; };
 		9E905C2325C138DF009BB170 /* SMineVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMineVC.h; sourceTree = "<group>"; };
 		9E905C2425C138DF009BB170 /* SMineVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMineVC.m; sourceTree = "<group>"; };
+		9EA793C8261FFACF00757FF1 /* SAssistantCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAssistantCell.h; sourceTree = "<group>"; };
+		9EA793C9261FFACF00757FF1 /* SAssistantCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAssistantCell.m; sourceTree = "<group>"; };
 		9ECDD0C3261D39CD0037A9FD /* SMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMenuView.h; sourceTree = "<group>"; };
 		9ECDD0C4261D39CD0037A9FD /* SMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMenuView.m; sourceTree = "<group>"; };
 		9ECDD0C9261D42020037A9FD /* down_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down_arrow.png; sourceTree = "<group>"; };
@@ -549,6 +552,8 @@
 				9ECDD0D9261D5A030037A9FD /* STabMenuView.m */,
 				9ECDD0E8261D8D5E0037A9FD /* SCureView.h */,
 				9ECDD0E9261D8D5E0037A9FD /* SCureView.m */,
+				9EA793C8261FFACF00757FF1 /* SAssistantCell.h */,
+				9EA793C9261FFACF00757FF1 /* SAssistantCell.m */,
 			);
 			path = StudyViews;
 			sourceTree = "<group>";
@@ -694,6 +699,7 @@
 				9E905BFB25C13266009BB170 /* BWBaseDownloadResp.m in Sources */,
 				9ECDD0E2261D87BE0037A9FD /* SAssistantVC.m in Sources */,
 				9E905BCC25C13121009BB170 /* PrivacyPageController.m in Sources */,
+				9EA793CA261FFACF00757FF1 /* SAssistantCell.m in Sources */,
 				9E905BF725C13266009BB170 /* BWBaseReq.m in Sources */,
 				9E905C1F25C138BF009BB170 /* StudyVC.m in Sources */,
 				9ECDD0DA261D5A030037A9FD /* STabMenuView.m in Sources */,
