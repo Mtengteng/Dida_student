@@ -156,7 +156,7 @@
     ];
 
     NSDictionary *gradientColorDic1 =
-    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToRight
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
                                      stopsArray:stopsArr];
 
     return AAChartModel.new

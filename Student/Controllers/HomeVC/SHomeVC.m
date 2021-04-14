@@ -6,7 +6,7 @@
 //
 
 #import "SHomeVC.h"
-#import "SHomeSelectView.h"
+#import "SelectSubView.h"
 #import "SHomeCollectionViewCell.h"
 #import "SMenuItem.h"
 #import "SMenuView.h"
@@ -14,15 +14,20 @@
 #import "BWGetAllBookReq.h"
 #import "BWGetAllBookResp.h"
 #import "SBook.h"
+#import "ItemTabView.h"
+#import "ItemModel.h"
 
 @interface SHomeVC ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UIImageView *bannerView;
 @property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic, strong) SHomeSelectView *selectView;
-@property (nonatomic, strong) UILabel *subtitleLabel;
+@property (nonatomic, strong) SelectSubView *selectView;
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, assign) NSInteger currentIndex;
 @property (nonatomic, strong) SMenuView *menuView;
+@property (nonatomic, strong) ItemTabView *itemTab;
+@property (nonatomic, strong) NSArray *subArray;
+@property (nonatomic, strong) NSArray *itemArray;
+
 @end
 
 @implementation SHomeVC
@@ -36,13 +41,23 @@
     [self startRequest];
     
     DefineWeakSelf;
-    self.selectView.selectBlock = ^(NSInteger index) {
+    
+    self.itemTab.selectBlock = ^(NSInteger index) {
+        
+        [weakSelf.selectView setFirstSub:^(SubModel * _Nonnull model,NSInteger index) {
+            
+        }];
+    };
+    
+    self.selectView.selectSubBlock = ^(SubModel * _Nonnull model,NSInteger index) {
         weakSelf.currentIndex = index;
         [weakSelf.collectionView reloadData];
     };
     self.menuView.select = ^(SMenuItem * _Nonnull selectItem) {
         NSLog(@"%@",selectItem.itemName);
     };
+    
+
 }
 - (void)createUI
 {
@@ -54,17 +69,18 @@
         make.height.mas_equalTo(LAdaptation_y(233));
     }];
     
-    [self.view addSubview:self.subtitleLabel];
-    [self.subtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.view addSubview:self.itemTab];
+    [self.itemTab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.bannerView.mas_bottom).offset(LAdaptation_y(30));
         make.left.equalTo(self.bannerView);
+        make.width.mas_equalTo(LAdaptation_x(100)*self.itemArray.count);
         make.height.mas_equalTo(LAdaptation_y(24));
     }];
     
     [self.view addSubview:self.selectView];
     [self.selectView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.subtitleLabel.mas_bottom).offset(LAdaptation_y(24));
-        make.left.equalTo(self.subtitleLabel);
+        make.top.equalTo(self.itemTab.mas_bottom).offset(LAdaptation_y(24));
+        make.left.equalTo(self.itemTab);
         make.width.equalTo(self.view);
         make.height.mas_equalTo(LAdaptation_y(44));
     }];
@@ -77,6 +93,8 @@
         make.bottom.equalTo(self.view.mas_bottom);
     }];
     
+    
+    //下拉框
     NSMutableArray *itemArray = [[NSMutableArray alloc] init];
     NSArray *nameArray = @[@"高中",@"竞赛"];
     for (NSInteger i = 0; i < nameArray.count; i++) {
@@ -94,6 +112,8 @@
         make.width.mas_equalTo(LAdaptation_x(60));
         make.height.mas_equalTo(44);
     }];
+    
+    
 }
 - (void)startRequest
 {
@@ -142,23 +162,37 @@
     }
     return _bannerView;
 }
-- (UILabel *)subtitleLabel
+- (ItemTabView *)itemTab
 {
-    if (!_subtitleLabel) {
-        _subtitleLabel = [[UILabel alloc] init];
-        _subtitleLabel.font = [UIFont boldSystemFontOfSize:24.0];
-        _subtitleLabel.text = @"精彩内容";
+    if (!_itemTab) {
+        NSMutableArray *array = [[NSMutableArray alloc] init];
+        for (NSInteger i = 0; i < 2; i++) {
+            ItemModel *model = [[ItemModel alloc] init];
+            model.itemId = [NSString stringWithFormat:@"%ld",i];
+            if (i == 0) {
+                model.itemName = @"答题集";
+            }else{
+                model.itemName = @"学习集";
+            }
+            [array addObject:model];
+        }
+        self.itemArray = array;
+        
+        _itemTab = [[ItemTabView alloc] initWithItemArray:array];
     }
-    return _subtitleLabel;
+    
+    return _itemTab;
 }
-- (SHomeSelectView *)selectView
+- (SelectSubView *)selectView
 {
     if (!_selectView) {
-        NSArray *itemList = @[@"数学",@"物理",@"化学"];
-        _selectView = [[SHomeSelectView alloc] initWithItemArray:itemList];
+        NSArray *subArray = @[@"数学",@"物理",@"化学"];
+        self.subArray = subArray;
+        _selectView = [[SelectSubView alloc] initWithItemArray:subArray];
     }
     return _selectView;
 }
+
 - (UICollectionView *)collectionView
 {
     if (!_collectionView) {

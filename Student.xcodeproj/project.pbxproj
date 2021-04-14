@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9E78012A261C362C006438DC /* SHomeSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E780129261C362C006438DC /* SHomeSelectView.m */; };
+		9E77AC792626B50D007C4D2B /* BWMyTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E77AC772626B50D007C4D2B /* BWMyTabBar.m */; };
+		9E77AC832626BB0F007C4D2B /* ItemTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E77AC822626BB0F007C4D2B /* ItemTabView.m */; };
+		9E77AC8A2626C01D007C4D2B /* ItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E77AC892626C01D007C4D2B /* ItemModel.m */; };
+		9E77AC902626DEE5007C4D2B /* SubModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E77AC8F2626DEE5007C4D2B /* SubModel.m */; };
+		9E78012A261C362C006438DC /* SelectSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E780129261C362C006438DC /* SelectSubView.m */; };
 		9E78012F261C43A0006438DC /* SHomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E78012E261C43A0006438DC /* SHomeCollectionViewCell.m */; };
 		9E780133261C45C6006438DC /* BWGetAllBookResp.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E780132261C45C6006438DC /* BWGetAllBookResp.m */; };
 		9E780137261C45D6006438DC /* BWGetAllBookReq.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E780136261C45D6006438DC /* BWGetAllBookReq.m */; };
@@ -70,8 +74,16 @@
 
 /* Begin PBXFileReference section */
 		7EAB7F45132E4F1A841227D4 /* Pods-Student.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Student.debug.xcconfig"; path = "Target Support Files/Pods-Student/Pods-Student.debug.xcconfig"; sourceTree = "<group>"; };
-		9E780128261C362C006438DC /* SHomeSelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHomeSelectView.h; sourceTree = "<group>"; };
-		9E780129261C362C006438DC /* SHomeSelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHomeSelectView.m; sourceTree = "<group>"; };
+		9E77AC772626B50D007C4D2B /* BWMyTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWMyTabBar.m; sourceTree = "<group>"; };
+		9E77AC782626B50D007C4D2B /* BWMyTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWMyTabBar.h; sourceTree = "<group>"; };
+		9E77AC812626BB0F007C4D2B /* ItemTabView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemTabView.h; sourceTree = "<group>"; };
+		9E77AC822626BB0F007C4D2B /* ItemTabView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemTabView.m; sourceTree = "<group>"; };
+		9E77AC882626C01D007C4D2B /* ItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemModel.h; sourceTree = "<group>"; };
+		9E77AC892626C01D007C4D2B /* ItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemModel.m; sourceTree = "<group>"; };
+		9E77AC8E2626DEE5007C4D2B /* SubModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubModel.h; sourceTree = "<group>"; };
+		9E77AC8F2626DEE5007C4D2B /* SubModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubModel.m; sourceTree = "<group>"; };
+		9E780128261C362C006438DC /* SelectSubView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectSubView.h; sourceTree = "<group>"; };
+		9E780129261C362C006438DC /* SelectSubView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectSubView.m; sourceTree = "<group>"; };
 		9E78012D261C43A0006438DC /* SHomeCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHomeCollectionViewCell.h; sourceTree = "<group>"; };
 		9E78012E261C43A0006438DC /* SHomeCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHomeCollectionViewCell.m; sourceTree = "<group>"; };
 		9E780131261C45C6006438DC /* BWGetAllBookResp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWGetAllBookResp.h; sourceTree = "<group>"; };
@@ -210,11 +222,67 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9E77AC762626B4F2007C4D2B /* BaseViews */ = {
+			isa = PBXGroup;
+			children = (
+				9E77AC782626B50D007C4D2B /* BWMyTabBar.h */,
+				9E77AC772626B50D007C4D2B /* BWMyTabBar.m */,
+			);
+			path = BaseViews;
+			sourceTree = "<group>";
+		};
+		9E77AC7D2626B91C007C4D2B /* MenuView */ = {
+			isa = PBXGroup;
+			children = (
+				9ECDD0D0261D433B0037A9FD /* Model */,
+				9ECDD0C3261D39CD0037A9FD /* SMenuView.h */,
+				9ECDD0C4261D39CD0037A9FD /* SMenuView.m */,
+				9ECDD0C8261D41F60037A9FD /* UI */,
+			);
+			path = MenuView;
+			sourceTree = "<group>";
+		};
+		9E77AC7E2626B92A007C4D2B /* SelectSubView */ = {
+			isa = PBXGroup;
+			children = (
+				9E77AC8D2626DED8007C4D2B /* Model */,
+				9E780128261C362C006438DC /* SelectSubView.h */,
+				9E780129261C362C006438DC /* SelectSubView.m */,
+			);
+			path = SelectSubView;
+			sourceTree = "<group>";
+		};
+		9E77AC802626BAE5007C4D2B /* ItemTabView */ = {
+			isa = PBXGroup;
+			children = (
+				9E77AC872626C00B007C4D2B /* Model */,
+				9E77AC812626BB0F007C4D2B /* ItemTabView.h */,
+				9E77AC822626BB0F007C4D2B /* ItemTabView.m */,
+			);
+			path = ItemTabView;
+			sourceTree = "<group>";
+		};
+		9E77AC872626C00B007C4D2B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9E77AC882626C01D007C4D2B /* ItemModel.h */,
+				9E77AC892626C01D007C4D2B /* ItemModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9E77AC8D2626DED8007C4D2B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9E77AC8E2626DEE5007C4D2B /* SubModel.h */,
+				9E77AC8F2626DEE5007C4D2B /* SubModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9E780127261C354A006438DC /* HomeViews */ = {
 			isa = PBXGroup;
 			children = (
-				9E780128261C362C006438DC /* SHomeSelectView.h */,
-				9E780129261C362C006438DC /* SHomeSelectView.m */,
 				9E78012D261C43A0006438DC /* SHomeCollectionViewCell.h */,
 				9E78012E261C43A0006438DC /* SHomeCollectionViewCell.m */,
 			);
@@ -452,6 +520,7 @@
 		9E905C0425C13508009BB170 /* BaseVC */ = {
 			isa = PBXGroup;
 			children = (
+				9E77AC762626B4F2007C4D2B /* BaseViews */,
 				9E905C0525C13532009BB170 /* SBaseVC.h */,
 				9E905C0625C13532009BB170 /* SBaseVC.m */,
 				9E905C0825C13550009BB170 /* SBaseNavigationVC.h */,
@@ -518,10 +587,9 @@
 		9ECDD0C2261D39910037A9FD /* CommonViews */ = {
 			isa = PBXGroup;
 			children = (
-				9ECDD0D0261D433B0037A9FD /* Model */,
-				9ECDD0C3261D39CD0037A9FD /* SMenuView.h */,
-				9ECDD0C4261D39CD0037A9FD /* SMenuView.m */,
-				9ECDD0C8261D41F60037A9FD /* UI */,
+				9E77AC802626BAE5007C4D2B /* ItemTabView */,
+				9E77AC7E2626B92A007C4D2B /* SelectSubView */,
+				9E77AC7D2626B91C007C4D2B /* MenuView */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -704,8 +772,10 @@
 				9E905C1F25C138BF009BB170 /* StudyVC.m in Sources */,
 				9ECDD0DA261D5A030037A9FD /* STabMenuView.m in Sources */,
 				9E905C1C25C138AB009BB170 /* SHomeVC.m in Sources */,
+				9E77AC832626BB0F007C4D2B /* ItemTabView.m in Sources */,
 				9E905BCE25C13121009BB170 /* CustomPrivacyView.m in Sources */,
 				9E905C2525C138DF009BB170 /* SMineVC.m in Sources */,
+				9E77AC792626B50D007C4D2B /* BWMyTabBar.m in Sources */,
 				9E905BF625C13266009BB170 /* BWLoginReq.m in Sources */,
 				9E905B8225C13035009BB170 /* AppDelegate.m in Sources */,
 				9E905C0025C134CF009BB170 /* BWTestResp.m in Sources */,
@@ -715,6 +785,7 @@
 				9E905BD825C13121009BB170 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				9E905C0A25C13550009BB170 /* SBaseNavigationVC.m in Sources */,
 				9E905C0D25C1356F009BB170 /* SRootVC.m in Sources */,
+				9E77AC902626DEE5007C4D2B /* SubModel.m in Sources */,
 				9E905BD025C13121009BB170 /* BWTools.m in Sources */,
 				9E905BCF25C13121009BB170 /* BWAlertCtrl.m in Sources */,
 				9E905C2225C138D0009BB170 /* SPromoteVC.m in Sources */,
@@ -725,6 +796,7 @@
 				9E905BD925C13121009BB170 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				9E780133261C45C6006438DC /* BWGetAllBookResp.m in Sources */,
 				9E905BF925C13266009BB170 /* BWNetManager.m in Sources */,
+				9E77AC8A2626C01D007C4D2B /* ItemModel.m in Sources */,
 				9ECDD0C5261D39CD0037A9FD /* SMenuView.m in Sources */,
 				9E905BD225C13121009BB170 /* NSArray+safe.m in Sources */,
 				9E905C0725C13532009BB170 /* SBaseVC.m in Sources */,
@@ -732,7 +804,7 @@
 				9E905BD125C13121009BB170 /* NSDictionary+safe.m in Sources */,
 				9E780147261C51B6006438DC /* SBook.m in Sources */,
 				9ECDD0D3261D43570037A9FD /* SMenuItem.m in Sources */,
-				9E78012A261C362C006438DC /* SHomeSelectView.m in Sources */,
+				9E78012A261C362C006438DC /* SelectSubView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
