@@ -28,7 +28,7 @@
             SubModel *model = [itemList safeObjectAtIndex:i];
             
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-            button.tag = i;
+            button.tag = i+1000;
             [button setTitle:model.subName forState:UIControlStateNormal];
             [button.titleLabel setFont:[UIFont systemFontOfSize:20.0]];
             [button addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
@@ -59,6 +59,23 @@
 }
 - (void)click:(UIButton *)button
 {
+
+    [self changeSelectStateWithBtn:button];
+    
+    if (self.selectSubBlock) {
+        self.selectSubBlock([self.itemList safeObjectAtIndex:0],button.tag-1000);
+    }
+
+}
+
+- (void)setFirstSub:(void (^)(SubModel * _Nonnull, NSInteger))selectFirst
+{
+    UIButton *firstBtn = (UIButton *)[self viewWithTag:1000];
+    [self changeSelectStateWithBtn:firstBtn];
+    selectFirst(self.itemList[0],0);
+}
+- (void)changeSelectStateWithBtn:(UIButton *)button
+{
     for (UIView *contentView in self.subviews) {
         if ([contentView isKindOfClass:[UIButton class]]) {
             UIButton *btn = (UIButton *)contentView;
@@ -81,17 +98,6 @@
         }];
         [weakSelf.superview layoutIfNeeded];
     }];
-    
-    if (self.selectSubBlock) {
-        self.selectSubBlock([self.itemList safeObjectAtIndex:0],button.tag);
-    }
-
-}
-
-- (void)setFirstSub:(void (^)(SubModel * _Nonnull, NSInteger))selectFirst
-{
-    
-    selectFirst(self.itemList[0],0);
 }
 
 #pragma mark - LazyLoad -

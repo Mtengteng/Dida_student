@@ -6,6 +6,7 @@
 //
 
 #import "SHomeVC.h"
+#import "SubModel.h"
 #import "SelectSubView.h"
 #import "SHomeCollectionViewCell.h"
 #import "SMenuItem.h"
@@ -45,7 +46,8 @@
     self.itemTab.selectBlock = ^(NSInteger index) {
         
         [weakSelf.selectView setFirstSub:^(SubModel * _Nonnull model,NSInteger index) {
-            
+            NSLog(@"复原 sub选项 subName = %@,index = %ld",model.subName,index);
+            //此处获取数据刷新
         }];
     };
     
@@ -166,14 +168,11 @@
 {
     if (!_itemTab) {
         NSMutableArray *array = [[NSMutableArray alloc] init];
-        for (NSInteger i = 0; i < 2; i++) {
+        NSArray *itemArray = @[@"答题集",@"学习集"];
+        for (NSInteger i = 0; i < itemArray.count; i++) {
             ItemModel *model = [[ItemModel alloc] init];
             model.itemId = [NSString stringWithFormat:@"%ld",i];
-            if (i == 0) {
-                model.itemName = @"答题集";
-            }else{
-                model.itemName = @"学习集";
-            }
+            model.itemName = [itemArray safeObjectAtIndex:i];
             [array addObject:model];
         }
         self.itemArray = array;
@@ -186,9 +185,19 @@
 - (SelectSubView *)selectView
 {
     if (!_selectView) {
+        NSMutableArray *array = [[NSMutableArray alloc] init];
         NSArray *subArray = @[@"数学",@"物理",@"化学"];
-        self.subArray = subArray;
-        _selectView = [[SelectSubView alloc] initWithItemArray:subArray];
+        for (NSInteger i = 0; i < subArray.count; i++) {
+            SubModel *model = [[SubModel alloc] init];
+            model.subId = [NSString stringWithFormat:@"%ld",i];
+            model.subName = [subArray safeObjectAtIndex:i];
+            [array addObject:model];
+        }
+        
+        self.subArray = array;
+
+        
+        _selectView = [[SelectSubView alloc] initWithItemArray:array];
     }
     return _selectView;
 }
