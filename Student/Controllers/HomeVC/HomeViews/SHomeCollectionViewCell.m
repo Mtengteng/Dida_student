@@ -6,9 +6,10 @@
 //
 
 #import "SHomeCollectionViewCell.h"
+#import "SBookImageView.h"
 
 @interface SHomeCollectionViewCell()
-@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) SBookImageView *imageView;
 @property (nonatomic, strong) UILabel *bookTitleLabel;
 
 @end
@@ -41,18 +42,11 @@
 }
 
 #pragma mark - LazyLoad -
-- (UIImageView *)imageView
+- (SBookImageView *)imageView
 {
     if (!_imageView) {
-        _imageView = [[UIImageView alloc] init];
+        _imageView = [[SBookImageView alloc] init];
 //        _imageView.contentMode = UIViewContentModeScaleAspectFit;
-        _imageView.layer.cornerRadius = 10;
-        _imageView.layer.masksToBounds = YES;
-        _imageView.layer.shadowOffset = CGSizeMake(5,5);
-        _imageView.layer.shadowOpacity = 0.8;
-        _imageView.layer.shadowRadius = 4;
-        _imageView.layer.borderWidth = 1;
-        _imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     }
     return _imageView;
 }

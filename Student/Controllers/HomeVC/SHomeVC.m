@@ -18,6 +18,8 @@
 #import "ItemTabView.h"
 #import "ItemModel.h"
 
+#import "SChapterInfoVC.h"
+
 @interface SHomeVC ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UIImageView *bannerView;
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -32,6 +34,19 @@
 @end
 
 @implementation SHomeVC
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.menuView.hidden = NO;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    self.menuView.hidden = YES;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -48,6 +63,8 @@
         [weakSelf.selectView setFirstSub:^(SubModel * _Nonnull model,NSInteger index) {
             NSLog(@"复原 sub选项 subName = %@,index = %ld",model.subName,index);
             //此处获取数据刷新
+            weakSelf.currentIndex = index;
+            [weakSelf.collectionView reloadData];
         }];
     };
     
@@ -152,6 +169,16 @@
     SBookInfo *bookInfo = [book.books safeObjectAtIndex:indexPath.row];
     [cell setupCellWithModel:bookInfo];
     return cell;
+}
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    SBook *book = [self.dataArray safeObjectAtIndex:self.currentIndex];
+    SBookInfo *bookInfo = [book.books safeObjectAtIndex:indexPath.row];
+    SChapterInfoVC *infoVC = [[SChapterInfoVC alloc] init];
+    infoVC.bookInfo = bookInfo;
+    infoVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:infoVC animated:YES];
+    
 }
 
 #pragma mark - LazyLoad -

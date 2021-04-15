@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray *hotBookArray;
 @property (nonatomic, strong) NSMutableArray *newestBookArray;
 
+- (id)initWithJSONDictionary:(NSDictionary*)jsonDic;
+
 @end
 
 NS_ASSUME_NONNULL_END

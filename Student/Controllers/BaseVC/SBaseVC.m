@@ -30,7 +30,7 @@ typedef void(^backBlock)(void);
 #pragma mark - 返回按钮 -
 - (void)createLeftBackBtn:(void(^)(void))backBlock{
     
-    UIImage *image = [UIImage imageNamed:@"new_left.png"];
+    UIImage *image = [UIImage imageNamed:@"arrow_left.png"];
     UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     leftBtn.frame = CGRectMake(0, 0, 34, 44);
     leftBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 10);

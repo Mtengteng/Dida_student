@@ -69,6 +69,12 @@
 		9ECDD0E2261D87BE0037A9FD /* SAssistantVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECDD0E1261D87BE0037A9FD /* SAssistantVC.m */; };
 		9ECDD0E6261D87D10037A9FD /* SExamVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECDD0E5261D87D10037A9FD /* SExamVC.m */; };
 		9ECDD0EA261D8D5E0037A9FD /* SCureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECDD0E9261D8D5E0037A9FD /* SCureView.m */; };
+		9EDE3BDE2627E30D00FFC3EF /* SChapterInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDE3BDD2627E30D00FFC3EF /* SChapterInfoVC.m */; };
+		9EDE3BE2262806D400FFC3EF /* BWGetBookChapterReq.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDE3BE1262806D400FFC3EF /* BWGetBookChapterReq.m */; };
+		9EDE3BE6262806E000FFC3EF /* BWGetBookChapterResp.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDE3BE5262806E000FFC3EF /* BWGetBookChapterResp.m */; };
+		9EDE3BEA262812B800FFC3EF /* SChapterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDE3BE9262812B800FFC3EF /* SChapterCell.m */; };
+		9EDE3BEE2628152400FFC3EF /* SChapterHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDE3BED2628152400FFC3EF /* SChapterHeaderView.m */; };
+		9EDE3BF22628185900FFC3EF /* SBookImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDE3BF12628185900FFC3EF /* SBookImageView.m */; };
 		E0E705FD99566A11CD09AEF0 /* Pods_Student.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A582030DBAD19EA70FDD88 /* Pods_Student.framework */; };
 /* End PBXBuildFile section */
 
@@ -189,6 +195,18 @@
 		9ECDD0E5261D87D10037A9FD /* SExamVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SExamVC.m; sourceTree = "<group>"; };
 		9ECDD0E8261D8D5E0037A9FD /* SCureView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCureView.h; sourceTree = "<group>"; };
 		9ECDD0E9261D8D5E0037A9FD /* SCureView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCureView.m; sourceTree = "<group>"; };
+		9EDE3BDC2627E30D00FFC3EF /* SChapterInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SChapterInfoVC.h; sourceTree = "<group>"; };
+		9EDE3BDD2627E30D00FFC3EF /* SChapterInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SChapterInfoVC.m; sourceTree = "<group>"; };
+		9EDE3BE0262806D400FFC3EF /* BWGetBookChapterReq.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWGetBookChapterReq.h; sourceTree = "<group>"; };
+		9EDE3BE1262806D400FFC3EF /* BWGetBookChapterReq.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWGetBookChapterReq.m; sourceTree = "<group>"; };
+		9EDE3BE4262806E000FFC3EF /* BWGetBookChapterResp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWGetBookChapterResp.h; sourceTree = "<group>"; };
+		9EDE3BE5262806E000FFC3EF /* BWGetBookChapterResp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWGetBookChapterResp.m; sourceTree = "<group>"; };
+		9EDE3BE8262812B800FFC3EF /* SChapterCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SChapterCell.h; sourceTree = "<group>"; };
+		9EDE3BE9262812B800FFC3EF /* SChapterCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SChapterCell.m; sourceTree = "<group>"; };
+		9EDE3BEC2628152400FFC3EF /* SChapterHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SChapterHeaderView.h; sourceTree = "<group>"; };
+		9EDE3BED2628152400FFC3EF /* SChapterHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SChapterHeaderView.m; sourceTree = "<group>"; };
+		9EDE3BF02628185900FFC3EF /* SBookImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBookImageView.h; sourceTree = "<group>"; };
+		9EDE3BF12628185900FFC3EF /* SBookImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBookImageView.m; sourceTree = "<group>"; };
 		C0CC10A06FA54EE8A25DEA51 /* Pods-Student.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Student.release.xcconfig"; path = "Target Support Files/Pods-Student/Pods-Student.release.xcconfig"; sourceTree = "<group>"; };
 		E7A582030DBAD19EA70FDD88 /* Pods_Student.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Student.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -285,6 +303,10 @@
 			children = (
 				9E78012D261C43A0006438DC /* SHomeCollectionViewCell.h */,
 				9E78012E261C43A0006438DC /* SHomeCollectionViewCell.m */,
+				9EDE3BE8262812B800FFC3EF /* SChapterCell.h */,
+				9EDE3BE9262812B800FFC3EF /* SChapterCell.m */,
+				9EDE3BEC2628152400FFC3EF /* SChapterHeaderView.h */,
+				9EDE3BED2628152400FFC3EF /* SChapterHeaderView.m */,
 			);
 			path = HomeViews;
 			sourceTree = "<group>";
@@ -487,6 +509,8 @@
 				9E905BE225C13266009BB170 /* BWLoginReq.m */,
 				9E780135261C45D6006438DC /* BWGetAllBookReq.h */,
 				9E780136261C45D6006438DC /* BWGetAllBookReq.m */,
+				9EDE3BE0262806D400FFC3EF /* BWGetBookChapterReq.h */,
+				9EDE3BE1262806D400FFC3EF /* BWGetBookChapterReq.m */,
 			);
 			path = BWReq;
 			sourceTree = "<group>";
@@ -513,6 +537,8 @@
 				9E905BF225C13266009BB170 /* BWLoginResp.m */,
 				9E780131261C45C6006438DC /* BWGetAllBookResp.h */,
 				9E780132261C45C6006438DC /* BWGetAllBookResp.m */,
+				9EDE3BE4262806E000FFC3EF /* BWGetBookChapterResp.h */,
+				9EDE3BE5262806E000FFC3EF /* BWGetBookChapterResp.m */,
 			);
 			path = BWResp;
 			sourceTree = "<group>";
@@ -538,6 +564,8 @@
 				9E780144261C5194006438DC /* HomeModels */,
 				9E905C1A25C138AB009BB170 /* SHomeVC.h */,
 				9E905C1B25C138AB009BB170 /* SHomeVC.m */,
+				9EDE3BDC2627E30D00FFC3EF /* SChapterInfoVC.h */,
+				9EDE3BDD2627E30D00FFC3EF /* SChapterInfoVC.m */,
 			);
 			path = HomeVC;
 			sourceTree = "<group>";
@@ -590,6 +618,8 @@
 				9E77AC802626BAE5007C4D2B /* ItemTabView */,
 				9E77AC7E2626B92A007C4D2B /* SelectSubView */,
 				9E77AC7D2626B91C007C4D2B /* MenuView */,
+				9EDE3BF02628185900FFC3EF /* SBookImageView.h */,
+				9EDE3BF12628185900FFC3EF /* SBookImageView.m */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -762,11 +792,14 @@
 				9E905BFC25C13266009BB170 /* BWLoginResp.m in Sources */,
 				9ECDD0EA261D8D5E0037A9FD /* SCureView.m in Sources */,
 				9E905C0325C134D9009BB170 /* BWTestReq.m in Sources */,
+				9EDE3BE6262806E000FFC3EF /* BWGetBookChapterResp.m in Sources */,
 				9E905BF525C13266009BB170 /* BWBaseDownloadReq.m in Sources */,
 				9ECDD0E6261D87D10037A9FD /* SExamVC.m in Sources */,
+				9EDE3BEE2628152400FFC3EF /* SChapterHeaderView.m in Sources */,
 				9E905BFB25C13266009BB170 /* BWBaseDownloadResp.m in Sources */,
 				9ECDD0E2261D87BE0037A9FD /* SAssistantVC.m in Sources */,
 				9E905BCC25C13121009BB170 /* PrivacyPageController.m in Sources */,
+				9EDE3BDE2627E30D00FFC3EF /* SChapterInfoVC.m in Sources */,
 				9EA793CA261FFACF00757FF1 /* SAssistantCell.m in Sources */,
 				9E905BF725C13266009BB170 /* BWBaseReq.m in Sources */,
 				9E905C1F25C138BF009BB170 /* StudyVC.m in Sources */,
@@ -793,6 +826,7 @@
 				9E78012F261C43A0006438DC /* SHomeCollectionViewCell.m in Sources */,
 				9E905BDA25C13121009BB170 /* MBProgressHUD.m in Sources */,
 				9E905BFD25C13266009BB170 /* BWBaseResp.m in Sources */,
+				9EDE3BE2262806D400FFC3EF /* BWGetBookChapterReq.m in Sources */,
 				9E905BD925C13121009BB170 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				9E780133261C45C6006438DC /* BWGetAllBookResp.m in Sources */,
 				9E905BF925C13266009BB170 /* BWNetManager.m in Sources */,
@@ -801,6 +835,8 @@
 				9E905BD225C13121009BB170 /* NSArray+safe.m in Sources */,
 				9E905C0725C13532009BB170 /* SBaseVC.m in Sources */,
 				9E780137261C45D6006438DC /* BWGetAllBookReq.m in Sources */,
+				9EDE3BEA262812B800FFC3EF /* SChapterCell.m in Sources */,
+				9EDE3BF22628185900FFC3EF /* SBookImageView.m in Sources */,
 				9E905BD125C13121009BB170 /* NSDictionary+safe.m in Sources */,
 				9E780147261C51B6006438DC /* SBook.m in Sources */,
 				9ECDD0D3261D43570037A9FD /* SMenuItem.m in Sources */,
