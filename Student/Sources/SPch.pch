@@ -12,6 +12,7 @@
 #import "NetHeader.h"
 #import "Masonry.h"
 #import "MBProgressHUD.h"
+#import "SCustomProgressHUD.h"
 #import "UIImageView+WebCache.h"
 #import "SConfig.h"
 #import "UserConfig.h"

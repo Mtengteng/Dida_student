@@ -38,6 +38,8 @@
     self.passwordField.text = @"a001";
     
     [self createUI];
+    
+    [self loginClick:nil];
 }
 
 - (void)createUI{
@@ -205,7 +207,7 @@
         return;
     }
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [SCustomProgressHUD showHUDAddedTo:self.view animated:YES];
     
     DefineWeakSelf;
     BWLoginReq *loginReq = [[BWLoginReq alloc] init];
@@ -214,7 +216,7 @@
     loginReq.password = password;
     [NetManger sendRequest:loginReq withSucessed:^(BWBaseReq *req, BWBaseResp *resp) {
         
-        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+        [SCustomProgressHUD hideHUDForView:weakSelf.view animated:YES];
         
         BWLoginResp *loginResp = (BWLoginResp *)resp;
         
@@ -227,7 +229,7 @@
 
         
     } failure:^(BWBaseReq *req, NSError *error) {
-        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+        [SCustomProgressHUD hideHUDForView:weakSelf.view animated:YES];
         [MBProgressHUD showMessag:error.domain toView:weakSelf.view hudModel:MBProgressHUDModeText hide:YES];
     }];
            

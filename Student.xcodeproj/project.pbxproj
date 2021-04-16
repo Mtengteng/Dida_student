@@ -59,6 +59,11 @@
 		9E905C1F25C138BF009BB170 /* StudyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E905C1E25C138BF009BB170 /* StudyVC.m */; };
 		9E905C2225C138D0009BB170 /* SPromoteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E905C2125C138D0009BB170 /* SPromoteVC.m */; };
 		9E905C2525C138DF009BB170 /* SMineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E905C2425C138DF009BB170 /* SMineVC.m */; };
+		9E9B94B826292C2F00CAE55D /* SChapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9B94B726292C2F00CAE55D /* SChapter.m */; };
+		9E9B94C326297BF300CAE55D /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E9B94BC26297BF300CAE55D /* loading.json */; };
+		9E9B94C426297BF300CAE55D /* SCustomProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9B94BE26297BF300CAE55D /* SCustomProgressHUD.m */; };
+		9E9B94C526297BF300CAE55D /* SCustomRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9B94C026297BF300CAE55D /* SCustomRefreshHeader.m */; };
+		9E9B94C626297BF300CAE55D /* loadiing_paperplane.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E9B94C126297BF300CAE55D /* loadiing_paperplane.json */; };
 		9EA793CA261FFACF00757FF1 /* SAssistantCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA793C9261FFACF00757FF1 /* SAssistantCell.m */; };
 		9ECDD0C5261D39CD0037A9FD /* SMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECDD0C4261D39CD0037A9FD /* SMenuView.m */; };
 		9ECDD0CC261D42020037A9FD /* down_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECDD0C9261D42020037A9FD /* down_arrow.png */; };
@@ -178,6 +183,14 @@
 		9E905C2125C138D0009BB170 /* SPromoteVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPromoteVC.m; sourceTree = "<group>"; };
 		9E905C2325C138DF009BB170 /* SMineVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMineVC.h; sourceTree = "<group>"; };
 		9E905C2425C138DF009BB170 /* SMineVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMineVC.m; sourceTree = "<group>"; };
+		9E9B94B626292C2F00CAE55D /* SChapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SChapter.h; sourceTree = "<group>"; };
+		9E9B94B726292C2F00CAE55D /* SChapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SChapter.m; sourceTree = "<group>"; };
+		9E9B94BC26297BF300CAE55D /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		9E9B94BD26297BF300CAE55D /* SCustomProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCustomProgressHUD.h; sourceTree = "<group>"; };
+		9E9B94BE26297BF300CAE55D /* SCustomProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCustomProgressHUD.m; sourceTree = "<group>"; };
+		9E9B94C026297BF300CAE55D /* SCustomRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCustomRefreshHeader.m; sourceTree = "<group>"; };
+		9E9B94C126297BF300CAE55D /* loadiing_paperplane.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadiing_paperplane.json; sourceTree = "<group>"; };
+		9E9B94C226297BF300CAE55D /* SCustomRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCustomRefreshHeader.h; sourceTree = "<group>"; };
 		9EA793C8261FFACF00757FF1 /* SAssistantCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAssistantCell.h; sourceTree = "<group>"; };
 		9EA793C9261FFACF00757FF1 /* SAssistantCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAssistantCell.m; sourceTree = "<group>"; };
 		9ECDD0C3261D39CD0037A9FD /* SMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMenuView.h; sourceTree = "<group>"; };
@@ -316,6 +329,8 @@
 			children = (
 				9E780145261C51B6006438DC /* SBook.h */,
 				9E780146261C51B6006438DC /* SBook.m */,
+				9E9B94B626292C2F00CAE55D /* SChapter.h */,
+				9E9B94B726292C2F00CAE55D /* SChapter.m */,
 			);
 			path = HomeModels;
 			sourceTree = "<group>";
@@ -612,9 +627,31 @@
 			path = OtherVC;
 			sourceTree = "<group>";
 		};
+		9E9B94BB26297BF300CAE55D /* SCustomMBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				9E9B94BC26297BF300CAE55D /* loading.json */,
+				9E9B94BD26297BF300CAE55D /* SCustomProgressHUD.h */,
+				9E9B94BE26297BF300CAE55D /* SCustomProgressHUD.m */,
+			);
+			path = SCustomMBProgressHUD;
+			sourceTree = "<group>";
+		};
+		9E9B94BF26297BF300CAE55D /* SCustomRefreshHeader */ = {
+			isa = PBXGroup;
+			children = (
+				9E9B94C126297BF300CAE55D /* loadiing_paperplane.json */,
+				9E9B94C226297BF300CAE55D /* SCustomRefreshHeader.h */,
+				9E9B94C026297BF300CAE55D /* SCustomRefreshHeader.m */,
+			);
+			path = SCustomRefreshHeader;
+			sourceTree = "<group>";
+		};
 		9ECDD0C2261D39910037A9FD /* CommonViews */ = {
 			isa = PBXGroup;
 			children = (
+				9E9B94BB26297BF300CAE55D /* SCustomMBProgressHUD */,
+				9E9B94BF26297BF300CAE55D /* SCustomRefreshHeader */,
 				9E77AC802626BAE5007C4D2B /* ItemTabView */,
 				9E77AC7E2626B92A007C4D2B /* SelectSubView */,
 				9E77AC7D2626B91C007C4D2B /* MenuView */,
@@ -723,8 +760,10 @@
 			files = (
 				9E905BDC25C13121009BB170 /* README.mdown in Resources */,
 				9ECDD0CE261D42020037A9FD /* down_arrow@3x.png in Resources */,
+				9E9B94C626297BF300CAE55D /* loadiing_paperplane.json in Resources */,
 				9E905BCA25C13121009BB170 /* xuanzhong@3x.png in Resources */,
 				9E905BCB25C13121009BB170 /* xuanzhong@2x.png in Resources */,
+				9E9B94C326297BF300CAE55D /* loading.json in Resources */,
 				9E905BC825C13121009BB170 /* weixuanzhong@3x.png in Resources */,
 				9E905B9025C13036009BB170 /* LaunchScreen.storyboard in Resources */,
 				9E905B8D25C13036009BB170 /* Assets.xcassets in Resources */,
@@ -790,6 +829,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E905BFC25C13266009BB170 /* BWLoginResp.m in Sources */,
+				9E9B94C426297BF300CAE55D /* SCustomProgressHUD.m in Sources */,
 				9ECDD0EA261D8D5E0037A9FD /* SCureView.m in Sources */,
 				9E905C0325C134D9009BB170 /* BWTestReq.m in Sources */,
 				9EDE3BE6262806E000FFC3EF /* BWGetBookChapterResp.m in Sources */,
@@ -839,6 +879,8 @@
 				9EDE3BF22628185900FFC3EF /* SBookImageView.m in Sources */,
 				9E905BD125C13121009BB170 /* NSDictionary+safe.m in Sources */,
 				9E780147261C51B6006438DC /* SBook.m in Sources */,
+				9E9B94B826292C2F00CAE55D /* SChapter.m in Sources */,
+				9E9B94C526297BF300CAE55D /* SCustomRefreshHeader.m in Sources */,
 				9ECDD0D3261D43570037A9FD /* SMenuItem.m in Sources */,
 				9E78012A261C362C006438DC /* SelectSubView.m in Sources */,
 			);

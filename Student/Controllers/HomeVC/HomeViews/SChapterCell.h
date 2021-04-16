@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SChapterCell : UICollectionViewCell
 
-//- (void)setupCellWithModel:(SBookInfo *)model;
+- (void)setupCellWithModel:(id)model;
 
 @end
 

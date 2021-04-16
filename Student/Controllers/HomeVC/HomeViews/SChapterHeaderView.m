@@ -10,6 +10,7 @@
 #import "SBookImageView.h"
 
 @interface SChapterHeaderView()
+@property (nonatomic, strong) UIImageView *bgImageView;
 @property (nonatomic, strong) SBookImageView *bookImageView;
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UILabel *subLabel;
@@ -33,6 +34,11 @@
 }
 - (void)layoutSubviews
 {
+    [self addSubview:self.bgImageView];
+    [self.bgImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self);
+    }];
+    
     [self addSubview:self.bookImageView];
     [self.bookImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(LAdaptation_y(93));
@@ -50,7 +56,7 @@
     
     [self addSubview:self.subLabel];
     [self.subLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.nameLabel.mas_bottom);
+        make.top.equalTo(self.nameLabel.mas_bottom).offset(LAdaptation_y(8));
         make.left.equalTo(self.nameLabel);
         make.height.mas_equalTo(LAdaptation_y(20));
     }];
@@ -63,6 +69,15 @@
 }
 
 #pragma mark - LazyLoad -
+- (UIImageView *)bgImageView
+{
+    if (!_bgImageView) {
+        _bgImageView = [[UIImageView alloc] init];
+//        _bgImageView.contentMode = UIViewContentModeScaleAspectFit;
+        [_bgImageView setImage:[UIImage imageNamed:@"chapterVC_headerBg"]];
+    }
+    return _bgImageView;
+}
 - (SBookImageView *)bookImageView
 {
     if (!_bookImageView) {
@@ -74,7 +89,7 @@
 {
     if (!_nameLabel) {
         _nameLabel = [[UILabel alloc] init];
-        _nameLabel.font = [UIFont boldSystemFontOfSize:16.0];
+        _nameLabel.font = [UIFont boldSystemFontOfSize:18.0];
         _nameLabel.textColor = [UIColor whiteColor];
     }
     return _nameLabel;

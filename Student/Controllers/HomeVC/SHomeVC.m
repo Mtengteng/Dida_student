@@ -136,19 +136,19 @@
 }
 - (void)startRequest
 {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [SCustomProgressHUD showHUDAddedTo:self.view animated:YES];
     
     DefineWeakSelf;
     BWGetAllBookReq *bookReq = [[BWGetAllBookReq alloc] init];
     [NetManger sendRequest:bookReq withSucessed:^(BWBaseReq *req, BWBaseResp *resp) {
-        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+        [SCustomProgressHUD hideHUDForView:weakSelf.view animated:YES];
         
         BWGetAllBookResp *bookResp = (BWGetAllBookResp *)resp;
         weakSelf.dataArray = bookResp.hotBookArray;
         [weakSelf.collectionView reloadData];
       
     } failure:^(BWBaseReq *req, NSError *error) {
-        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+        [SCustomProgressHUD hideHUDForView:weakSelf.view animated:YES];
         [MBProgressHUD showMessag:error.domain toView:weakSelf.view hudModel:MBProgressHUDModeText hide:YES];
         
     }];
