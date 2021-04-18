@@ -9,6 +9,7 @@
 #import "SBook.h"
 
 @implementation BWGetAllBookResp
+
 - (id)initWithJSONDictionary:(NSDictionary *)jsonDic
 {
     if (self = [super initWithJSONDictionary:jsonDic]) {

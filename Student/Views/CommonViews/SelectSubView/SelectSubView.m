@@ -5,25 +5,31 @@
 //  Created by 马腾 on 2021/4/6.
 //
 
-#import "SHomeSelectView.h"
+#import "SelectSubView.h"
+#import "SubModel.h"
 
-@interface SHomeSelectView()
+@interface SelectSubView()
+@property (nonatomic, strong) NSArray *itemList;
 @property (nonatomic, strong) UIView *blueLineView;
 
 @end
 
-@implementation SHomeSelectView
+@implementation SelectSubView
 
 - (instancetype)initWithItemArray:(NSArray *)itemList
 {
     if (self = [super init]) {
+        
+        self.itemList = itemList;
 
         UIButton *firstBtn = nil;
         for (NSInteger i = 0; i < itemList.count; i++) {
             
+            SubModel *model = [itemList safeObjectAtIndex:i];
+            
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-            button.tag = i;
-            [button setTitle:[itemList safeObjectAtIndex:i] forState:UIControlStateNormal];
+            button.tag = i+1000;
+            [button setTitle:model.subName forState:UIControlStateNormal];
             [button.titleLabel setFont:[UIFont systemFontOfSize:20.0]];
             [button addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
             [button setFrame:CGRectMake(i*(LAdaptation_x(40)+LAdaptation_x(48)), LAdaptation_y(44)/2 - LAdaptation_y(20)/2, LAdaptation_x(40), LAdaptation_y(20))];
@@ -44,14 +50,31 @@
             make.height.mas_equalTo(LAdaptation_y(6));
         }];
         
-        if (self.selectBlock) {
-            self.selectBlock(0);
+        if (self.selectSubBlock) {
+            self.selectSubBlock([itemList safeObjectAtIndex:0],0);
         }
         
     }
     return self;
 }
 - (void)click:(UIButton *)button
+{
+
+    [self changeSelectStateWithBtn:button];
+    
+    if (self.selectSubBlock) {
+        self.selectSubBlock([self.itemList safeObjectAtIndex:0],button.tag-1000);
+    }
+
+}
+
+- (void)setFirstSub:(void (^)(SubModel * _Nonnull, NSInteger))selectFirst
+{
+    UIButton *firstBtn = (UIButton *)[self viewWithTag:1000];
+    [self changeSelectStateWithBtn:firstBtn];
+    selectFirst(self.itemList[0],0);
+}
+- (void)changeSelectStateWithBtn:(UIButton *)button
 {
     for (UIView *contentView in self.subviews) {
         if ([contentView isKindOfClass:[UIButton class]]) {
@@ -75,11 +98,6 @@
         }];
         [weakSelf.superview layoutIfNeeded];
     }];
-    
-    if (self.selectBlock) {
-        self.selectBlock(button.tag);
-    }
-
 }
 
 #pragma mark - LazyLoad -

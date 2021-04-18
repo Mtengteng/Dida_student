@@ -6,7 +6,8 @@
 //
 
 #import "SHomeVC.h"
-#import "SHomeSelectView.h"
+#import "SubModel.h"
+#import "SelectSubView.h"
 #import "SHomeCollectionViewCell.h"
 #import "SMenuItem.h"
 #import "SMenuView.h"
@@ -14,18 +15,38 @@
 #import "BWGetAllBookReq.h"
 #import "BWGetAllBookResp.h"
 #import "SBook.h"
+#import "ItemTabView.h"
+#import "ItemModel.h"
+
+#import "SChapterInfoVC.h"
 
 @interface SHomeVC ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UIImageView *bannerView;
 @property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic, strong) SHomeSelectView *selectView;
-@property (nonatomic, strong) UILabel *subtitleLabel;
+@property (nonatomic, strong) SelectSubView *selectView;
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, assign) NSInteger currentIndex;
 @property (nonatomic, strong) SMenuView *menuView;
+@property (nonatomic, strong) ItemTabView *itemTab;
+@property (nonatomic, strong) NSArray *subArray;
+@property (nonatomic, strong) NSArray *itemArray;
+
 @end
 
 @implementation SHomeVC
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.menuView.hidden = NO;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    self.menuView.hidden = YES;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,13 +57,26 @@
     [self startRequest];
     
     DefineWeakSelf;
-    self.selectView.selectBlock = ^(NSInteger index) {
+    
+    self.itemTab.selectBlock = ^(NSInteger index) {
+        
+        [weakSelf.selectView setFirstSub:^(SubModel * _Nonnull model,NSInteger index) {
+            NSLog(@"复原 sub选项 subName = %@,index = %ld",model.subName,index);
+            //此处获取数据刷新
+            weakSelf.currentIndex = index;
+            [weakSelf.collectionView reloadData];
+        }];
+    };
+    
+    self.selectView.selectSubBlock = ^(SubModel * _Nonnull model,NSInteger index) {
         weakSelf.currentIndex = index;
         [weakSelf.collectionView reloadData];
     };
     self.menuView.select = ^(SMenuItem * _Nonnull selectItem) {
         NSLog(@"%@",selectItem.itemName);
     };
+    
+
 }
 - (void)createUI
 {
@@ -54,17 +88,18 @@
         make.height.mas_equalTo(LAdaptation_y(233));
     }];
     
-    [self.view addSubview:self.subtitleLabel];
-    [self.subtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.view addSubview:self.itemTab];
+    [self.itemTab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.bannerView.mas_bottom).offset(LAdaptation_y(30));
         make.left.equalTo(self.bannerView);
+        make.width.mas_equalTo(LAdaptation_x(100)*self.itemArray.count);
         make.height.mas_equalTo(LAdaptation_y(24));
     }];
     
     [self.view addSubview:self.selectView];
     [self.selectView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.subtitleLabel.mas_bottom).offset(LAdaptation_y(24));
-        make.left.equalTo(self.subtitleLabel);
+        make.top.equalTo(self.itemTab.mas_bottom).offset(LAdaptation_y(24));
+        make.left.equalTo(self.itemTab);
         make.width.equalTo(self.view);
         make.height.mas_equalTo(LAdaptation_y(44));
     }];
@@ -77,6 +112,8 @@
         make.bottom.equalTo(self.view.mas_bottom);
     }];
     
+    
+    //下拉框
     NSMutableArray *itemArray = [[NSMutableArray alloc] init];
     NSArray *nameArray = @[@"高中",@"竞赛"];
     for (NSInteger i = 0; i < nameArray.count; i++) {
@@ -94,22 +131,24 @@
         make.width.mas_equalTo(LAdaptation_x(60));
         make.height.mas_equalTo(44);
     }];
+    
+    
 }
 - (void)startRequest
 {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [SCustomProgressHUD showHUDAddedTo:self.view animated:YES];
     
     DefineWeakSelf;
     BWGetAllBookReq *bookReq = [[BWGetAllBookReq alloc] init];
     [NetManger sendRequest:bookReq withSucessed:^(BWBaseReq *req, BWBaseResp *resp) {
-        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+        [SCustomProgressHUD hideHUDForView:weakSelf.view animated:YES];
         
         BWGetAllBookResp *bookResp = (BWGetAllBookResp *)resp;
         weakSelf.dataArray = bookResp.hotBookArray;
         [weakSelf.collectionView reloadData];
       
     } failure:^(BWBaseReq *req, NSError *error) {
-        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+        [SCustomProgressHUD hideHUDForView:weakSelf.view animated:YES];
         [MBProgressHUD showMessag:error.domain toView:weakSelf.view hudModel:MBProgressHUDModeText hide:YES];
         
     }];
@@ -131,6 +170,16 @@
     [cell setupCellWithModel:bookInfo];
     return cell;
 }
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    SBook *book = [self.dataArray safeObjectAtIndex:self.currentIndex];
+    SBookInfo *bookInfo = [book.books safeObjectAtIndex:indexPath.row];
+    SChapterInfoVC *infoVC = [[SChapterInfoVC alloc] init];
+    infoVC.bookInfo = bookInfo;
+    infoVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:infoVC animated:YES];
+    
+}
 
 #pragma mark - LazyLoad -
 - (UIImageView *)bannerView
@@ -142,23 +191,44 @@
     }
     return _bannerView;
 }
-- (UILabel *)subtitleLabel
+- (ItemTabView *)itemTab
 {
-    if (!_subtitleLabel) {
-        _subtitleLabel = [[UILabel alloc] init];
-        _subtitleLabel.font = [UIFont boldSystemFontOfSize:24.0];
-        _subtitleLabel.text = @"精彩内容";
+    if (!_itemTab) {
+        NSMutableArray *array = [[NSMutableArray alloc] init];
+        NSArray *itemArray = @[@"答题集",@"学习集"];
+        for (NSInteger i = 0; i < itemArray.count; i++) {
+            ItemModel *model = [[ItemModel alloc] init];
+            model.itemId = [NSString stringWithFormat:@"%ld",i];
+            model.itemName = [itemArray safeObjectAtIndex:i];
+            [array addObject:model];
+        }
+        self.itemArray = array;
+        
+        _itemTab = [[ItemTabView alloc] initWithItemArray:array];
     }
-    return _subtitleLabel;
+    
+    return _itemTab;
 }
-- (SHomeSelectView *)selectView
+- (SelectSubView *)selectView
 {
     if (!_selectView) {
-        NSArray *itemList = @[@"数学",@"物理",@"化学"];
-        _selectView = [[SHomeSelectView alloc] initWithItemArray:itemList];
+        NSMutableArray *array = [[NSMutableArray alloc] init];
+        NSArray *subArray = @[@"数学",@"物理",@"化学"];
+        for (NSInteger i = 0; i < subArray.count; i++) {
+            SubModel *model = [[SubModel alloc] init];
+            model.subId = [NSString stringWithFormat:@"%ld",i];
+            model.subName = [subArray safeObjectAtIndex:i];
+            [array addObject:model];
+        }
+        
+        self.subArray = array;
+
+        
+        _selectView = [[SelectSubView alloc] initWithItemArray:array];
     }
     return _selectView;
 }
+
 - (UICollectionView *)collectionView
 {
     if (!_collectionView) {

@@ -7,12 +7,12 @@
 
 #import "SAssistantVC.h"
 #import "SCureView.h"
-#import "SHomeSelectView.h"
+#import "SelectSubView.h"
 #import "SAssistantCell.h"
 
 @interface SAssistantVC ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic, strong) SHomeSelectView *selectView;
+@property (nonatomic, strong) SelectSubView *selectView;
 @property (nonatomic, assign) NSInteger currentIndex;
 @property (nonatomic, strong) UILabel *subtitleLabel;
 
@@ -29,9 +29,9 @@
 //    [self startRequest];
     
     DefineWeakSelf;
-    self.selectView.selectBlock = ^(NSInteger index) {
+    self.selectView.selectSubBlock = ^(SubModel * _Nonnull model,NSInteger index) {
         weakSelf.currentIndex = index;
-//        [weakSelf.collectionView reloadData];
+        [weakSelf.collectionView reloadData];
     };
     
 }
@@ -73,11 +73,11 @@
     }
     return _subtitleLabel;
 }
-- (SHomeSelectView *)selectView
+- (SelectSubView *)selectView
 {
     if (!_selectView) {
         NSArray *itemList = @[@"数学",@"物理",@"化学"];
-        _selectView = [[SHomeSelectView alloc] initWithItemArray:itemList];
+        _selectView = [[SelectSubView alloc] initWithItemArray:itemList];
     }
     return _selectView;
 }

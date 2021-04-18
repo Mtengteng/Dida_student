@@ -11,6 +11,7 @@
 #import "StudyVC.h"
 #import "SPromoteVC.h"
 #import "SMineVC.h"
+#import "BWMyTabBar.h"
 
 @interface SRootVC ()<UITabBarControllerDelegate>
 @property (nonatomic, strong) NSArray *viewsArray;
@@ -25,6 +26,7 @@
     
     self.delegate = self;
     [self.tabBar setShadowImage:[[UIImage alloc] init]];
+    [self setCustomtabbar];
     [self createTabBarItem];
 }
 
@@ -57,5 +59,20 @@
     [self addChildViewController:[[navVc alloc] initWithRootViewController:childController]];
 
 }
-
+#pragma mark - 创建自定义
+- (void)setCustomtabbar{
+    
+    BWMyTabBar *tabbar = [[BWMyTabBar alloc]init];
+    tabbar.tintColor = BWColor(24, 134, 254, 1);
+    [self setValue:tabbar forKeyPath:@"tabBar"];
+    [tabbar.plusItem addTarget:self action:@selector(centerBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+}
+- (void)centerBtnClick:(UIButton *)btn{
+    
+    NSLog(@"click add按钮");
+    if (!btn.hidden) {
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"createCourse" object:nil];
+    }
+}
 @end
