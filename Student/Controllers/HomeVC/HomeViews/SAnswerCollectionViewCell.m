@@ -5,16 +5,16 @@
 //  Created by 马腾 on 2021/4/6.
 //
 
-#import "SHomeCollectionViewCell.h"
+#import "SAnswerCollectionViewCell.h"
 #import "SBookImageView.h"
 
-@interface SHomeCollectionViewCell()
+@interface SAnswerCollectionViewCell()
 @property (nonatomic, strong) SBookImageView *imageView;
 @property (nonatomic, strong) UILabel *bookTitleLabel;
 
 @end
 
-@implementation SHomeCollectionViewCell
+@implementation SAnswerCollectionViewCell
 
 
 - (void)layoutSubviews

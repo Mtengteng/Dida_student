@@ -12,7 +12,7 @@
 		9E77AC8A2626C01D007C4D2B /* ItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E77AC892626C01D007C4D2B /* ItemModel.m */; };
 		9E77AC902626DEE5007C4D2B /* SubModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E77AC8F2626DEE5007C4D2B /* SubModel.m */; };
 		9E78012A261C362C006438DC /* SelectSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E780129261C362C006438DC /* SelectSubView.m */; };
-		9E78012F261C43A0006438DC /* SHomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E78012E261C43A0006438DC /* SHomeCollectionViewCell.m */; };
+		9E78012F261C43A0006438DC /* SAnswerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E78012E261C43A0006438DC /* SAnswerCollectionViewCell.m */; };
 		9E780133261C45C6006438DC /* BWGetAllBookResp.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E780132261C45C6006438DC /* BWGetAllBookResp.m */; };
 		9E780137261C45D6006438DC /* BWGetAllBookReq.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E780136261C45D6006438DC /* BWGetAllBookReq.m */; };
 		9E780147261C51B6006438DC /* SBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E780146261C51B6006438DC /* SBook.m */; };
@@ -80,6 +80,7 @@
 		9EDE3BEA262812B800FFC3EF /* SChapterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDE3BE9262812B800FFC3EF /* SChapterCell.m */; };
 		9EDE3BEE2628152400FFC3EF /* SChapterHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDE3BED2628152400FFC3EF /* SChapterHeaderView.m */; };
 		9EDE3BF22628185900FFC3EF /* SBookImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDE3BF12628185900FFC3EF /* SBookImageView.m */; };
+		9EFCFE0C262BD29200C8FD43 /* StudyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EFCFE0B262BD29200C8FD43 /* StudyCollectionViewCell.m */; };
 		E0E705FD99566A11CD09AEF0 /* Pods_Student.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A582030DBAD19EA70FDD88 /* Pods_Student.framework */; };
 /* End PBXBuildFile section */
 
@@ -95,8 +96,8 @@
 		9E77AC8F2626DEE5007C4D2B /* SubModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubModel.m; sourceTree = "<group>"; };
 		9E780128261C362C006438DC /* SelectSubView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectSubView.h; sourceTree = "<group>"; };
 		9E780129261C362C006438DC /* SelectSubView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectSubView.m; sourceTree = "<group>"; };
-		9E78012D261C43A0006438DC /* SHomeCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHomeCollectionViewCell.h; sourceTree = "<group>"; };
-		9E78012E261C43A0006438DC /* SHomeCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHomeCollectionViewCell.m; sourceTree = "<group>"; };
+		9E78012D261C43A0006438DC /* SAnswerCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAnswerCollectionViewCell.h; sourceTree = "<group>"; };
+		9E78012E261C43A0006438DC /* SAnswerCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAnswerCollectionViewCell.m; sourceTree = "<group>"; };
 		9E780131261C45C6006438DC /* BWGetAllBookResp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWGetAllBookResp.h; sourceTree = "<group>"; };
 		9E780132261C45C6006438DC /* BWGetAllBookResp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWGetAllBookResp.m; sourceTree = "<group>"; };
 		9E780135261C45D6006438DC /* BWGetAllBookReq.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWGetAllBookReq.h; sourceTree = "<group>"; };
@@ -220,6 +221,8 @@
 		9EDE3BED2628152400FFC3EF /* SChapterHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SChapterHeaderView.m; sourceTree = "<group>"; };
 		9EDE3BF02628185900FFC3EF /* SBookImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBookImageView.h; sourceTree = "<group>"; };
 		9EDE3BF12628185900FFC3EF /* SBookImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBookImageView.m; sourceTree = "<group>"; };
+		9EFCFE0A262BD29200C8FD43 /* StudyCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudyCollectionViewCell.h; sourceTree = "<group>"; };
+		9EFCFE0B262BD29200C8FD43 /* StudyCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StudyCollectionViewCell.m; sourceTree = "<group>"; };
 		C0CC10A06FA54EE8A25DEA51 /* Pods-Student.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Student.release.xcconfig"; path = "Target Support Files/Pods-Student/Pods-Student.release.xcconfig"; sourceTree = "<group>"; };
 		E7A582030DBAD19EA70FDD88 /* Pods_Student.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Student.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -314,8 +317,10 @@
 		9E780127261C354A006438DC /* HomeViews */ = {
 			isa = PBXGroup;
 			children = (
-				9E78012D261C43A0006438DC /* SHomeCollectionViewCell.h */,
-				9E78012E261C43A0006438DC /* SHomeCollectionViewCell.m */,
+				9E78012D261C43A0006438DC /* SAnswerCollectionViewCell.h */,
+				9E78012E261C43A0006438DC /* SAnswerCollectionViewCell.m */,
+				9EFCFE0A262BD29200C8FD43 /* StudyCollectionViewCell.h */,
+				9EFCFE0B262BD29200C8FD43 /* StudyCollectionViewCell.m */,
 				9EDE3BE8262812B800FFC3EF /* SChapterCell.h */,
 				9EDE3BE9262812B800FFC3EF /* SChapterCell.m */,
 				9EDE3BEC2628152400FFC3EF /* SChapterHeaderView.h */,
@@ -856,6 +861,7 @@
 				9E905BD425C13121009BB170 /* UITableView+AddForPlaceholder.m in Sources */,
 				9E905BCD25C13121009BB170 /* PrivacyAlertVC.m in Sources */,
 				9E905BD825C13121009BB170 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				9EFCFE0C262BD29200C8FD43 /* StudyCollectionViewCell.m in Sources */,
 				9E905C0A25C13550009BB170 /* SBaseNavigationVC.m in Sources */,
 				9E905C0D25C1356F009BB170 /* SRootVC.m in Sources */,
 				9E77AC902626DEE5007C4D2B /* SubModel.m in Sources */,
@@ -863,7 +869,7 @@
 				9E905BCF25C13121009BB170 /* BWAlertCtrl.m in Sources */,
 				9E905C2225C138D0009BB170 /* SPromoteVC.m in Sources */,
 				9E905B9325C13036009BB170 /* main.m in Sources */,
-				9E78012F261C43A0006438DC /* SHomeCollectionViewCell.m in Sources */,
+				9E78012F261C43A0006438DC /* SAnswerCollectionViewCell.m in Sources */,
 				9E905BDA25C13121009BB170 /* MBProgressHUD.m in Sources */,
 				9E905BFD25C13266009BB170 /* BWBaseResp.m in Sources */,
 				9EDE3BE2262806D400FFC3EF /* BWGetBookChapterReq.m in Sources */,

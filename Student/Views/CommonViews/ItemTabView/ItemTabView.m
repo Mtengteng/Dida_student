@@ -15,7 +15,7 @@
 
 @implementation ItemTabView
 
-- (instancetype)initWithItemArray:(NSArray *)itemList
+- (instancetype)initWithItemArray:(NSArray *)itemList withFontSize:(NSInteger)fontSize
 {
     if (self = [super init]) {
         
@@ -27,7 +27,7 @@
             ItemModel *model = [itemList safeObjectAtIndex:i];
             [button setTitle:model.itemName forState:UIControlStateNormal];
             [button addTarget:self action:@selector(clickItem:) forControlEvents:UIControlEventTouchUpInside];
-            [button.titleLabel setFont:[UIFont systemFontOfSize:20]];
+            [button.titleLabel setFont:[UIFont systemFontOfSize:fontSize]];
             button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
             if (i == 0) {
                 [button setTitleColor:BWColor(44, 48, 81, 1) forState:UIControlStateNormal];
