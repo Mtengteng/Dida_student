@@ -13,7 +13,7 @@ typedef void(^selectIndexBlock)(NSInteger index);
 
 @interface ItemTabView : UIView
 @property (nonatomic, copy) selectIndexBlock selectBlock;
-- (instancetype)initWithItemArray:(NSArray *)itemList;
+- (instancetype)initWithItemArray:(NSArray *)itemList withFontSize:(NSInteger)fontSize;
 
 
 @end
