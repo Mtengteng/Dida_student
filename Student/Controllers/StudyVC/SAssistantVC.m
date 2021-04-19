@@ -9,12 +9,15 @@
 #import "SCureView.h"
 #import "SelectSubView.h"
 #import "SAssistantCell.h"
+#import "SubModel.h"
 
 @interface SAssistantVC ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) SelectSubView *selectView;
 @property (nonatomic, assign) NSInteger currentIndex;
 @property (nonatomic, strong) UILabel *subtitleLabel;
+@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) NSArray *subArray;
 
 @end
 
@@ -76,8 +79,17 @@
 - (SelectSubView *)selectView
 {
     if (!_selectView) {
-        NSArray *itemList = @[@"数学",@"物理",@"化学"];
-        _selectView = [[SelectSubView alloc] initWithItemArray:itemList];
+        NSMutableArray *subArray = [[NSMutableArray alloc] init];
+        NSArray *array = @[@"数学",@"物理",@"化学"];
+        
+        for (NSInteger i = 0; i < array.count; i++) {
+            SubModel *model = [[SubModel alloc] init];
+            model.subId = [NSString stringWithFormat:@"%ld",i];
+            model.subName = [array safeObjectAtIndex:i];
+            [subArray addObject:model];
+        }
+        self.subArray = subArray;
+        _selectView = [[SelectSubView alloc] initWithItemArray:subArray];
     }
     return _selectView;
 }

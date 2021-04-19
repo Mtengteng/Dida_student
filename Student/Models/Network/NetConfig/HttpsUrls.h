@@ -13,6 +13,7 @@
 #define LoginURL                     @"/user/login"                                         //登陆
 #define GetAllBookURL                @"/book/allbooks"                                      //首页获取图书
 #define GetBookChapterURL            @"/book/chapter/%@/%@"                                 //获取所有章节
+#define GetBookChapterSectionURL     @"/book/sections/%@/%@"                                //获取章下所有的节
 
 
 #define boxURL                      @"/report/knowledgeReport/%@/%@/%@"

@@ -11,6 +11,11 @@
 #import "SBook.h"
 #import "BWGetBookChapterReq.h"
 #import "BWGetBookChapterResp.h"
+#import "SChapter.h"
+
+#import "BWChapterSecionReq.h"
+#import "BWChapterSecionResp.h"
+#import "SChapterSection.h"
 
 
 @interface SChapterInfoVC ()<UICollectionViewDelegate,UICollectionViewDataSource>
@@ -18,6 +23,7 @@
 @property (nonatomic, strong) SChapterHeaderView *headerView;
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *chapterArray;
+@property (nonatomic, strong) NSCache *cache;
 
 @end
 
@@ -134,6 +140,35 @@
     static NSString * CellIdentifier = @"homeCell";
     SChapterCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
     
+    SChapter *chapter = [self.chapterArray safeObjectAtIndex:indexPath.row];
+    [cell setupCellWithModel:chapter];
+    
+    id data = [self.cache objectForKey:chapter.chapterId];
+    if (data == nil) {
+        
+        DefineWeakSelf;
+        [SCustomProgressHUD showHUDAddedTo:self.view animated:YES];
+        BWChapterSecionReq *sectionReq = [[BWChapterSecionReq alloc] init];
+        sectionReq.sectionId = chapter.chapterId;
+        sectionReq.userId = [[NSUserDefaults standardUserDefaults] objectForKey:KEY_userId];
+        [NetManger sendRequest:sectionReq withSucessed:^(BWBaseReq *req, BWBaseResp *resp) {
+            [SCustomProgressHUD hideHUDForView:weakSelf.view animated:YES];
+            
+            BWChapterSecionResp *sectionResp = (BWChapterSecionResp *)resp;
+            
+            [cell loadSectionArray:sectionResp.data];
+            
+            [weakSelf.cache setObject:sectionResp.data forKey:chapter.chapterId];
+            
+        } failure:^(BWBaseReq *req, NSError *error) {
+            [SCustomProgressHUD hideHUDForView:weakSelf.view animated:YES];
+            
+        }];
+        
+    }else{
+        [cell loadSectionArray:data];
+    }
+    
     return cell;
 }
 
@@ -188,5 +223,12 @@
         
     }
     return _collectionView;
+}
+- (NSCache *)cache
+{
+    if (!_cache) {
+        _cache = [[NSCache alloc] init];
+    }
+    return _cache;
 }
 @end

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E6CCECE262D52D3004B6B42 /* BWChapterSecionReq.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6CCECD262D52D3004B6B42 /* BWChapterSecionReq.m */; };
+		9E6CCED2262D52DF004B6B42 /* BWChapterSecionResp.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6CCED1262D52DF004B6B42 /* BWChapterSecionResp.m */; };
+		9E6CCED6262D5AA7004B6B42 /* SChapterSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6CCED5262D5AA7004B6B42 /* SChapterSection.m */; };
+		9E6CCEDA262D5CD2004B6B42 /* SectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6CCED9262D5CD2004B6B42 /* SectionTableViewCell.m */; };
 		9E77AC792626B50D007C4D2B /* BWMyTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E77AC772626B50D007C4D2B /* BWMyTabBar.m */; };
 		9E77AC832626BB0F007C4D2B /* ItemTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E77AC822626BB0F007C4D2B /* ItemTabView.m */; };
 		9E77AC8A2626C01D007C4D2B /* ItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E77AC892626C01D007C4D2B /* ItemModel.m */; };
@@ -86,6 +90,14 @@
 
 /* Begin PBXFileReference section */
 		7EAB7F45132E4F1A841227D4 /* Pods-Student.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Student.debug.xcconfig"; path = "Target Support Files/Pods-Student/Pods-Student.debug.xcconfig"; sourceTree = "<group>"; };
+		9E6CCECC262D52D3004B6B42 /* BWChapterSecionReq.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWChapterSecionReq.h; sourceTree = "<group>"; };
+		9E6CCECD262D52D3004B6B42 /* BWChapterSecionReq.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWChapterSecionReq.m; sourceTree = "<group>"; };
+		9E6CCED0262D52DF004B6B42 /* BWChapterSecionResp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWChapterSecionResp.h; sourceTree = "<group>"; };
+		9E6CCED1262D52DF004B6B42 /* BWChapterSecionResp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWChapterSecionResp.m; sourceTree = "<group>"; };
+		9E6CCED4262D5AA7004B6B42 /* SChapterSection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SChapterSection.h; sourceTree = "<group>"; };
+		9E6CCED5262D5AA7004B6B42 /* SChapterSection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SChapterSection.m; sourceTree = "<group>"; };
+		9E6CCED8262D5CD2004B6B42 /* SectionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectionTableViewCell.h; sourceTree = "<group>"; };
+		9E6CCED9262D5CD2004B6B42 /* SectionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SectionTableViewCell.m; sourceTree = "<group>"; };
 		9E77AC772626B50D007C4D2B /* BWMyTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWMyTabBar.m; sourceTree = "<group>"; };
 		9E77AC782626B50D007C4D2B /* BWMyTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWMyTabBar.h; sourceTree = "<group>"; };
 		9E77AC812626BB0F007C4D2B /* ItemTabView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemTabView.h; sourceTree = "<group>"; };
@@ -325,6 +337,8 @@
 				9EDE3BE9262812B800FFC3EF /* SChapterCell.m */,
 				9EDE3BEC2628152400FFC3EF /* SChapterHeaderView.h */,
 				9EDE3BED2628152400FFC3EF /* SChapterHeaderView.m */,
+				9E6CCED8262D5CD2004B6B42 /* SectionTableViewCell.h */,
+				9E6CCED9262D5CD2004B6B42 /* SectionTableViewCell.m */,
 			);
 			path = HomeViews;
 			sourceTree = "<group>";
@@ -336,6 +350,8 @@
 				9E780146261C51B6006438DC /* SBook.m */,
 				9E9B94B626292C2F00CAE55D /* SChapter.h */,
 				9E9B94B726292C2F00CAE55D /* SChapter.m */,
+				9E6CCED4262D5AA7004B6B42 /* SChapterSection.h */,
+				9E6CCED5262D5AA7004B6B42 /* SChapterSection.m */,
 			);
 			path = HomeModels;
 			sourceTree = "<group>";
@@ -531,6 +547,8 @@
 				9E780136261C45D6006438DC /* BWGetAllBookReq.m */,
 				9EDE3BE0262806D400FFC3EF /* BWGetBookChapterReq.h */,
 				9EDE3BE1262806D400FFC3EF /* BWGetBookChapterReq.m */,
+				9E6CCECC262D52D3004B6B42 /* BWChapterSecionReq.h */,
+				9E6CCECD262D52D3004B6B42 /* BWChapterSecionReq.m */,
 			);
 			path = BWReq;
 			sourceTree = "<group>";
@@ -559,6 +577,8 @@
 				9E780132261C45C6006438DC /* BWGetAllBookResp.m */,
 				9EDE3BE4262806E000FFC3EF /* BWGetBookChapterResp.h */,
 				9EDE3BE5262806E000FFC3EF /* BWGetBookChapterResp.m */,
+				9E6CCED0262D52DF004B6B42 /* BWChapterSecionResp.h */,
+				9E6CCED1262D52DF004B6B42 /* BWChapterSecionResp.m */,
 			);
 			path = BWResp;
 			sourceTree = "<group>";
@@ -846,6 +866,7 @@
 				9E905BCC25C13121009BB170 /* PrivacyPageController.m in Sources */,
 				9EDE3BDE2627E30D00FFC3EF /* SChapterInfoVC.m in Sources */,
 				9EA793CA261FFACF00757FF1 /* SAssistantCell.m in Sources */,
+				9E6CCED2262D52DF004B6B42 /* BWChapterSecionResp.m in Sources */,
 				9E905BF725C13266009BB170 /* BWBaseReq.m in Sources */,
 				9E905C1F25C138BF009BB170 /* StudyVC.m in Sources */,
 				9ECDD0DA261D5A030037A9FD /* STabMenuView.m in Sources */,
@@ -872,6 +893,7 @@
 				9E78012F261C43A0006438DC /* SAnswerCollectionViewCell.m in Sources */,
 				9E905BDA25C13121009BB170 /* MBProgressHUD.m in Sources */,
 				9E905BFD25C13266009BB170 /* BWBaseResp.m in Sources */,
+				9E6CCED6262D5AA7004B6B42 /* SChapterSection.m in Sources */,
 				9EDE3BE2262806D400FFC3EF /* BWGetBookChapterReq.m in Sources */,
 				9E905BD925C13121009BB170 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				9E780133261C45C6006438DC /* BWGetAllBookResp.m in Sources */,
@@ -879,10 +901,12 @@
 				9E77AC8A2626C01D007C4D2B /* ItemModel.m in Sources */,
 				9ECDD0C5261D39CD0037A9FD /* SMenuView.m in Sources */,
 				9E905BD225C13121009BB170 /* NSArray+safe.m in Sources */,
+				9E6CCECE262D52D3004B6B42 /* BWChapterSecionReq.m in Sources */,
 				9E905C0725C13532009BB170 /* SBaseVC.m in Sources */,
 				9E780137261C45D6006438DC /* BWGetAllBookReq.m in Sources */,
 				9EDE3BEA262812B800FFC3EF /* SChapterCell.m in Sources */,
 				9EDE3BF22628185900FFC3EF /* SBookImageView.m in Sources */,
+				9E6CCEDA262D5CD2004B6B42 /* SectionTableViewCell.m in Sources */,
 				9E905BD125C13121009BB170 /* NSDictionary+safe.m in Sources */,
 				9E780147261C51B6006438DC /* SBook.m in Sources */,
 				9E9B94B826292C2F00CAE55D /* SChapter.m in Sources */,

@@ -9,9 +9,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class SChapter;
+
 @interface SChapterCell : UICollectionViewCell
 
-- (void)setupCellWithModel:(id)model;
+- (void)setupCellWithModel:(SChapter *)model;
+
+- (void)loadSectionArray:(NSArray *)array;
 
 @end
 
