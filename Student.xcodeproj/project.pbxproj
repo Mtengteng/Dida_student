@@ -11,6 +11,7 @@
 		9E6CCED2262D52DF004B6B42 /* BWChapterSecionResp.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6CCED1262D52DF004B6B42 /* BWChapterSecionResp.m */; };
 		9E6CCED6262D5AA7004B6B42 /* SChapterSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6CCED5262D5AA7004B6B42 /* SChapterSection.m */; };
 		9E6CCEDA262D5CD2004B6B42 /* SectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6CCED9262D5CD2004B6B42 /* SectionTableViewCell.m */; };
+		9E6CCEDF262D7794004B6B42 /* SAnswerPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6CCEDE262D7794004B6B42 /* SAnswerPageVC.m */; };
 		9E77AC792626B50D007C4D2B /* BWMyTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E77AC772626B50D007C4D2B /* BWMyTabBar.m */; };
 		9E77AC832626BB0F007C4D2B /* ItemTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E77AC822626BB0F007C4D2B /* ItemTabView.m */; };
 		9E77AC8A2626C01D007C4D2B /* ItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E77AC892626C01D007C4D2B /* ItemModel.m */; };
@@ -84,6 +85,7 @@
 		9EDE3BEA262812B800FFC3EF /* SChapterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDE3BE9262812B800FFC3EF /* SChapterCell.m */; };
 		9EDE3BEE2628152400FFC3EF /* SChapterHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDE3BED2628152400FFC3EF /* SChapterHeaderView.m */; };
 		9EDE3BF22628185900FFC3EF /* SBookImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDE3BF12628185900FFC3EF /* SBookImageView.m */; };
+		9EE50B4B262FEF2900DC7D40 /* SAnswerSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE50B4A262FEF2900DC7D40 /* SAnswerSelectCell.m */; };
 		9EFCFE0C262BD29200C8FD43 /* StudyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EFCFE0B262BD29200C8FD43 /* StudyCollectionViewCell.m */; };
 		E0E705FD99566A11CD09AEF0 /* Pods_Student.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A582030DBAD19EA70FDD88 /* Pods_Student.framework */; };
 /* End PBXBuildFile section */
@@ -98,6 +100,8 @@
 		9E6CCED5262D5AA7004B6B42 /* SChapterSection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SChapterSection.m; sourceTree = "<group>"; };
 		9E6CCED8262D5CD2004B6B42 /* SectionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectionTableViewCell.h; sourceTree = "<group>"; };
 		9E6CCED9262D5CD2004B6B42 /* SectionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SectionTableViewCell.m; sourceTree = "<group>"; };
+		9E6CCEDD262D7794004B6B42 /* SAnswerPageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAnswerPageVC.h; sourceTree = "<group>"; };
+		9E6CCEDE262D7794004B6B42 /* SAnswerPageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAnswerPageVC.m; sourceTree = "<group>"; };
 		9E77AC772626B50D007C4D2B /* BWMyTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWMyTabBar.m; sourceTree = "<group>"; };
 		9E77AC782626B50D007C4D2B /* BWMyTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWMyTabBar.h; sourceTree = "<group>"; };
 		9E77AC812626BB0F007C4D2B /* ItemTabView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemTabView.h; sourceTree = "<group>"; };
@@ -233,6 +237,8 @@
 		9EDE3BED2628152400FFC3EF /* SChapterHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SChapterHeaderView.m; sourceTree = "<group>"; };
 		9EDE3BF02628185900FFC3EF /* SBookImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBookImageView.h; sourceTree = "<group>"; };
 		9EDE3BF12628185900FFC3EF /* SBookImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBookImageView.m; sourceTree = "<group>"; };
+		9EE50B49262FEF2900DC7D40 /* SAnswerSelectCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAnswerSelectCell.h; sourceTree = "<group>"; };
+		9EE50B4A262FEF2900DC7D40 /* SAnswerSelectCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAnswerSelectCell.m; sourceTree = "<group>"; };
 		9EFCFE0A262BD29200C8FD43 /* StudyCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudyCollectionViewCell.h; sourceTree = "<group>"; };
 		9EFCFE0B262BD29200C8FD43 /* StudyCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StudyCollectionViewCell.m; sourceTree = "<group>"; };
 		C0CC10A06FA54EE8A25DEA51 /* Pods-Student.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Student.release.xcconfig"; path = "Target Support Files/Pods-Student/Pods-Student.release.xcconfig"; sourceTree = "<group>"; };
@@ -339,6 +345,8 @@
 				9EDE3BED2628152400FFC3EF /* SChapterHeaderView.m */,
 				9E6CCED8262D5CD2004B6B42 /* SectionTableViewCell.h */,
 				9E6CCED9262D5CD2004B6B42 /* SectionTableViewCell.m */,
+				9EE50B49262FEF2900DC7D40 /* SAnswerSelectCell.h */,
+				9EE50B4A262FEF2900DC7D40 /* SAnswerSelectCell.m */,
 			);
 			path = HomeViews;
 			sourceTree = "<group>";
@@ -606,6 +614,8 @@
 				9E905C1B25C138AB009BB170 /* SHomeVC.m */,
 				9EDE3BDC2627E30D00FFC3EF /* SChapterInfoVC.h */,
 				9EDE3BDD2627E30D00FFC3EF /* SChapterInfoVC.m */,
+				9E6CCEDD262D7794004B6B42 /* SAnswerPageVC.h */,
+				9E6CCEDE262D7794004B6B42 /* SAnswerPageVC.m */,
 			);
 			path = HomeVC;
 			sourceTree = "<group>";
@@ -859,6 +869,7 @@
 				9E905C0325C134D9009BB170 /* BWTestReq.m in Sources */,
 				9EDE3BE6262806E000FFC3EF /* BWGetBookChapterResp.m in Sources */,
 				9E905BF525C13266009BB170 /* BWBaseDownloadReq.m in Sources */,
+				9E6CCEDF262D7794004B6B42 /* SAnswerPageVC.m in Sources */,
 				9ECDD0E6261D87D10037A9FD /* SExamVC.m in Sources */,
 				9EDE3BEE2628152400FFC3EF /* SChapterHeaderView.m in Sources */,
 				9E905BFB25C13266009BB170 /* BWBaseDownloadResp.m in Sources */,
@@ -912,6 +923,7 @@
 				9E9B94B826292C2F00CAE55D /* SChapter.m in Sources */,
 				9E9B94C526297BF300CAE55D /* SCustomRefreshHeader.m in Sources */,
 				9ECDD0D3261D43570037A9FD /* SMenuItem.m in Sources */,
+				9EE50B4B262FEF2900DC7D40 /* SAnswerSelectCell.m in Sources */,
 				9E78012A261C362C006438DC /* SelectSubView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

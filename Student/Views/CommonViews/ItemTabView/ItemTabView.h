@@ -9,11 +9,21 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef enum _ButtonContentAlignment
+{
+    ButtonContentAlignment_Center = 0,
+    ButtonContentAlignment_Left = 1
+}ButtonContentAlignment;
+
 typedef void(^selectIndexBlock)(NSInteger index);
 
 @interface ItemTabView : UIView
 @property (nonatomic, copy) selectIndexBlock selectBlock;
-- (instancetype)initWithItemArray:(NSArray *)itemList withFontSize:(NSInteger)fontSize;
+
+- (instancetype)initWithItemArray:(NSArray *)itemList
+                     withFontSize:(NSInteger)fontSize
+                withEachItemWidth:(CGFloat)width
+                 contentAlignment:(ButtonContentAlignment)alignment;
 
 
 @end

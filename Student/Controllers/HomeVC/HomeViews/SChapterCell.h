@@ -10,8 +10,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class SChapter;
+@class SChapterSection;
+
+typedef void(^didSelectModel)(SChapterSection *model);
 
 @interface SChapterCell : UICollectionViewCell
+@property (nonatomic,copy) didSelectModel didSelectModelBlock;
 
 - (void)setupCellWithModel:(SChapter *)model;
 

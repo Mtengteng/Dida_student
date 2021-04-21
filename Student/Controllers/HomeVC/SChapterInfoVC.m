@@ -17,6 +17,8 @@
 #import "BWChapterSecionResp.h"
 #import "SChapterSection.h"
 
+#import "SAnswerPageVC.h"
+
 
 @interface SChapterInfoVC ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UIButton *backBtn;
@@ -168,6 +170,14 @@
     }else{
         [cell loadSectionArray:data];
     }
+    
+    DefineWeakSelf;
+    cell.didSelectModelBlock = ^(SChapterSection * _Nonnull model) {
+        
+        SAnswerPageVC *pageVC = [[SAnswerPageVC alloc] init];
+        pageVC.section = model;
+        [weakSelf.navigationController pushViewController:pageVC animated:YES];
+    };
     
     return cell;
 }

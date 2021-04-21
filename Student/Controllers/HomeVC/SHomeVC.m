@@ -304,7 +304,7 @@ typedef enum _studyOrAnswerType
         }
         self.itemArray = array;
         
-        _itemTab = [[ItemTabView alloc] initWithItemArray:array withFontSize:20];
+        _itemTab = [[ItemTabView alloc] initWithItemArray:array withFontSize:20 withEachItemWidth:LAdaptation_x(100) contentAlignment:ButtonContentAlignment_Left];
     }
     
     return _itemTab;
@@ -322,7 +322,7 @@ typedef enum _studyOrAnswerType
         }
         self.sortArray = array;
         
-        _sortTab = [[ItemTabView alloc] initWithItemArray:array withFontSize:16];
+        _sortTab = [[ItemTabView alloc] initWithItemArray:array withFontSize:16 withEachItemWidth:LAdaptation_x(100) contentAlignment:ButtonContentAlignment_Left];
     }
     
     return _sortTab;

@@ -121,6 +121,14 @@
     [cell setupCellWithModel:section];
     return cell;
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SChapterSection *section = [self.sectionArray safeObjectAtIndex:indexPath.row];
+    
+    if (self.didSelectModelBlock) {
+        self.didSelectModelBlock(section);
+    }
+}
 #pragma mark - LazyLoad -
 - (UIView *)titleView
 {
