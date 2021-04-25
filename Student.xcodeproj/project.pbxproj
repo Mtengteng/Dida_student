@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E29F48C26314C0F00638047 /* SAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E29F48B26314C0F00638047 /* SAnswer.m */; };
 		9E6CCECE262D52D3004B6B42 /* BWChapterSecionReq.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6CCECD262D52D3004B6B42 /* BWChapterSecionReq.m */; };
 		9E6CCED2262D52DF004B6B42 /* BWChapterSecionResp.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6CCED1262D52DF004B6B42 /* BWChapterSecionResp.m */; };
 		9E6CCED6262D5AA7004B6B42 /* SChapterSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6CCED5262D5AA7004B6B42 /* SChapterSection.m */; };
@@ -92,6 +93,8 @@
 
 /* Begin PBXFileReference section */
 		7EAB7F45132E4F1A841227D4 /* Pods-Student.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Student.debug.xcconfig"; path = "Target Support Files/Pods-Student/Pods-Student.debug.xcconfig"; sourceTree = "<group>"; };
+		9E29F48A26314C0F00638047 /* SAnswer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAnswer.h; sourceTree = "<group>"; };
+		9E29F48B26314C0F00638047 /* SAnswer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAnswer.m; sourceTree = "<group>"; };
 		9E6CCECC262D52D3004B6B42 /* BWChapterSecionReq.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWChapterSecionReq.h; sourceTree = "<group>"; };
 		9E6CCECD262D52D3004B6B42 /* BWChapterSecionReq.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWChapterSecionReq.m; sourceTree = "<group>"; };
 		9E6CCED0262D52DF004B6B42 /* BWChapterSecionResp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWChapterSecionResp.h; sourceTree = "<group>"; };
@@ -360,6 +363,8 @@
 				9E9B94B726292C2F00CAE55D /* SChapter.m */,
 				9E6CCED4262D5AA7004B6B42 /* SChapterSection.h */,
 				9E6CCED5262D5AA7004B6B42 /* SChapterSection.m */,
+				9E29F48A26314C0F00638047 /* SAnswer.h */,
+				9E29F48B26314C0F00638047 /* SAnswer.m */,
 			);
 			path = HomeModels;
 			sourceTree = "<group>";
@@ -903,6 +908,7 @@
 				9E905B9325C13036009BB170 /* main.m in Sources */,
 				9E78012F261C43A0006438DC /* SAnswerCollectionViewCell.m in Sources */,
 				9E905BDA25C13121009BB170 /* MBProgressHUD.m in Sources */,
+				9E29F48C26314C0F00638047 /* SAnswer.m in Sources */,
 				9E905BFD25C13266009BB170 /* BWBaseResp.m in Sources */,
 				9E6CCED6262D5AA7004B6B42 /* SChapterSection.m in Sources */,
 				9EDE3BE2262806D400FFC3EF /* BWGetBookChapterReq.m in Sources */,
