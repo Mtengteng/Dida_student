@@ -13,8 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SCureView : UIView
 @property (nonatomic, strong) AAChartView *chartView;
 
-- (instancetype)initWithTitle:(NSString *)title
-                withItemArray:(NSArray *)itemArray;
+- (instancetype)init;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -29,11 +29,11 @@
     DefineWeakSelf;
     self.navMenuView.selectBlock = ^(NSString * _Nonnull titleName) {
         
-        if ((self.currentVC == weakSelf.assistantVC && [titleName isEqualToString:@"教辅"])||(self.currentVC == weakSelf.examVC && [titleName isEqualToString:@"试卷"])) {
+        if ((self.currentVC == weakSelf.assistantVC && [titleName isEqualToString:@"答题集"])||(self.currentVC == weakSelf.examVC && [titleName isEqualToString:@"学习集"])) {
             return;
         }
         
-        if ([titleName isEqualToString:@"试卷"]) {
+        if ([titleName isEqualToString:@"学习集"]) {
             
             [weakSelf replaceController:weakSelf.currentVC newController:weakSelf.examVC];
         
@@ -95,7 +95,7 @@
 - (STabMenuView *)navMenuView
 {
     if (!_navMenuView) {
-        _navMenuView = [[STabMenuView alloc] initWithTitle:@[@"教辅",@"试卷"]];
+        _navMenuView = [[STabMenuView alloc] initWithTitle:@[@"答题集",@"学习集"]];
     }
     return _navMenuView;
 }
