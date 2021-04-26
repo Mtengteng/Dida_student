@@ -191,7 +191,7 @@ typedef enum _assistantOrPaper
 {
     if (!_whiteBar) {
         _whiteBar = [[SelectWhiteBGBar alloc] initWithItemArray:@[@"试卷",@"教辅"]];
-        _whiteBar.backgroundColor = [UIColor redColor];
+        _whiteBar.backgroundColor = [UIColor clearColor];
     }
     return _whiteBar;
 }
