@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SCAssistantCell : UICollectionViewCell
 
+- (void)setupCellWithModel:(id)model;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -60,7 +60,9 @@ typedef enum _assistantOrPaper
         }
         
         weakSelf.type = [barTitle isEqualToString:@"试卷"] ? assistant_type : paper_type;
-        
+       
+        [weakSelf loadCollectViewType];
+
         [weakSelf.collectionView reloadData];
     };
     
@@ -91,13 +93,24 @@ typedef enum _assistantOrPaper
         make.height.mas_equalTo(LAdaptation_y(24));
     }];
 
-    [self.view addSubview:self.selectView];
-    [self.selectView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.subtitleLabel.mas_bottom).offset(LAdaptation_y(24));
-        make.left.equalTo(self.subtitleLabel);
+//    [self.view addSubview:self.selectView];
+//    [self.selectView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self.subtitleLabel.mas_bottom).offset(LAdaptation_y(24));
+//        make.left.equalTo(self.subtitleLabel);
+//        make.width.equalTo(self.view);
+//        make.height.mas_equalTo(LAdaptation_y(44));
+//    }];
+    
+    [self.view addSubview:self.collectionView];
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.subtitleLabel.mas_bottom);
+        make.left.equalTo(self.view);
         make.width.equalTo(self.view);
-        make.height.mas_equalTo(LAdaptation_y(44));
+        make.height.mas_equalTo(LAdaptation_y(210));
     }];
+    
+    [self loadCollectViewType];
+
 }
 - (void)loadCollectViewType
 {
@@ -109,13 +122,13 @@ typedef enum _assistantOrPaper
         self.flowLayout.minimumLineSpacing = LAdaptation_y(53);
 
         // 设置item的大小
-        itemW = LAdaptation_x(128);
-        itemH = LAdaptation_y(209);
+        itemW = LAdaptation_x(348);
+        itemH = LAdaptation_y(194);
         
         // 设置每个分区的 上左下右 的内边距
         self.flowLayout.sectionInset = UIEdgeInsetsMake(0, 0 ,0, 0);
         self.flowLayout.itemSize = CGSizeMake(itemW, itemH);
-        [self.collectionView registerClass:[SCAssistantCell class] forCellWithReuseIdentifier:@"SCAssistantCell"];
+        [self.collectionView registerClass:[SCAssistantCell class] forCellWithReuseIdentifier:@"AssistantCell"];
 
         
     }else{
@@ -132,10 +145,10 @@ typedef enum _assistantOrPaper
         // 设置每个分区的 上左下右 的内边距
         self.flowLayout.sectionInset = UIEdgeInsetsMake(0, 0 ,0, 0);
         self.flowLayout.itemSize = CGSizeMake(itemW, itemH);
-        [self.collectionView registerClass:[SCPaperCell class] forCellWithReuseIdentifier:@"SCPaperCell"];
+        [self.collectionView registerClass:[SCPaperCell class] forCellWithReuseIdentifier:@"PaperCell"];
 
     }
-    self.flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    self.flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
 }
 
 #pragma mark - UICollectionViewDataSource -
@@ -153,16 +166,17 @@ typedef enum _assistantOrPaper
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.type == assistant_type) {
-        static NSString * CellIdentifier = @"SCAssistantCell";
-        SCAssistantCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+        static NSString *cellId = @"AssistantCell";
+        SCAssistantCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
         
+        [cell setupCellWithModel:nil];
 //        SBook *book = [self.dataArray safeObjectAtIndex:self.currentIndex];
 //        SBookInfo *bookInfo = [book.books safeObjectAtIndex:indexPath.row];
 //        [cell setupCellWithModel:bookInfo];
         return cell;
     }else{
-        static NSString * cellId = @"SCPaperCell";
-        SCPaperCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+        static NSString * cellId = @"PaperCell";
+        SCPaperCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
 //        [cell setupCellWithModel:nil];
 
         return cell;
@@ -237,7 +251,6 @@ typedef enum _assistantOrPaper
         _collectionView.scrollEnabled = YES;  //滚动使能
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
-        //注册Cell，必须要有
     }
     return _collectionView;
 }
