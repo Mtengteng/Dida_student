@@ -30,7 +30,7 @@
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
             button.tag = i+1000;
             [button setTitle:model.subName forState:UIControlStateNormal];
-            [button.titleLabel setFont:[UIFont systemFontOfSize:20.0]];
+            [button.titleLabel setFont:[UIFont systemFontOfSize:18.0]];
             [button addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
             [button setFrame:CGRectMake(i*(LAdaptation_x(40)+LAdaptation_x(48)), LAdaptation_y(44)/2 - LAdaptation_y(20)/2, LAdaptation_x(40), LAdaptation_y(20))];
             if (i == 0) {

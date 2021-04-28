@@ -13,21 +13,16 @@
 #import "SCAssistantCell.h"
 #import "SCPaperCell.h"
 
-typedef enum _assistantOrPaper
-{
-    assistant_type = 0,
-    paper_type = 1,
-}assistantOrPaper;
 
 @interface SAssistantVC ()<UICollectionViewDelegate,UICollectionViewDataSource>
-@property (nonatomic, assign) assistantOrPaper type;
-@property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
+@property (nonatomic, strong) UICollectionView *currentView;
+@property (nonatomic, strong) UICollectionView *asstView;
 @property (nonatomic, strong) SelectSubView *selectView;
 @property (nonatomic, strong) SelectWhiteBGBar *whiteBar;
 @property (nonatomic, strong) SCureView *curv;
 @property (nonatomic, assign) NSInteger currentIndex;
 @property (nonatomic, strong) UILabel *subtitleLabel;
+@property (nonatomic, strong) UILabel *asstSubtitleLabel;
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, strong) NSArray *subArray;
 
@@ -46,7 +41,7 @@ typedef enum _assistantOrPaper
     DefineWeakSelf;
     self.selectView.selectSubBlock = ^(SubModel * _Nonnull model,NSInteger index) {
         weakSelf.currentIndex = index;
-        [weakSelf.collectionView reloadData];
+        
     };
     
     self.whiteBar.selectWhiteBarBlock = ^(NSString * _Nonnull barTitle) {
@@ -59,11 +54,6 @@ typedef enum _assistantOrPaper
 
         }
         
-        weakSelf.type = [barTitle isEqualToString:@"试卷"] ? assistant_type : paper_type;
-       
-        [weakSelf loadCollectViewType];
-
-        [weakSelf.collectionView reloadData];
     };
     
 }
@@ -94,110 +84,78 @@ typedef enum _assistantOrPaper
     }];
 
 //    [self.view addSubview:self.selectView];
-//    [self.selectView mas_makeConstraints:^(MASConstraintMaker *make) {
+//    [self.selectView mas_makeCons traints:^(MASConstraintMaker *make) {
 //        make.top.equalTo(self.subtitleLabel.mas_bottom).offset(LAdaptation_y(24));
 //        make.left.equalTo(self.subtitleLabel);
 //        make.width.equalTo(self.view);
 //        make.height.mas_equalTo(LAdaptation_y(44));
 //    }];
     
-    [self.view addSubview:self.collectionView];
-    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.view addSubview:self.currentView];
+    [self.currentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.subtitleLabel.mas_bottom);
         make.left.equalTo(self.view);
         make.width.equalTo(self.view);
         make.height.mas_equalTo(LAdaptation_y(210));
     }];
     
-    [self loadCollectViewType];
-
-}
-- (void)loadCollectViewType
-{
+    [self.view addSubview:self.asstSubtitleLabel];
+    [self.asstSubtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.currentView.mas_bottom);
+        make.left.equalTo(self.subtitleLabel);
+        make.width.equalTo(self.view);
+        make.height.mas_equalTo(LAdaptation_y(24));
+    }];
     
-    if (self.type == assistant_type) {
-        CGFloat itemW;
-        CGFloat itemH;
-        self.flowLayout.minimumInteritemSpacing = LAdaptation_x(20);
-        self.flowLayout.minimumLineSpacing = LAdaptation_y(53);
-
-        // 设置item的大小
-        itemW = LAdaptation_x(348);
-        itemH = LAdaptation_y(194);
-        
-        // 设置每个分区的 上左下右 的内边距
-        self.flowLayout.sectionInset = UIEdgeInsetsMake(0, 0 ,0, 0);
-        self.flowLayout.itemSize = CGSizeMake(itemW, itemH);
-        [self.collectionView registerClass:[SCAssistantCell class] forCellWithReuseIdentifier:@"AssistantCell"];
-
-        
-    }else{
-        
-        CGFloat itemW;
-        CGFloat itemH;
-        self.flowLayout.minimumInteritemSpacing = LAdaptation_x(20);
-        self.flowLayout.minimumLineSpacing = LAdaptation_y(20);
-
-        // 设置item的大小
-        itemW = LAdaptation_x(220);
-        itemH = LAdaptation_y(165);
-        
-        // 设置每个分区的 上左下右 的内边距
-        self.flowLayout.sectionInset = UIEdgeInsetsMake(0, 0 ,0, 0);
-        self.flowLayout.itemSize = CGSizeMake(itemW, itemH);
-        [self.collectionView registerClass:[SCPaperCell class] forCellWithReuseIdentifier:@"PaperCell"];
-
-    }
-    self.flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    
+    
 }
+
 
 #pragma mark - UICollectionViewDataSource -
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if (self.type == assistant_type) {
-//        SBook *book = [self.dataArray safeObjectAtIndex:self.currentIndex];
-        return 10;
+    if (collectionView.tag == 1) {
+        return 5;
     }else{
-        return 10;
+        return 5;
     }
     return 0;
 
 }
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.type == assistant_type) {
+    if (collectionView.tag == 1) {
         static NSString *cellId = @"AssistantCell";
         SCAssistantCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
         
         [cell setupCellWithModel:nil];
-//        SBook *book = [self.dataArray safeObjectAtIndex:self.currentIndex];
-//        SBookInfo *bookInfo = [book.books safeObjectAtIndex:indexPath.row];
-//        [cell setupCellWithModel:bookInfo];
         return cell;
     }else{
-        static NSString * cellId = @"PaperCell";
-        SCPaperCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
-//        [cell setupCellWithModel:nil];
-
-        return cell;
+        
+        
     }
 
     return nil;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.type == assistant_type) {
-//        SBook *book = [self.dataArray safeObjectAtIndex:self.currentIndex];
-//        SBookInfo *bookInfo = [book.books safeObjectAtIndex:indexPath.row];
-//        SChapterInfoVC *infoVC = [[SChapterInfoVC alloc] init];
-//        infoVC.bookInfo = bookInfo;
-//        infoVC.hidesBottomBarWhenPushed = YES;
-//        [self.navigationController pushViewController:infoVC animated:YES];
-    }else{
-        
-    }
+
 
     
+//    CGFloat itemW;
+//    CGFloat itemH;
+//    self.flowLayout.minimumInteritemSpacing = LAdaptation_x(20);
+//    self.flowLayout.minimumLineSpacing = LAdaptation_y(20);
+//
+//    // 设置item的大小
+//    itemW = LAdaptation_x(220);
+//    itemH = LAdaptation_y(165);
+//
+//    // 设置每个分区的 上左下右 的内边距
+//    self.flowLayout.sectionInset = UIEdgeInsetsMake(0, 0 ,0, 0);
+//    self.flowLayout.itemSize = CGSizeMake(itemW, itemH);
+//    [self.collectionView registerClass:[SCPaperCell class] forCellWithReuseIdentifier:@"PaperCell"];
 }
 
 #pragma mark - LazyLoad -
@@ -225,6 +183,17 @@ typedef enum _assistantOrPaper
     }
     return _subtitleLabel;
 }
+- (UILabel *)asstSubtitleLabel
+{
+    if (!_asstSubtitleLabel) {
+        _asstSubtitleLabel = [[UILabel alloc] init];
+        _asstSubtitleLabel.font = [UIFont boldSystemFontOfSize:24.0];
+        _asstSubtitleLabel.text = @"教辅列表";
+    }
+    return _asstSubtitleLabel;
+}
+    
+    
 - (SelectSubView *)selectView
 {
     if (!_selectView) {
@@ -242,24 +211,68 @@ typedef enum _assistantOrPaper
     }
     return _selectView;
 }
-- (UICollectionView *)collectionView
+- (UICollectionView *)currentView
 {
-    if (!_collectionView) {
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.flowLayout];
-        _collectionView.backgroundColor = [UIColor clearColor];
-        _collectionView.showsVerticalScrollIndicator = NO;   //是否显示滚动条
-        _collectionView.scrollEnabled = YES;  //滚动使能
-        _collectionView.delegate = self;
-        _collectionView.dataSource = self;
+    if (!_currentView) {
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+
+        CGFloat itemW;
+        CGFloat itemH;
+        
+        flowLayout.minimumInteritemSpacing = LAdaptation_x(20);
+        flowLayout.minimumLineSpacing = LAdaptation_y(53);
+
+        // 设置item的大小
+        itemW = LAdaptation_x(348);
+        itemH = LAdaptation_y(194);
+        
+        // 设置每个分区的 上左下右 的内边距
+        flowLayout.sectionInset = UIEdgeInsetsMake(0, 0 ,0, 0);
+        flowLayout.itemSize = CGSizeMake(itemW, itemH);
+        
+        _currentView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+        _currentView.backgroundColor = [UIColor clearColor];
+        _currentView.showsVerticalScrollIndicator = NO;   //是否显示滚动条
+        _currentView.scrollEnabled = YES;  //滚动使能
+        _currentView.delegate = self;
+        _currentView.dataSource = self;
+        _currentView.tag = 1;
+        
+        [_currentView registerClass:[SCAssistantCell class] forCellWithReuseIdentifier:@"AssistantCell"];
     }
-    return _collectionView;
+    return _currentView;
 }
-- (UICollectionViewFlowLayout *)flowLayout
+- (UICollectionView *)asstView
 {
-    if (!_flowLayout) {
-        _flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    if (!_asstView) {
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+
+        CGFloat itemW;
+        CGFloat itemH;
+        
+        flowLayout.minimumInteritemSpacing = LAdaptation_x(20);
+        flowLayout.minimumLineSpacing = LAdaptation_y(53);
+
+        // 设置item的大小
+        itemW = LAdaptation_x(280);
+        itemH = LAdaptation_y(360);
+        
+        // 设置每个分区的 上左下右 的内边距
+        flowLayout.sectionInset = UIEdgeInsetsMake(0, 0 ,0, 0);
+        flowLayout.itemSize = CGSizeMake(itemW, itemH);
+        
+        _asstView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+        _asstView.backgroundColor = [UIColor clearColor];
+        _asstView.showsVerticalScrollIndicator = NO;   //是否显示滚动条
+        _asstView.scrollEnabled = YES;  //滚动使能
+        _asstView.delegate = self;
+        _asstView.dataSource = self;
+        _asstView.tag = 2;
+        [_asstView registerClass:[SCPaperCell class] forCellWithReuseIdentifier:@"SCPaperCell"];
     }
-    return _flowLayout;
+    return _asstView;
 }
 
 
