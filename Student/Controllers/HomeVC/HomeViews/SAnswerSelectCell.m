@@ -6,43 +6,34 @@
 //
 
 #import "SAnswerSelectCell.h"
+#import "SAnswer.h"
 
 @implementation SAnswerSelectCell
 
 
-- (void)setupCell
+- (void)setupCellWithArray:(NSArray *)answerList
 {
-    NSArray *item = @[@"A",@"B",@"C",@"D"];
-    for (NSInteger i = 0; i < item.count; i++) {
+    for (NSInteger i = 0; i < answerList.count; i++) {
         
-        UIView *btnBgView = [[UIView alloc] initWithFrame:CGRectMake(i*(self.bounds.size.width/item.count), 0, self.bounds.size.width/item.count, self.bounds.size.height)];
+        SAnswer *answer = [answerList safeObjectAtIndex:i];
+
+        UIView *btnBgView = [[UIView alloc] initWithFrame:CGRectMake(i*(self.bounds.size.width/answerList.count), 0, self.bounds.size.width/answerList.count, self.bounds.size.height)];
         [self addSubview:btnBgView];
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.tag = 1000+i;
+        button.tag = answer.answerId.integerValue;
         [button setFrame:CGRectMake(btnBgView.frame.size.width/2 - LAdaptation_x(40)/2, btnBgView.frame.size.height/2 - LAdaptation_y(40)/2, LAdaptation_x(40), LAdaptation_y(40))];
-        [button setTitle:[item safeObjectAtIndex:i] forState:UIControlStateNormal];
+        [button setTitle:answer.name forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [button setBackgroundColor:[UIColor grayColor]];
+        [button setBackgroundColor:answer.isSelected ?[UIColor blueColor]: [UIColor grayColor]];
         [button addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
         [btnBgView addSubview:button];
     }
 }
 - (void)clickAction:(UIButton *)button
 {
-    for (UIView *sub in self.subviews) {
-        
-        for (UIView *targetView in sub.subviews) {
-            if ([targetView isKindOfClass:[UIButton class]]) {
-                UIButton *btn = (UIButton *)targetView;
-                if (button.tag == btn.tag) {
-                    [btn setBackgroundColor:[UIColor blueColor]];
-                }else{
-                    [btn setBackgroundColor:[UIColor grayColor]];
-
-                }
-            }
-        }
+    if (self.selectAnswerBlock) {
+        self.selectAnswerBlock(button.tag);
     }
 }
 @end

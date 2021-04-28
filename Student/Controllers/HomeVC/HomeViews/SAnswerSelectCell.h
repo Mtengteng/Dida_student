@@ -9,13 +9,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^submit)(id model);
+@class SAnswer;
+
+typedef void(^selectAnswer)(NSInteger answerId);
 
 @interface SAnswerSelectCell : UICollectionViewCell
-@property (nonatomic, copy) submit submitBlock;
+@property (nonatomic, copy) selectAnswer selectAnswerBlock;
 
-
-- (void)setupCell;
+- (void)setupCellWithArray:(NSArray *)answerList;
 @end
 
 NS_ASSUME_NONNULL_END

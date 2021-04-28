@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E1A181E263544FA006E226B /* SelectWhiteBGBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1A181D263544FA006E226B /* SelectWhiteBGBar.m */; };
+		9E1A18232635550B006E226B /* SCAssistantCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1A18222635550B006E226B /* SCAssistantCell.m */; };
+		9E1A182826355576006E226B /* SCPaperCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1A182726355576006E226B /* SCPaperCell.m */; };
+		9E29F48C26314C0F00638047 /* SAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E29F48B26314C0F00638047 /* SAnswer.m */; };
 		9E6CCECE262D52D3004B6B42 /* BWChapterSecionReq.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6CCECD262D52D3004B6B42 /* BWChapterSecionReq.m */; };
 		9E6CCED2262D52DF004B6B42 /* BWChapterSecionResp.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6CCED1262D52DF004B6B42 /* BWChapterSecionResp.m */; };
 		9E6CCED6262D5AA7004B6B42 /* SChapterSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6CCED5262D5AA7004B6B42 /* SChapterSection.m */; };
@@ -69,7 +73,6 @@
 		9E9B94C426297BF300CAE55D /* SCustomProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9B94BE26297BF300CAE55D /* SCustomProgressHUD.m */; };
 		9E9B94C526297BF300CAE55D /* SCustomRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9B94C026297BF300CAE55D /* SCustomRefreshHeader.m */; };
 		9E9B94C626297BF300CAE55D /* loadiing_paperplane.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E9B94C126297BF300CAE55D /* loadiing_paperplane.json */; };
-		9EA793CA261FFACF00757FF1 /* SAssistantCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA793C9261FFACF00757FF1 /* SAssistantCell.m */; };
 		9ECDD0C5261D39CD0037A9FD /* SMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECDD0C4261D39CD0037A9FD /* SMenuView.m */; };
 		9ECDD0CC261D42020037A9FD /* down_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECDD0C9261D42020037A9FD /* down_arrow.png */; };
 		9ECDD0CD261D42020037A9FD /* down_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECDD0CA261D42020037A9FD /* down_arrow@2x.png */; };
@@ -92,6 +95,14 @@
 
 /* Begin PBXFileReference section */
 		7EAB7F45132E4F1A841227D4 /* Pods-Student.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Student.debug.xcconfig"; path = "Target Support Files/Pods-Student/Pods-Student.debug.xcconfig"; sourceTree = "<group>"; };
+		9E1A181C263544FA006E226B /* SelectWhiteBGBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectWhiteBGBar.h; sourceTree = "<group>"; };
+		9E1A181D263544FA006E226B /* SelectWhiteBGBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectWhiteBGBar.m; sourceTree = "<group>"; };
+		9E1A18212635550B006E226B /* SCAssistantCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCAssistantCell.h; sourceTree = "<group>"; };
+		9E1A18222635550B006E226B /* SCAssistantCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAssistantCell.m; sourceTree = "<group>"; };
+		9E1A182626355576006E226B /* SCPaperCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCPaperCell.h; sourceTree = "<group>"; };
+		9E1A182726355576006E226B /* SCPaperCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCPaperCell.m; sourceTree = "<group>"; };
+		9E29F48A26314C0F00638047 /* SAnswer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAnswer.h; sourceTree = "<group>"; };
+		9E29F48B26314C0F00638047 /* SAnswer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAnswer.m; sourceTree = "<group>"; };
 		9E6CCECC262D52D3004B6B42 /* BWChapterSecionReq.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWChapterSecionReq.h; sourceTree = "<group>"; };
 		9E6CCECD262D52D3004B6B42 /* BWChapterSecionReq.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWChapterSecionReq.m; sourceTree = "<group>"; };
 		9E6CCED0262D52DF004B6B42 /* BWChapterSecionResp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWChapterSecionResp.h; sourceTree = "<group>"; };
@@ -208,8 +219,6 @@
 		9E9B94C026297BF300CAE55D /* SCustomRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCustomRefreshHeader.m; sourceTree = "<group>"; };
 		9E9B94C126297BF300CAE55D /* loadiing_paperplane.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadiing_paperplane.json; sourceTree = "<group>"; };
 		9E9B94C226297BF300CAE55D /* SCustomRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCustomRefreshHeader.h; sourceTree = "<group>"; };
-		9EA793C8261FFACF00757FF1 /* SAssistantCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAssistantCell.h; sourceTree = "<group>"; };
-		9EA793C9261FFACF00757FF1 /* SAssistantCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAssistantCell.m; sourceTree = "<group>"; };
 		9ECDD0C3261D39CD0037A9FD /* SMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMenuView.h; sourceTree = "<group>"; };
 		9ECDD0C4261D39CD0037A9FD /* SMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMenuView.m; sourceTree = "<group>"; };
 		9ECDD0C9261D42020037A9FD /* down_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down_arrow.png; sourceTree = "<group>"; };
@@ -272,6 +281,15 @@
 				C0CC10A06FA54EE8A25DEA51 /* Pods-Student.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9E1A181B263544D1006E226B /* SelectWhiteBgBar */ = {
+			isa = PBXGroup;
+			children = (
+				9E1A181C263544FA006E226B /* SelectWhiteBGBar.h */,
+				9E1A181D263544FA006E226B /* SelectWhiteBGBar.m */,
+			);
+			path = SelectWhiteBgBar;
 			sourceTree = "<group>";
 		};
 		9E77AC762626B4F2007C4D2B /* BaseViews */ = {
@@ -360,6 +378,8 @@
 				9E9B94B726292C2F00CAE55D /* SChapter.m */,
 				9E6CCED4262D5AA7004B6B42 /* SChapterSection.h */,
 				9E6CCED5262D5AA7004B6B42 /* SChapterSection.m */,
+				9E29F48A26314C0F00638047 /* SAnswer.h */,
+				9E29F48B26314C0F00638047 /* SAnswer.m */,
 			);
 			path = HomeModels;
 			sourceTree = "<group>";
@@ -685,6 +705,7 @@
 		9ECDD0C2261D39910037A9FD /* CommonViews */ = {
 			isa = PBXGroup;
 			children = (
+				9E1A181B263544D1006E226B /* SelectWhiteBgBar */,
 				9E9B94BB26297BF300CAE55D /* SCustomMBProgressHUD */,
 				9E9B94BF26297BF300CAE55D /* SCustomRefreshHeader */,
 				9E77AC802626BAE5007C4D2B /* ItemTabView */,
@@ -722,8 +743,10 @@
 				9ECDD0D9261D5A030037A9FD /* STabMenuView.m */,
 				9ECDD0E8261D8D5E0037A9FD /* SCureView.h */,
 				9ECDD0E9261D8D5E0037A9FD /* SCureView.m */,
-				9EA793C8261FFACF00757FF1 /* SAssistantCell.h */,
-				9EA793C9261FFACF00757FF1 /* SAssistantCell.m */,
+				9E1A18212635550B006E226B /* SCAssistantCell.h */,
+				9E1A18222635550B006E226B /* SCAssistantCell.m */,
+				9E1A182626355576006E226B /* SCPaperCell.h */,
+				9E1A182726355576006E226B /* SCPaperCell.m */,
 			);
 			path = StudyViews;
 			sourceTree = "<group>";
@@ -876,7 +899,6 @@
 				9ECDD0E2261D87BE0037A9FD /* SAssistantVC.m in Sources */,
 				9E905BCC25C13121009BB170 /* PrivacyPageController.m in Sources */,
 				9EDE3BDE2627E30D00FFC3EF /* SChapterInfoVC.m in Sources */,
-				9EA793CA261FFACF00757FF1 /* SAssistantCell.m in Sources */,
 				9E6CCED2262D52DF004B6B42 /* BWChapterSecionResp.m in Sources */,
 				9E905BF725C13266009BB170 /* BWBaseReq.m in Sources */,
 				9E905C1F25C138BF009BB170 /* StudyVC.m in Sources */,
@@ -898,14 +920,17 @@
 				9E905C0D25C1356F009BB170 /* SRootVC.m in Sources */,
 				9E77AC902626DEE5007C4D2B /* SubModel.m in Sources */,
 				9E905BD025C13121009BB170 /* BWTools.m in Sources */,
+				9E1A182826355576006E226B /* SCPaperCell.m in Sources */,
 				9E905BCF25C13121009BB170 /* BWAlertCtrl.m in Sources */,
 				9E905C2225C138D0009BB170 /* SPromoteVC.m in Sources */,
 				9E905B9325C13036009BB170 /* main.m in Sources */,
 				9E78012F261C43A0006438DC /* SAnswerCollectionViewCell.m in Sources */,
 				9E905BDA25C13121009BB170 /* MBProgressHUD.m in Sources */,
+				9E29F48C26314C0F00638047 /* SAnswer.m in Sources */,
 				9E905BFD25C13266009BB170 /* BWBaseResp.m in Sources */,
 				9E6CCED6262D5AA7004B6B42 /* SChapterSection.m in Sources */,
 				9EDE3BE2262806D400FFC3EF /* BWGetBookChapterReq.m in Sources */,
+				9E1A181E263544FA006E226B /* SelectWhiteBGBar.m in Sources */,
 				9E905BD925C13121009BB170 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				9E780133261C45C6006438DC /* BWGetAllBookResp.m in Sources */,
 				9E905BF925C13266009BB170 /* BWNetManager.m in Sources */,
@@ -923,6 +948,7 @@
 				9E9B94B826292C2F00CAE55D /* SChapter.m in Sources */,
 				9E9B94C526297BF300CAE55D /* SCustomRefreshHeader.m in Sources */,
 				9ECDD0D3261D43570037A9FD /* SMenuItem.m in Sources */,
+				9E1A18232635550B006E226B /* SCAssistantCell.m in Sources */,
 				9EE50B4B262FEF2900DC7D40 /* SAnswerSelectCell.m in Sources */,
 				9E78012A261C362C006438DC /* SelectSubView.m in Sources */,
 			);
@@ -1065,8 +1091,9 @@
 			baseConfigurationReference = 7EAB7F45132E4F1A841227D4 /* Pods-Student.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = TZH4PW8DXK;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Student/Sources/SPch.pch";
 				INFOPLIST_FILE = Student/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1074,8 +1101,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.beiwaionline.Student;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.unipus.smartCourse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = SmartCourse_Dev;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -1085,8 +1113,9 @@
 			baseConfigurationReference = C0CC10A06FA54EE8A25DEA51 /* Pods-Student.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = TZH4PW8DXK;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Student/Sources/SPch.pch";
 				INFOPLIST_FILE = Student/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1094,8 +1123,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.beiwaionline.Student;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.unipus.smartCourse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = SmartCourse_Dev;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;

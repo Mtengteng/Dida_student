@@ -10,6 +10,7 @@
 #import "ItemTabView.h"
 #import "ItemModel.h"
 #import "SAnswerSelectCell.h"
+#import "SAnswer.h"
 
 @interface SAnswerPageVC ()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property (nonatomic, strong) ItemTabView *itemTab;
@@ -17,6 +18,7 @@
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, strong) NSArray *sectionArray;
+@property (nonatomic, strong) NSMutableArray *submitArray;
 @end
 
 @implementation SAnswerPageVC
@@ -44,6 +46,21 @@
     
     //假数据
     self.sectionArray = @[@"单选题",@"填空题",@"解答题"];
+    NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+    for (NSInteger i = 0; i<35; i++) {
+        NSMutableArray *answerList = [[NSMutableArray alloc] init];
+        for (NSInteger j = 0;j<4; j++) {
+            NSArray *array = @[@"A",@"B",@"C",@"D"];
+            SAnswer *answer = [[SAnswer alloc] init];
+            answer.answerId = [NSString stringWithFormat:@"%ld%ld",i,j];
+            answer.name = [array safeObjectAtIndex:j];
+            [answerList addObject:answer];
+        }
+        [dataArray addObject:answerList];
+
+    }
+    self.dataArray = dataArray;
+    [self.collectionView reloadData];
     
 }
 - (void)createUI
@@ -75,12 +92,6 @@
     
     
 }
-//- (UIView *)memberOfCollectionView:(UIView *)object
-//{
-//    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, LAdaptation_y(120))];
-//    bgView.backgroundColor = [UIColor redColor];
-//    return bgView;
-//}
 #pragma UICollectionView - delegate
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout
         insetForSectionAtIndex:(NSInteger)section {
@@ -117,11 +128,11 @@ referenceSizeForHeaderInSection:(NSInteger)section {
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 10;
+        return self.dataArray.count;
     }else if(section == 1){
-        return 20;
+        return 0;
     }else{
-        return 5;
+        return 0;
     }
     return 0;
 }
@@ -129,7 +140,28 @@ referenceSizeForHeaderInSection:(NSInteger)section {
 {
     static NSString * CellIdentifier = @"cell";
     SAnswerSelectCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
-    [cell setupCell];
+    
+    if (indexPath.section == 0) {
+        NSArray *answerList = [self.dataArray safeObjectAtIndex:indexPath.row];
+        [cell setupCellWithArray:answerList];
+        
+        DefineWeakSelf;
+        cell.selectAnswerBlock = ^(NSInteger answerId) {
+            [self.dataArray enumerateObjectsUsingBlock:^(NSArray *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                
+                [answerList enumerateObjectsUsingBlock:^(SAnswer*  _Nonnull answer, NSUInteger idx, BOOL * _Nonnull stop) {
+                    if (answer.answerId.integerValue == answerId) {
+                        answer.isSelected = YES;
+                        [weakSelf.submitArray addObject:answer];
+                    }
+                }];
+
+            }];
+            [weakSelf.collectionView reloadData];
+        };
+
+    }
+    
     return cell;
 }
 #pragma mark - LazyLoad -
@@ -187,5 +219,12 @@ referenceSizeForHeaderInSection:(NSInteger)section {
 
     }
     return _collectionView;
+}
+- (NSMutableArray *)submitArray
+{
+    if (!_submitArray) {
+        _submitArray = [[NSMutableArray alloc] init];
+    }
+    return _submitArray;
 }
 @end
