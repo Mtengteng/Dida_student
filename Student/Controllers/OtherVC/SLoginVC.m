@@ -34,8 +34,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.loginNameField.text = @"a001";
-    self.passwordField.text = @"a001";
+    self.loginNameField.text = @"wypnfsy500";
+    self.passwordField.text = @"password123";
     
     [self createUI];
     
@@ -240,6 +240,10 @@
     [userDef setObject:[userDic safeObjectForKey:@"id"] forKey:KEY_userId];
     [userDef setObject:[userDic safeObjectForKey:@"openid"] forKey:KEY_openId];
     [userDef setObject:[userDic safeObjectForKey:@"nickName"] forKey:KEY_nickName];
+    [userDef setObject:[userDic safeObjectForKey:@"nickName"] forKey:KEY_nickName];
+    [userDef setObject:[userDic safeObjectForKey:@"avatar"] forKey:KEY_avatar];
+    [userDef setObject:[userDic safeObjectForKey:@"phone"] forKey:KEY_phone];
+    [userDef setObject:[userDic safeObjectForKey:@"slogan"] forKey:KEY_slogan];
     [userDef synchronize];
 }
 

@@ -9,9 +9,9 @@
 #ifndef HttpsUrls_h
 #define HttpsUrls_h
 
-#define BaseURL                      @"http://114.67.205.244:8181"                          //测试服务器
+#define BaseURL                      @"http://wyp.party:8000"                          //测试服务器
 #define LoginURL                     @"/user/login"                                         //登陆
-#define GetAllBookURL                @"/book/allbooks"                                      //首页获取图书
+#define GetAllBookURL                @"/book/all"                                      //首页获取图书
 #define GetBookChapterURL            @"/book/chapter/%@/%@"                                 //获取所有章节
 #define GetBookChapterSectionURL     @"/book/sections/%@/%@"                                //获取章下所有的节
 

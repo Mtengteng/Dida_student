@@ -169,7 +169,7 @@ typedef enum _studyOrAnswerType
         [SCustomProgressHUD hideHUDForView:weakSelf.view animated:YES];
         
         BWGetAllBookResp *bookResp = (BWGetAllBookResp *)resp;
-        weakSelf.dataArray = bookResp.hotBookArray;
+        weakSelf.dataArray = bookResp.bookArray;
         [weakSelf.collectionView reloadData];
       
     } failure:^(BWBaseReq *req, NSError *error) {
@@ -221,8 +221,7 @@ typedef enum _studyOrAnswerType
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     if (self.type == answer_type) {
-        SBook *book = [self.dataArray safeObjectAtIndex:self.currentIndex];
-        return book.books.count;
+        return self.dataArray.count;
     }else{
         return 10;
     }
@@ -236,8 +235,7 @@ typedef enum _studyOrAnswerType
         SAnswerCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
         
         SBook *book = [self.dataArray safeObjectAtIndex:self.currentIndex];
-        SBookInfo *bookInfo = [book.books safeObjectAtIndex:indexPath.row];
-        [cell setupCellWithModel:bookInfo];
+        [cell setupCellWithModel:book];
         return cell;
     }else{
         static NSString * cellId = @"studyCell";
@@ -253,9 +251,8 @@ typedef enum _studyOrAnswerType
 {
     if (self.type == answer_type) {
         SBook *book = [self.dataArray safeObjectAtIndex:self.currentIndex];
-        SBookInfo *bookInfo = [book.books safeObjectAtIndex:indexPath.row];
         SChapterInfoVC *infoVC = [[SChapterInfoVC alloc] init];
-        infoVC.bookInfo = bookInfo;
+        infoVC.bookInfo = book;
         infoVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:infoVC animated:YES];
     }else{

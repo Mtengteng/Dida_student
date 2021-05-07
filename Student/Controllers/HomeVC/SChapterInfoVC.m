@@ -49,7 +49,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = self.bookInfo.bookName;
+//    self.title = self.bookInfo.bookName;
     
     [self startRequest];
     
@@ -63,7 +63,7 @@
     
     DefineWeakSelf;
     BWGetBookChapterReq *chapterReq = [[BWGetBookChapterReq alloc] init];
-    chapterReq.bookId = self.bookInfo.bId;
+//    chapterReq.bookId = self.bookInfo.bId;
     chapterReq.userId = [[NSUserDefaults standardUserDefaults] objectForKey:KEY_userId];
     [NetManger sendRequest:chapterReq withSucessed:^(BWBaseReq *req, BWBaseResp *resp) {
         [SCustomProgressHUD hideHUDForView:weakSelf.view animated:YES];
