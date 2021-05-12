@@ -9,8 +9,8 @@
 //下拉框view
 NS_ASSUME_NONNULL_BEGIN
 
-@class SMenuItem;
-typedef void(^selectBlock)(SMenuItem *selectItem);
+@class SCDictModel;
+typedef void(^selectBlock)(SCDictModel *selectItem);
 
 @interface SMenuView : UIView
 @property (nonatomic, copy) selectBlock select;

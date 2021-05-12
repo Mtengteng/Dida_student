@@ -16,5 +16,6 @@
 #define KEY_avatar          @"avatar"
 #define KEY_phone           @"phone"
 #define KEY_slogan          @"slogan"
+#define KYE_userLocation    @"userLocation"
 
 #endif /* UserConfig_h */
