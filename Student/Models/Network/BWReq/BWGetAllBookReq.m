@@ -11,7 +11,8 @@
 
 - (NSURL *)url
 {
-    NSString *str = [NSString stringWithFormat:@"%@%@",BaseURL,GetAllBookURL];
+    NSString *urlStr = [NSString stringWithFormat:GetAllBookURL,self.bookSubject,self.grade];
+    NSString *str = [NSString stringWithFormat:@"%@%@",BaseURL,urlStr];
     return [NSURL URLWithString:str];
 }
 

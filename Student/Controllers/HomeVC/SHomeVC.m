@@ -40,11 +40,11 @@ typedef enum _studyOrAnswerType
 @property (nonatomic, strong) SMenuView *menuView;
 @property (nonatomic, strong) ItemTabView *itemTab;
 @property (nonatomic, strong) ItemTabView *sortTab;
-@property (nonatomic, strong) NSArray *menuArray;
-@property (nonatomic, strong) NSArray *dataArray;
-@property (nonatomic, strong) NSArray *subArray;
-@property (nonatomic, strong) NSArray *itemArray;
-@property (nonatomic, strong) NSArray *sortArray;
+@property (nonatomic, strong) NSArray *menuArray;//学段array
+@property (nonatomic, strong) NSArray *dataArray;//教辅data
+@property (nonatomic, strong) NSArray *subArray;//学科
+@property (nonatomic, strong) NSArray *itemArray;//学习集和答题集
+@property (nonatomic, strong) NSArray *sortArray;//必修1等
 @property (nonatomic, strong) BWGetDictReq *dictReq;
 
 
@@ -96,7 +96,7 @@ typedef enum _studyOrAnswerType
     };
     
     //高中、竞赛block
-    self.menuView.select = ^(SCDictModel * _Nonnull selectItem) {
+    self.menuView.select = ^(SCDictInfoModel * _Nonnull selectItem) {
 //        NSLog(@"%@",selectItem.itemName);
     };
 }
@@ -111,6 +111,7 @@ typedef enum _studyOrAnswerType
 
     
 }
+//获取学段
 - (void)getDictPERIODRequest
 {
     DefineWeakSelf;
@@ -123,10 +124,11 @@ typedef enum _studyOrAnswerType
         
         SCDictModel *dictModel = (SCDictModel *)dictResp.data;
         
-        weakSelf.itemArray = dictModel.dictValueList;
+        weakSelf.menuArray = dictModel.dictValueList;
             
-        if (weakSelf.itemArray.count != 0) {
-            [weakSelf getDictSUBJECTRequest];
+        if (weakSelf.menuArray.count != 0) {
+            SCDictInfoModel *infoModel = [dictModel.dictValueList safeObjectAtIndex:1];
+            [weakSelf getDictSUBJECTRequestWithGrade:infoModel.dictValue];
         }else{
             [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
             [MBProgressHUD showMessag:@"无学段信息" toView:weakSelf.view hudModel:MBProgressHUDModeText hide:YES];
@@ -140,10 +142,12 @@ typedef enum _studyOrAnswerType
        
     }];
 }
-- (void)getDictSUBJECTRequest
+//获取学科
+- (void)getDictSUBJECTRequestWithGrade:(NSString *)PERIOD
 {
     DefineWeakSelf;
     self.dictReq.dictType = @"SUBJECT"; //学科
+    self.dictReq.param = PERIOD;//学段
     [NetManger sendRequest:self.dictReq withSucessed:^(BWBaseReq *req, BWBaseResp *resp) {
         
         BWGetDictResp *dictResp = (BWGetDictResp *)resp;
@@ -153,6 +157,7 @@ typedef enum _studyOrAnswerType
         weakSelf.subArray = dictModel.dictValueList;
             
         if (weakSelf.subArray.count != 0) {
+            SCDictInfoModel *infoModel = 
             [weakSelf getBookRequest];
         }else{
             [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
@@ -165,11 +170,14 @@ typedef enum _studyOrAnswerType
         [MBProgressHUD showMessag:error.domain toView:weakSelf.view hudModel:MBProgressHUDModeText hide:YES];
     }];
 }
-- (void)getBookRequest
+//获取学科对应的教辅
+- (void)getBookRequestWithBookSubject:(NSString *)subject andGrade:(NSString *)grade
 {
     
     DefineWeakSelf;
     BWGetAllBookReq *bookReq = [[BWGetAllBookReq alloc] init];
+    bookReq.bookSubject = subject;
+    bookReq.grade = grade;
     [NetManger sendRequest:bookReq withSucessed:^(BWBaseReq *req, BWBaseResp *resp) {
         [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
 
@@ -335,16 +343,7 @@ typedef enum _studyOrAnswerType
 - (SMenuView *)menuView
 {
     if (!_menuView) {
-//        NSMutableArray *itemArray = [[NSMutableArray alloc] init];
-//        NSArray *nameArray = @[@"高中",@"竞赛"];
-//        for (NSInteger i = 0; i < nameArray.count; i++) {
-//            SMenuItem *item = [[SMenuItem alloc] init];
-//            item.itemId = [NSString stringWithFormat:@"%ld",i];
-//            item.itemName = [nameArray safeObjectAtIndex:i];
-//            [itemArray addObject:item];
-//        }
-//        self.menuArray = itemArray;
-        _menuView = [[SMenuView alloc] initContentArray:self.itemArray withSuperView:self.view];
+        _menuView = [[SMenuView alloc] initContentArray:self.menuArray withSuperView:self.view];
     }
     return _menuView;
 }
@@ -398,7 +397,6 @@ typedef enum _studyOrAnswerType
         
         self.subArray = array;
 
-        
         _selectView = [[SelectSubView alloc] initWithItemArray:array];
     }
     return _selectView;

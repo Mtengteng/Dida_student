@@ -10,7 +10,7 @@
 @implementation BWGetDictReq
 - (NSURL *)url
 {
-    NSString *urlStr = [NSString stringWithFormat:GetDictTypeURL,self.dictType];
+    NSString *urlStr = [NSString stringWithFormat:GetDictTypeURL,self.dictType,self.param];
     NSString *str = [NSString stringWithFormat:@"%@%@",BaseURL,urlStr];
     return [NSURL URLWithString:str];
 }
