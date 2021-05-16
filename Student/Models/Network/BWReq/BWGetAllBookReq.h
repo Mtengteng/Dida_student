@@ -10,6 +10,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BWGetAllBookReq : BWBaseReq
+@property (nonatomic, strong) NSString *bookSubject;
+@property (nonatomic, strong) NSString *grade;
 
 - (NSURL *)url;
 

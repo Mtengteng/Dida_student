@@ -14,6 +14,8 @@
 
 #import "BWLoginReq.h"
 #import "BWLoginResp.h"
+#import "SForgetVC.h"
+#import "SLoginSettingVC.h"
 
 @interface SLoginVC ()
 @property (nonatomic, strong) UIView *loginBgView;
@@ -33,9 +35,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.loginNameField.text = @"a001";
-    self.passwordField.text = @"a001";
+
+    self.loginNameField.text = @"wypnfsy500";
+    self.passwordField.text = @"password123";
     
     [self createUI];
     
@@ -110,12 +112,12 @@
     }];
     
    
-//    [self.myScrollView addSubview:self.forgetBtn];
-//    [self.forgetBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.loginInBtn.mas_bottom).offset(PAaptation_y(10));
-//        make.right.equalTo(self.loginInBtn.mas_right);
-//        make.height.mas_equalTo(PAaptation_y(40));
-//    }];
+    [self.myScrollView addSubview:self.forgetBtn];
+    [self.forgetBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.loginInBtn.mas_bottom).offset(PAaptation_y(10));
+        make.right.equalTo(self.loginInBtn.mas_right);
+        make.height.mas_equalTo(PAaptation_y(40));
+    }];
     
     [self.myScrollView addSubview:self.customView];
     [self.customView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -220,33 +222,42 @@
         
         BWLoginResp *loginResp = (BWLoginResp *)resp;
         
-        [weakSelf saveDic:loginResp.userInfo];
+        NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
+        [userDef setObject:[loginResp.userInfo safeObjectForKey:@"id"] forKey:KEY_userId];
+        [userDef setObject:[loginResp.userInfo safeObjectForKey:@"openid"] forKey:KEY_openId];
+        [userDef setObject:[loginResp.userInfo safeObjectForKey:@"nickName"] forKey:KEY_nickName];
+        [userDef setObject:[loginResp.userInfo safeObjectForKey:@"nickName"] forKey:KEY_nickName];
+        [userDef setObject:[loginResp.userInfo safeObjectForKey:@"avatar"] forKey:KEY_avatar];
+        [userDef setObject:[loginResp.userInfo safeObjectForKey:@"phone"] forKey:KEY_phone];
+        [userDef setObject:[loginResp.userInfo safeObjectForKey:@"slogan"] forKey:KEY_slogan];
+        NSDictionary *userLocation = [loginResp.userInfo safeObjectForKey:@"userLocation"];
+        [userDef setObject:userLocation ? userLocation : @"" forKey:KYE_userLocation];
+        [userDef synchronize];
+        
         
         AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
         
-        appDelegate.window.rootViewController = [[SRootVC alloc] init];
+        if (userLocation) {
+            appDelegate.window.rootViewController = [[SRootVC alloc] init];
+
+        }else{
+            SLoginSettingVC *settingVC = [[SLoginSettingVC alloc] init];
+            appDelegate.window.rootViewController = settingVC;
+        }
         
 
-        
     } failure:^(BWBaseReq *req, NSError *error) {
         [SCustomProgressHUD hideHUDForView:weakSelf.view animated:YES];
         [MBProgressHUD showMessag:error.domain toView:weakSelf.view hudModel:MBProgressHUDModeText hide:YES];
     }];
            
 }
-- (void)saveDic:(NSDictionary *)userDic
-{
-    NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
-    [userDef setObject:[userDic safeObjectForKey:@"id"] forKey:KEY_userId];
-    [userDef setObject:[userDic safeObjectForKey:@"openid"] forKey:KEY_openId];
-    [userDef setObject:[userDic safeObjectForKey:@"nickName"] forKey:KEY_nickName];
-    [userDef synchronize];
-}
+
 
 - (void)forgetClick:(id)sender
 {
-//    NXForgetVC *forgetVC = [[NXForgetVC alloc] init];
-//    [self.navigationController pushViewController:forgetVC animated:YES];
+    SForgetVC *forgetVC = [[SForgetVC alloc] init];
+    [self.navigationController pushViewController:forgetVC animated:YES];
 }
 #pragma mark - 懒加载属性 -
 - (TPKeyboardAvoidingScrollView *)myScrollView{

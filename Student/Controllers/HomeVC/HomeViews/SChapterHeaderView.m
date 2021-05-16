@@ -63,9 +63,9 @@
 }
 - (void)setupContent
 {
-    [self.bookImageView sd_setImageWithURL:[NSURL URLWithString:self.bookInfo.bookPic]];
-    self.nameLabel.text = self.bookInfo.bookName;
-    self.subLabel.text = self.bookInfo.bookTags;
+//    [self.bookImageView sd_setImageWithURL:[NSURL URLWithString:self.bookInfo.bookPic]];
+//    self.nameLabel.text = self.bookInfo.bookName;
+//    self.subLabel.text = self.bookInfo.bookTags;
 }
 
 #pragma mark - LazyLoad -

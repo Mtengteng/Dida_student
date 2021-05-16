@@ -1,22 +1,21 @@
 //
-//  SExamVC.m
+//  SForgetVC.m
 //  Student
 //
-//  Created by 马腾 on 2021/4/7.
+//  Created by 马腾 on 2021/5/12.
 //
 
-#import "SExamVC.h"
+#import "SForgetVC.h"
 
-@interface SExamVC ()
+@interface SForgetVC ()
 
 @end
 
-@implementation SExamVC
+@implementation SForgetVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
 }
 
 

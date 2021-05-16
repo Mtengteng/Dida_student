@@ -152,7 +152,11 @@ referenceSizeForHeaderInSection:(NSInteger)section {
                 [answerList enumerateObjectsUsingBlock:^(SAnswer*  _Nonnull answer, NSUInteger idx, BOOL * _Nonnull stop) {
                     if (answer.answerId.integerValue == answerId) {
                         answer.isSelected = YES;
-                        [weakSelf.submitArray addObject:answer];
+                        if (![weakSelf.submitArray containsObject:answer]) {
+                            [weakSelf.submitArray addObject:answer];
+                        }
+                    }else{
+                        answer.isSelected = NO;
                     }
                 }];
 
@@ -172,7 +176,7 @@ referenceSizeForHeaderInSection:(NSInteger)section {
         NSArray *itemArray = @[@"基础篇",@"综合篇",@"应用篇",@"专属检测"];
         for (NSInteger i = 0; i < itemArray.count; i++) {
             ItemModel *model = [[ItemModel alloc] init];
-            model.itemId = [NSString stringWithFormat:@"%ld",i];
+            model.itemId = [NSString stringWithFormat:@"%ld",(long)i];
             model.itemName = [itemArray safeObjectAtIndex:i];
             [array addObject:model];
         }

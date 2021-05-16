@@ -15,20 +15,16 @@
     if (self = [super initWithJSONDictionary:jsonDic]) {
         if (self.errorCode == ResponseCode_Success)
         {
-            NSDictionary *dataDic = [jsonDic safeObjectForKey:@"data"];
-            NSMutableArray *hot = [[NSMutableArray alloc] init];;
-            NSMutableArray *newest = [[NSMutableArray alloc] init];
+            NSMutableArray *bookArray = [[NSMutableArray alloc] init];;
+
+            for (NSDictionary *dicHot in [jsonDic safeObjectForKey:@"data"]) {
+                SBook *book = [SBook mj_objectWithKeyValues:dicHot];
+                book.bId = [dicHot safeObjectForKey:@"id"];
+                [bookArray addObject:book];
+            }
             
-            for (NSDictionary *dicHot in [dataDic safeObjectForKey:@"hot"]) {
-                SBook *book = [[SBook alloc] initWithDic:dicHot];
-                [hot addObject:book];
-            }
-            for (NSDictionary *dicNew in [dataDic safeObjectForKey:@"newest"]) {
-                SBook *book = [[SBook alloc] initWithDic:dicNew];
-                [newest addObject:book];
-            }
-            self.hotBookArray = hot;
-            self.newestBookArray = newest;
+            self.bookArray = bookArray;
+
 
         }
     }

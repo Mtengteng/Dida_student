@@ -140,9 +140,6 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-
-
-    
 //    CGFloat itemW;
 //    CGFloat itemH;
 //    self.flowLayout.minimumInteritemSpacing = LAdaptation_x(20);

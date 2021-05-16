@@ -10,8 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BWGetAllBookResp : BWBaseResp
-@property (nonatomic, strong) NSMutableArray *hotBookArray;
-@property (nonatomic, strong) NSMutableArray *newestBookArray;
+@property (nonatomic, strong) NSMutableArray *bookArray;
 
 - (id)initWithJSONDictionary:(NSDictionary*)jsonDic;
 

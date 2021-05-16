@@ -6,7 +6,7 @@
 //
 
 #import "SMenuView.h"
-#import "SMenuItem.h"
+#import "SCDictModel.h"
 
 
 @interface SMenuView()<UITableViewDelegate,UITableViewDataSource>
@@ -42,8 +42,8 @@
         make.edges.equalTo(self);
     }];
     
-    SMenuItem *firstItem = [self.dataArray safeObjectAtIndex:0];
-    self.titleLabel.text = firstItem.itemName;
+//    SMenuItem *firstItem = [self.dataArray safeObjectAtIndex:0];
+//    self.titleLabel.text = firstItem.itemName;
     [self.titleView addSubview:self.titleLabel];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.titleView);
@@ -126,8 +126,8 @@
         [v removeFromSuperview];
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    SMenuItem *item = [self.dataArray safeObjectAtIndex:indexPath.row];
-    cell.textLabel.text = item.itemName;
+    SCDictInfoModel *item = [self.dataArray safeObjectAtIndex:indexPath.row];
+    cell.textLabel.text = item.dictValue;
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.textLabel.font = [UIFont systemFontOfSize:12];
     return cell;
@@ -135,11 +135,11 @@
 #pragma mark - UITableViewDelegate -
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SMenuItem *item = [self.dataArray safeObjectAtIndex:indexPath.row];
+    SCDictInfoModel *item = [self.dataArray safeObjectAtIndex:indexPath.row];
     if (self.select) {
         self.select(item);
     }
-    self.titleLabel.text = item.itemName;
+    self.titleLabel.text = item.dictValue;
     [self clickAction:nil];
 }
 #pragma mark - LazyLoad -
