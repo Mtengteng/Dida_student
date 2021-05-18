@@ -147,7 +147,7 @@ typedef enum _studyOrAnswerType
 {
     DefineWeakSelf;
     self.dictReq.dictType = @"SUBJECT"; //学科
-    self.dictReq.param = PERIOD;//学段
+//    self.dictReq.param = PERIOD;//学段
     [NetManger sendRequest:self.dictReq withSucessed:^(BWBaseReq *req, BWBaseResp *resp) {
         
         BWGetDictResp *dictResp = (BWGetDictResp *)resp;
@@ -157,8 +157,8 @@ typedef enum _studyOrAnswerType
         weakSelf.subArray = dictModel.dictValueList;
             
         if (weakSelf.subArray.count != 0) {
-            SCDictInfoModel *infoModel = 
-            [weakSelf getBookRequest];
+            SCDictInfoModel *infoModel = [dictModel.dictValueList safeObjectAtIndex:0];
+            [weakSelf getBookRequestWithBookSubject:infoModel.dictValue andGrade:@"SUBJECT"];
         }else{
             [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
             [MBProgressHUD showMessag:@"无学科信息" toView:weakSelf.view hudModel:MBProgressHUDModeText hide:YES];

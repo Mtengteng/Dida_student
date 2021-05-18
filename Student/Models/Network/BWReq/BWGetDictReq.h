@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BWGetDictReq : BWBaseReq
 @property (nonatomic, strong) NSString *dictType;
-@property (nonatomic, strong) NSString *param;
+//@property (nonatomic, strong) NSString *param;
 
 - (NSURL *)url;
 
