@@ -8,10 +8,10 @@
 #import "SBaseVC.h"
 
 NS_ASSUME_NONNULL_BEGIN
-@class SBookInfo;
+@class SBook;
 
 @interface SChapterInfoVC : SBaseVC
-@property (nonatomic, strong) SBookInfo *bookInfo;
+@property (nonatomic, strong) SBook *book;
 @end
 
 NS_ASSUME_NONNULL_END

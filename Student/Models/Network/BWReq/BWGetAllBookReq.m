@@ -12,7 +12,8 @@
 - (NSURL *)url
 {
     NSString *urlStr = [NSString stringWithFormat:GetAllBookURL,self.bookSubject,self.grade];
-    NSString *str = [NSString stringWithFormat:@"%@%@",BaseURL,urlStr];
+    NSString * encodingString = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *str = [NSString stringWithFormat:@"%@%@",BaseURL,encodingString];
     return [NSURL URLWithString:str];
 }
 

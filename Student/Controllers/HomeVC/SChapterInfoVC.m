@@ -63,7 +63,7 @@
     
     DefineWeakSelf;
     BWGetBookChapterReq *chapterReq = [[BWGetBookChapterReq alloc] init];
-//    chapterReq.bookId = self.bookInfo.bId;
+    chapterReq.bookId = self.book.bId;
     chapterReq.userId = [[NSUserDefaults standardUserDefaults] objectForKey:KEY_userId];
     [NetManger sendRequest:chapterReq withSucessed:^(BWBaseReq *req, BWBaseResp *resp) {
         [SCustomProgressHUD hideHUDForView:weakSelf.view animated:YES];
@@ -89,7 +89,6 @@
         make.width.equalTo(self.view);
         make.height.mas_equalTo(LAdaptation_y(354));
     }];
-    
     
     [self.view addSubview:self.collectionView];
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -196,7 +195,7 @@
 - (SChapterHeaderView *)headerView
 {
     if (!_headerView) {
-        _headerView = [[SChapterHeaderView alloc] initWithModel:self.bookInfo];
+        _headerView = [[SChapterHeaderView alloc] initWithModel:self.book];
     }
     return _headerView;
 }

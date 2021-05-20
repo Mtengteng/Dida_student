@@ -35,10 +35,10 @@
     }];
 }
 
-- (void)setupCellWithModel:(SBookInfo *)model
+- (void)setupCellWithModel:(SBook *)model
 {
-//    [self.imageView sd_setImageWithURL:[NSURL URLWithString:model.bookPic]];
-//    self.bookTitleLabel.text = model.bookName;
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:model.bookPic]];
+    self.bookTitleLabel.text = model.bookName;
 }
 
 #pragma mark - LazyLoad -

@@ -9,8 +9,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class SBookInfo;
-
 @interface SBook : NSObject
 @property (nonatomic, strong) NSString *bId;
 @property (nonatomic, assign) NSInteger bookCommentCount;

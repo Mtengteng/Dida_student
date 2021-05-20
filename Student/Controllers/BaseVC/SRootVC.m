@@ -12,6 +12,7 @@
 #import "SPromoteVC.h"
 #import "SMineVC.h"
 #import "BWMyTabBar.h"
+#import "SAddTestVC.h"
 
 @interface SRootVC ()<UITabBarControllerDelegate>
 @property (nonatomic, strong) NSArray *viewsArray;
@@ -73,6 +74,11 @@
     if (!btn.hidden) {
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"createCourse" object:nil];
+        
+        SAddTestVC *testVC = [[SAddTestVC alloc] init];
+        SBaseNavigationVC *nav = [[SBaseNavigationVC alloc] initWithRootViewController:testVC];
+        nav.modalPresentationStyle = 0;
+        [self presentViewController:nav animated:YES completion:nil];
     }
 }
 @end

@@ -183,6 +183,9 @@ typedef enum _studyOrAnswerType
 
         BWGetAllBookResp *bookResp = (BWGetAllBookResp *)resp;
         weakSelf.dataArray = bookResp.bookArray;
+        
+        [weakSelf createUI];
+        
         [weakSelf.collectionView reloadData];
       
     } failure:^(BWBaseReq *req, NSError *error) {
@@ -301,7 +304,6 @@ typedef enum _studyOrAnswerType
     if (self.type == answer_type) {
         static NSString * CellIdentifier = @"answerCell";
         SAnswerCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
-        
         SBook *book = [self.dataArray safeObjectAtIndex:self.currentIndex];
         [cell setupCellWithModel:book];
         return cell;
@@ -320,7 +322,7 @@ typedef enum _studyOrAnswerType
     if (self.type == answer_type) {
         SBook *book = [self.dataArray safeObjectAtIndex:self.currentIndex];
         SChapterInfoVC *infoVC = [[SChapterInfoVC alloc] init];
-        infoVC.bookInfo = book;
+        infoVC.book = book;
         infoVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:infoVC animated:YES];
     }else{

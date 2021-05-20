@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SAnswerCollectionViewCell : UICollectionViewCell
 
-- (void)setupCellWithModel:(SBookInfo *)model;
+- (void)setupCellWithModel:(SBook *)model;
 @end
 
 NS_ASSUME_NONNULL_END

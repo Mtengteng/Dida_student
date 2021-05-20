@@ -11,6 +11,8 @@
 		9E1A18232635550B006E226B /* SCAssistantCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1A18222635550B006E226B /* SCAssistantCell.m */; };
 		9E1A182826355576006E226B /* SCPaperCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1A182726355576006E226B /* SCPaperCell.m */; };
 		9E29F48C26314C0F00638047 /* SAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E29F48B26314C0F00638047 /* SAnswer.m */; };
+		9E559E8A2653ABF0006523C6 /* SAddImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E559E892653ABF0006523C6 /* SAddImageView.m */; };
+		9E5A0AA62656388F0023840C /* SContentImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A0AA52656388F0023840C /* SContentImageView.m */; };
 		9E6CCECE262D52D3004B6B42 /* BWChapterSecionReq.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6CCECD262D52D3004B6B42 /* BWChapterSecionReq.m */; };
 		9E6CCED2262D52DF004B6B42 /* BWChapterSecionResp.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6CCED1262D52DF004B6B42 /* BWChapterSecionResp.m */; };
 		9E6CCED6262D5AA7004B6B42 /* SChapterSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6CCED5262D5AA7004B6B42 /* SChapterSection.m */; };
@@ -92,6 +94,7 @@
 		9EDE3BEA262812B800FFC3EF /* SChapterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDE3BE9262812B800FFC3EF /* SChapterCell.m */; };
 		9EDE3BEE2628152400FFC3EF /* SChapterHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDE3BED2628152400FFC3EF /* SChapterHeaderView.m */; };
 		9EDE3BF22628185900FFC3EF /* SBookImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDE3BF12628185900FFC3EF /* SBookImageView.m */; };
+		9EE287CB2653973B003EE14D /* SAddTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE287CA2653973B003EE14D /* SAddTestVC.m */; };
 		9EE50B4B262FEF2900DC7D40 /* SAnswerSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE50B4A262FEF2900DC7D40 /* SAnswerSelectCell.m */; };
 		9EFCFE0C262BD29200C8FD43 /* StudyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EFCFE0B262BD29200C8FD43 /* StudyCollectionViewCell.m */; };
 		E0E705FD99566A11CD09AEF0 /* Pods_Student.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A582030DBAD19EA70FDD88 /* Pods_Student.framework */; };
@@ -107,6 +110,10 @@
 		9E1A182726355576006E226B /* SCPaperCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCPaperCell.m; sourceTree = "<group>"; };
 		9E29F48A26314C0F00638047 /* SAnswer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAnswer.h; sourceTree = "<group>"; };
 		9E29F48B26314C0F00638047 /* SAnswer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAnswer.m; sourceTree = "<group>"; };
+		9E559E882653ABF0006523C6 /* SAddImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAddImageView.h; sourceTree = "<group>"; };
+		9E559E892653ABF0006523C6 /* SAddImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAddImageView.m; sourceTree = "<group>"; };
+		9E5A0AA42656388F0023840C /* SContentImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SContentImageView.h; sourceTree = "<group>"; };
+		9E5A0AA52656388F0023840C /* SContentImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SContentImageView.m; sourceTree = "<group>"; };
 		9E6CCECC262D52D3004B6B42 /* BWChapterSecionReq.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWChapterSecionReq.h; sourceTree = "<group>"; };
 		9E6CCECD262D52D3004B6B42 /* BWChapterSecionReq.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWChapterSecionReq.m; sourceTree = "<group>"; };
 		9E6CCED0262D52DF004B6B42 /* BWChapterSecionResp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWChapterSecionResp.h; sourceTree = "<group>"; };
@@ -258,6 +265,8 @@
 		9EDE3BED2628152400FFC3EF /* SChapterHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SChapterHeaderView.m; sourceTree = "<group>"; };
 		9EDE3BF02628185900FFC3EF /* SBookImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBookImageView.h; sourceTree = "<group>"; };
 		9EDE3BF12628185900FFC3EF /* SBookImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBookImageView.m; sourceTree = "<group>"; };
+		9EE287C92653973B003EE14D /* SAddTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAddTestVC.h; sourceTree = "<group>"; };
+		9EE287CA2653973B003EE14D /* SAddTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAddTestVC.m; sourceTree = "<group>"; };
 		9EE50B49262FEF2900DC7D40 /* SAnswerSelectCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAnswerSelectCell.h; sourceTree = "<group>"; };
 		9EE50B4A262FEF2900DC7D40 /* SAnswerSelectCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAnswerSelectCell.m; sourceTree = "<group>"; };
 		9EFCFE0A262BD29200C8FD43 /* StudyCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudyCollectionViewCell.h; sourceTree = "<group>"; };
@@ -302,6 +311,17 @@
 				9E1A181D263544FA006E226B /* SelectWhiteBGBar.m */,
 			);
 			path = SelectWhiteBgBar;
+			sourceTree = "<group>";
+		};
+		9E559E872653ABCD006523C6 /* TestImageView */ = {
+			isa = PBXGroup;
+			children = (
+				9E559E882653ABF0006523C6 /* SAddImageView.h */,
+				9E559E892653ABF0006523C6 /* SAddImageView.m */,
+				9E5A0AA42656388F0023840C /* SContentImageView.h */,
+				9E5A0AA52656388F0023840C /* SContentImageView.m */,
+			);
+			path = TestImageView;
 			sourceTree = "<group>";
 		};
 		9E77AC762626B4F2007C4D2B /* BaseViews */ = {
@@ -437,6 +457,7 @@
 		9E905B9925C1309A009BB170 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9EE287C82653970E003EE14D /* AddTestVC */,
 				9E905C0425C13508009BB170 /* BaseVC */,
 				9E905C0E25C13589009BB170 /* HomeVC */,
 				9E905C0F25C1363C009BB170 /* StudyVC */,
@@ -778,6 +799,16 @@
 			path = StudyModels;
 			sourceTree = "<group>";
 		};
+		9EE287C82653970E003EE14D /* AddTestVC */ = {
+			isa = PBXGroup;
+			children = (
+				9E559E872653ABCD006523C6 /* TestImageView */,
+				9EE287C92653973B003EE14D /* SAddTestVC.h */,
+				9EE287CA2653973B003EE14D /* SAddTestVC.m */,
+			);
+			path = AddTestVC;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -932,6 +963,8 @@
 				9E905C2525C138DF009BB170 /* SMineVC.m in Sources */,
 				9E77AC792626B50D007C4D2B /* BWMyTabBar.m in Sources */,
 				9E905BF625C13266009BB170 /* BWLoginReq.m in Sources */,
+				9E5A0AA62656388F0023840C /* SContentImageView.m in Sources */,
+				9E559E8A2653ABF0006523C6 /* SAddImageView.m in Sources */,
 				9E905B8225C13035009BB170 /* AppDelegate.m in Sources */,
 				9E905C0025C134CF009BB170 /* BWTestResp.m in Sources */,
 				9E905C1925C13758009BB170 /* SLoginVC.m in Sources */,
@@ -966,6 +999,7 @@
 				9E905C0725C13532009BB170 /* SBaseVC.m in Sources */,
 				9E780137261C45D6006438DC /* BWGetAllBookReq.m in Sources */,
 				9EDE3BEA262812B800FFC3EF /* SChapterCell.m in Sources */,
+				9EE287CB2653973B003EE14D /* SAddTestVC.m in Sources */,
 				9EDE3BF22628185900FFC3EF /* SBookImageView.m in Sources */,
 				9E6CCEDA262D5CD2004B6B42 /* SectionTableViewCell.m in Sources */,
 				9E905BD125C13121009BB170 /* NSDictionary+safe.m in Sources */,
