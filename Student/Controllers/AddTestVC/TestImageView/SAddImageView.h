@@ -13,6 +13,7 @@ typedef void(^addImgBlock)(void);
 
 @interface SAddImageView : UIView
 @property (nonatomic, copy) addImgBlock addBlock;
+@property (nonatomic, strong) NSMutableArray *imgList;
 
 - (instancetype)initWithFrame:(CGRect)frame withSuperVC:(UIViewController *)superVC;
 

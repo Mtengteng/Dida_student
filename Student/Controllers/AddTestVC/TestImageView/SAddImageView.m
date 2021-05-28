@@ -16,7 +16,6 @@
 @property (nonatomic, strong) UIImageView *addImageView;
 @property (nonatomic, strong) UIImagePickerController *imagePickerController;
 @property (nonatomic, strong) UIViewController *superVC;
-@property (nonatomic, strong) NSMutableArray *imgList;
 
 
 @end

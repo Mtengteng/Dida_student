@@ -10,6 +10,7 @@
 		9E1A181E263544FA006E226B /* SelectWhiteBGBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1A181D263544FA006E226B /* SelectWhiteBGBar.m */; };
 		9E1A18232635550B006E226B /* SCAssistantCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1A18222635550B006E226B /* SCAssistantCell.m */; };
 		9E1A182826355576006E226B /* SCPaperCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1A182726355576006E226B /* SCPaperCell.m */; };
+		9E24C73626578BC9004BC1A7 /* SAddSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E24C73526578BC9004BC1A7 /* SAddSelectView.m */; };
 		9E29F48C26314C0F00638047 /* SAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E29F48B26314C0F00638047 /* SAnswer.m */; };
 		9E559E8A2653ABF0006523C6 /* SAddImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E559E892653ABF0006523C6 /* SAddImageView.m */; };
 		9E5A0AA62656388F0023840C /* SContentImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A0AA52656388F0023840C /* SContentImageView.m */; };
@@ -108,6 +109,8 @@
 		9E1A18222635550B006E226B /* SCAssistantCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAssistantCell.m; sourceTree = "<group>"; };
 		9E1A182626355576006E226B /* SCPaperCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCPaperCell.h; sourceTree = "<group>"; };
 		9E1A182726355576006E226B /* SCPaperCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCPaperCell.m; sourceTree = "<group>"; };
+		9E24C73426578BC9004BC1A7 /* SAddSelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAddSelectView.h; sourceTree = "<group>"; };
+		9E24C73526578BC9004BC1A7 /* SAddSelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAddSelectView.m; sourceTree = "<group>"; };
 		9E29F48A26314C0F00638047 /* SAnswer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAnswer.h; sourceTree = "<group>"; };
 		9E29F48B26314C0F00638047 /* SAnswer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAnswer.m; sourceTree = "<group>"; };
 		9E559E882653ABF0006523C6 /* SAddImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAddImageView.h; sourceTree = "<group>"; };
@@ -320,6 +323,8 @@
 				9E559E892653ABF0006523C6 /* SAddImageView.m */,
 				9E5A0AA42656388F0023840C /* SContentImageView.h */,
 				9E5A0AA52656388F0023840C /* SContentImageView.m */,
+				9E24C73426578BC9004BC1A7 /* SAddSelectView.h */,
+				9E24C73526578BC9004BC1A7 /* SAddSelectView.m */,
 			);
 			path = TestImageView;
 			sourceTree = "<group>";
@@ -946,6 +951,7 @@
 				9E905BF525C13266009BB170 /* BWBaseDownloadReq.m in Sources */,
 				9E6CCEDF262D7794004B6B42 /* SAnswerPageVC.m in Sources */,
 				9ECDD0E6261D87D10037A9FD /* SExamVC.m in Sources */,
+				9E24C73626578BC9004BC1A7 /* SAddSelectView.m in Sources */,
 				9EDE3BEE2628152400FFC3EF /* SChapterHeaderView.m in Sources */,
 				9E905BFB25C13266009BB170 /* BWBaseDownloadResp.m in Sources */,
 				9E81A156264BA176004B9557 /* SCDictModel.m in Sources */,

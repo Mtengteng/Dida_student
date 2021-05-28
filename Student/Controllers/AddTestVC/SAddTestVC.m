@@ -10,6 +10,8 @@
 
 
 @interface SAddTestVC ()
+@property (nonatomic, strong) UILabel *addLabel;
+@property (nonatomic, strong) SAddImageView *addImageView;
 
 
 @end
@@ -31,10 +33,33 @@
         [weakSelf dismissViewControllerAnimated:YES completion:nil];
     }];
     
-    SAddImageView *imageView = [[SAddImageView alloc] initWithFrame:CGRectMake(0, LAdaptation_y(60), SCREEN_WIDTH, LAdaptation_y(100)) withSuperVC:self];
-    [self.view addSubview:imageView];
+    [self.view addSubview:self.addLabel];
+    [self.addLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view).offset(LAdaptation_y(40));
+        make.left.equalTo(self.view).offset(LAdaptation_x(20));
+        make.width.mas_equalTo(LAdaptation_x(60));
+        make.height.mas_equalTo(LAdaptation_y(30));
+    }];
+    
+    [self.view addSubview:self.addImageView];
 }
 
 
-
+#pragma mark - LazyLoad -
+- (UILabel *)addLabel
+{
+    if (!_addLabel) {
+        _addLabel = [[UILabel alloc] init];
+        _addLabel.text = @"试卷内容";
+        _addLabel.font = [UIFont systemFontOfSize:14.0];
+    }
+    return _addLabel;
+}
+- (SAddImageView *)addImageView
+{
+    if (!_addImageView) {
+        _addImageView = [[SAddImageView alloc] initWithFrame:CGRectMake(LAdaptation_x(90), LAdaptation_y(40), SCREEN_WIDTH, LAdaptation_y(100)) withSuperVC:self];
+    }
+    return _addImageView;
+}
 @end
