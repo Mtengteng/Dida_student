@@ -14,6 +14,12 @@
 		9E29F48C26314C0F00638047 /* SAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E29F48B26314C0F00638047 /* SAnswer.m */; };
 		9E559E8A2653ABF0006523C6 /* SAddImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E559E892653ABF0006523C6 /* SAddImageView.m */; };
 		9E5A0AA62656388F0023840C /* SContentImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A0AA52656388F0023840C /* SContentImageView.m */; };
+		9E6A8340267991B7002B2517 /* SMoreSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6A833F267991B7002B2517 /* SMoreSelectView.m */; };
+		9E6A834426799DAE002B2517 /* SCitySelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6A834326799DAE002B2517 /* SCitySelectView.m */; };
+		9E6A83502679CBCC002B2517 /* CFLabelOnLeftButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6A83482679CBCC002B2517 /* CFLabelOnLeftButton.m */; };
+		9E6A83512679CBCC002B2517 /* CFDropDownMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6A834A2679CBCC002B2517 /* CFDropDownMenuView.m */; };
+		9E6A83522679CBCC002B2517 /* UIView+CFFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6A834D2679CBCC002B2517 /* UIView+CFFrame.m */; };
+		9E6A83532679CBCC002B2517 /* CFDropDownMenuView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9E6A834F2679CBCC002B2517 /* CFDropDownMenuView.bundle */; };
 		9E6CCECE262D52D3004B6B42 /* BWChapterSecionReq.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6CCECD262D52D3004B6B42 /* BWChapterSecionReq.m */; };
 		9E6CCED2262D52DF004B6B42 /* BWChapterSecionResp.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6CCED1262D52DF004B6B42 /* BWChapterSecionResp.m */; };
 		9E6CCED6262D5AA7004B6B42 /* SChapterSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6CCED5262D5AA7004B6B42 /* SChapterSection.m */; };
@@ -117,6 +123,18 @@
 		9E559E892653ABF0006523C6 /* SAddImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAddImageView.m; sourceTree = "<group>"; };
 		9E5A0AA42656388F0023840C /* SContentImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SContentImageView.h; sourceTree = "<group>"; };
 		9E5A0AA52656388F0023840C /* SContentImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SContentImageView.m; sourceTree = "<group>"; };
+		9E6A833E267991B7002B2517 /* SMoreSelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMoreSelectView.h; sourceTree = "<group>"; };
+		9E6A833F267991B7002B2517 /* SMoreSelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMoreSelectView.m; sourceTree = "<group>"; };
+		9E6A834226799DAE002B2517 /* SCitySelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCitySelectView.h; sourceTree = "<group>"; };
+		9E6A834326799DAE002B2517 /* SCitySelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCitySelectView.m; sourceTree = "<group>"; };
+		9E6A83482679CBCC002B2517 /* CFLabelOnLeftButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFLabelOnLeftButton.m; sourceTree = "<group>"; };
+		9E6A83492679CBCC002B2517 /* UIView+CFFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CFFrame.h"; sourceTree = "<group>"; };
+		9E6A834A2679CBCC002B2517 /* CFDropDownMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFDropDownMenuView.m; sourceTree = "<group>"; };
+		9E6A834B2679CBCC002B2517 /* CFDropDownMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFDropDownMenuView.h; sourceTree = "<group>"; };
+		9E6A834C2679CBCC002B2517 /* CFMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFMacro.h; sourceTree = "<group>"; };
+		9E6A834D2679CBCC002B2517 /* UIView+CFFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CFFrame.m"; sourceTree = "<group>"; };
+		9E6A834E2679CBCC002B2517 /* CFLabelOnLeftButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFLabelOnLeftButton.h; sourceTree = "<group>"; };
+		9E6A834F2679CBCC002B2517 /* CFDropDownMenuView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CFDropDownMenuView.bundle; sourceTree = "<group>"; };
 		9E6CCECC262D52D3004B6B42 /* BWChapterSecionReq.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWChapterSecionReq.h; sourceTree = "<group>"; };
 		9E6CCECD262D52D3004B6B42 /* BWChapterSecionReq.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWChapterSecionReq.m; sourceTree = "<group>"; };
 		9E6CCED0262D52DF004B6B42 /* BWChapterSecionResp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWChapterSecionResp.h; sourceTree = "<group>"; };
@@ -325,8 +343,42 @@
 				9E5A0AA52656388F0023840C /* SContentImageView.m */,
 				9E24C73426578BC9004BC1A7 /* SAddSelectView.h */,
 				9E24C73526578BC9004BC1A7 /* SAddSelectView.m */,
+				9E6A833E267991B7002B2517 /* SMoreSelectView.h */,
+				9E6A833F267991B7002B2517 /* SMoreSelectView.m */,
+				9E6A834226799DAE002B2517 /* SCitySelectView.h */,
+				9E6A834326799DAE002B2517 /* SCitySelectView.m */,
 			);
 			path = TestImageView;
+			sourceTree = "<group>";
+		};
+		9E6A833C26798B0D002B2517 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9E6A83462679CBCC002B2517 /* CFDropDownMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				9E6A83472679CBCC002B2517 /* Lib */,
+				9E6A834F2679CBCC002B2517 /* CFDropDownMenuView.bundle */,
+			);
+			path = CFDropDownMenuView;
+			sourceTree = "<group>";
+		};
+		9E6A83472679CBCC002B2517 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				9E6A834B2679CBCC002B2517 /* CFDropDownMenuView.h */,
+				9E6A834A2679CBCC002B2517 /* CFDropDownMenuView.m */,
+				9E6A834E2679CBCC002B2517 /* CFLabelOnLeftButton.h */,
+				9E6A83482679CBCC002B2517 /* CFLabelOnLeftButton.m */,
+				9E6A834C2679CBCC002B2517 /* CFMacro.h */,
+				9E6A83492679CBCC002B2517 /* UIView+CFFrame.h */,
+				9E6A834D2679CBCC002B2517 /* UIView+CFFrame.m */,
+			);
+			path = Lib;
 			sourceTree = "<group>";
 		};
 		9E77AC762626B4F2007C4D2B /* BaseViews */ = {
@@ -720,6 +772,7 @@
 		9E905C1625C1372F009BB170 /* OtherVC */ = {
 			isa = PBXGroup;
 			children = (
+				9E6A833C26798B0D002B2517 /* View */,
 				9E905C1725C13758009BB170 /* SLoginVC.h */,
 				9E905C1825C13758009BB170 /* SLoginVC.m */,
 				9E81A148264B6077004B9557 /* SLoginSettingVC.h */,
@@ -753,6 +806,7 @@
 		9ECDD0C2261D39910037A9FD /* CommonViews */ = {
 			isa = PBXGroup;
 			children = (
+				9E6A83462679CBCC002B2517 /* CFDropDownMenuView */,
 				9E1A181B263544D1006E226B /* SelectWhiteBgBar */,
 				9E9B94BB26297BF300CAE55D /* SCustomMBProgressHUD */,
 				9E9B94BF26297BF300CAE55D /* SCustomRefreshHeader */,
@@ -879,6 +933,7 @@
 				9E905BCB25C13121009BB170 /* xuanzhong@2x.png in Resources */,
 				9E9B94C326297BF300CAE55D /* loading.json in Resources */,
 				9E905BC825C13121009BB170 /* weixuanzhong@3x.png in Resources */,
+				9E6A83532679CBCC002B2517 /* CFDropDownMenuView.bundle in Resources */,
 				9E905B9025C13036009BB170 /* LaunchScreen.storyboard in Resources */,
 				9E905B8D25C13036009BB170 /* Assets.xcassets in Resources */,
 				9E905BD325C13121009BB170 /* new_noVob.png in Resources */,
@@ -942,6 +997,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E6A834426799DAE002B2517 /* SCitySelectView.m in Sources */,
 				9E905BFC25C13266009BB170 /* BWLoginResp.m in Sources */,
 				9E9B94C426297BF300CAE55D /* SCustomProgressHUD.m in Sources */,
 				9ECDD0EA261D8D5E0037A9FD /* SCureView.m in Sources */,
@@ -955,6 +1011,7 @@
 				9EDE3BEE2628152400FFC3EF /* SChapterHeaderView.m in Sources */,
 				9E905BFB25C13266009BB170 /* BWBaseDownloadResp.m in Sources */,
 				9E81A156264BA176004B9557 /* SCDictModel.m in Sources */,
+				9E6A8340267991B7002B2517 /* SMoreSelectView.m in Sources */,
 				9E81A14E264B6C53004B9557 /* BWGetDictReq.m in Sources */,
 				9ECDD0E2261D87BE0037A9FD /* SAssistantVC.m in Sources */,
 				9E905BCC25C13121009BB170 /* PrivacyPageController.m in Sources */,
@@ -977,6 +1034,7 @@
 				9E905BD425C13121009BB170 /* UITableView+AddForPlaceholder.m in Sources */,
 				9E905BCD25C13121009BB170 /* PrivacyAlertVC.m in Sources */,
 				9E905BD825C13121009BB170 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				9E6A83502679CBCC002B2517 /* CFLabelOnLeftButton.m in Sources */,
 				9E81A14A264B6077004B9557 /* SLoginSettingVC.m in Sources */,
 				9EFCFE0C262BD29200C8FD43 /* StudyCollectionViewCell.m in Sources */,
 				9E905C0A25C13550009BB170 /* SBaseNavigationVC.m in Sources */,
@@ -988,6 +1046,7 @@
 				9E905BCF25C13121009BB170 /* BWAlertCtrl.m in Sources */,
 				9E905C2225C138D0009BB170 /* SPromoteVC.m in Sources */,
 				9E905B9325C13036009BB170 /* main.m in Sources */,
+				9E6A83512679CBCC002B2517 /* CFDropDownMenuView.m in Sources */,
 				9E78012F261C43A0006438DC /* SAnswerCollectionViewCell.m in Sources */,
 				9E905BDA25C13121009BB170 /* MBProgressHUD.m in Sources */,
 				9E29F48C26314C0F00638047 /* SAnswer.m in Sources */,
@@ -1011,6 +1070,7 @@
 				9E905BD125C13121009BB170 /* NSDictionary+safe.m in Sources */,
 				9E780147261C51B6006438DC /* SBook.m in Sources */,
 				9E9B94B826292C2F00CAE55D /* SChapter.m in Sources */,
+				9E6A83522679CBCC002B2517 /* UIView+CFFrame.m in Sources */,
 				9E9B94C526297BF300CAE55D /* SCustomRefreshHeader.m in Sources */,
 				9E1A18232635550B006E226B /* SCAssistantCell.m in Sources */,
 				9EE50B4B262FEF2900DC7D40 /* SAnswerSelectCell.m in Sources */,
@@ -1090,7 +1150,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1142,7 +1202,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

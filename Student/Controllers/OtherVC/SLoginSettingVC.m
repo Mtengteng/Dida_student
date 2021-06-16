@@ -8,6 +8,7 @@
 #import "SLoginSettingVC.h"
 
 @interface SLoginSettingVC ()
+@property (nonatomic, strong) UIView *bgView;
 
 @end
 

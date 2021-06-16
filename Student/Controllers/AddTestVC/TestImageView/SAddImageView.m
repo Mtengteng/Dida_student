@@ -32,7 +32,7 @@
         [self addSubview:self.scrollView];
         
         self.addImageView.userInteractionEnabled = YES;
-        [self.addImageView setFrame:CGRectMake(0, 0, LAdaptation_x(50), LAdaptation_y(50))];
+        [self.addImageView setFrame:CGRectMake(LAdaptation_x(5), frame.size.height/2 - LAdaptation_y(50)/2, LAdaptation_x(50), LAdaptation_y(50))];
         [self addSubview:self.addImageView];
         
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addAction:)];
