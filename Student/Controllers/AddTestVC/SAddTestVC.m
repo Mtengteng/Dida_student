@@ -74,9 +74,10 @@
     
     SMoreSelectView *yearView = [[SMoreSelectView alloc] initWithFrame:CGRectMake(LAdaptation_x(50), LAdaptation_y(275), self.view.bounds.size.width - LAdaptation_x(50), LAdaptation_y(50)) WithArray:@[@"2021-2022",@"2020-2021",@"2019-2020",@"2018-2019"]];
     [self.view addSubview:yearView];
-
     
-    
+    self.dropDownMenuView = [[CFDropDownMenuView alloc] initWithFrame:CGRectMake(LAdaptation_x(50), LAdaptation_y(335), self.view.bounds.size.width - LAdaptation_x(50), LAdaptation_y(50))];
+    [self.view addSubview:self.dropDownMenuView];
+  
 }
 
 
