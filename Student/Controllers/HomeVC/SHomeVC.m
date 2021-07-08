@@ -24,6 +24,8 @@
 #import "SChapterInfoVC.h"
 #import "SCDictModel.h"
 
+#import "SAddStudyClassVC.h"
+
 typedef enum _studyOrAnswerType
 {
     answer_type = 0,
@@ -326,7 +328,9 @@ typedef enum _studyOrAnswerType
         infoVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:infoVC animated:YES];
     }else{
-        
+        SAddStudyClassVC *studyClassVC = [[SAddStudyClassVC alloc] init];
+        studyClassVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:studyClassVC animated:YES];
     }
 
     
