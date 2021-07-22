@@ -8,10 +8,14 @@
 #import "SBoxInfoVC.h"
 #import "SBox.h"
 #import "SBoxInfoHeaderView.h"
+#import "BWKnowledgeBoxGroupReq.h"
+#import "BWKnowledgeBoxGroupResp.h"
 
-@interface SBoxInfoVC ()
+@interface SBoxInfoVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) SBoxInfoHeaderView *headerView;
-
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) UILabel *allLabel;
 @end
 
 @implementation SBoxInfoVC
@@ -33,9 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self createLeftBackBtn:^{
-        
-    }];
+    
     
     [self createUI];
 }
@@ -48,8 +50,37 @@
         make.width.equalTo(self.view);
         make.height.mas_equalTo(LAdaptation_y(245));
     }];
+    
+    [self.view addSubview:self.allLabel];
+    [self.allLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.headerView.mas_bottom).offset(LAdaptation_y(10));
+        make.left.equalTo(self.view).offset(LAdaptation_x(20));
+    }];
+    
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.allLabel.mas_bottom).offset(LAdaptation_y(10));
+        make.left.equalTo(self.view).offset(LAdaptation_x(20));
+        make.right.equalTo(self.view.mas_right).offset(-LAdaptation_x(20));
+        make.bottom.equalTo(self.view.mas_bottom);
+    }];
 }
 
+#pragma mark - UITableViewDataSource -
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.dataArray.count+10;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellId = @"cellId";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+    }
+    cell.textLabel.text = @"asdlkfjasdlf";
+    return cell;
+}
 
 #pragma mark - LazyLoad -
 - (SBoxInfoHeaderView *)headerView
@@ -70,5 +101,24 @@
         _headerView.studyCountInfoLabel.text = self.box.boxStudyCount;
     }
     return _headerView;
+}
+- (UITableView *)tableView
+{
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] init];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    }
+    return _tableView;
+}
+- (UILabel *)allLabel
+{
+    if (!_allLabel) {
+        _allLabel = [[UILabel alloc] init];
+        _allLabel.text = @"全部内容";
+        _allLabel.font = [UIFont systemFontOfSize:14.0];
+    }
+    return _allLabel;
 }
 @end
