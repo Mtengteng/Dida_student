@@ -11,6 +11,11 @@
 
 #define BaseURL                      @"http://wyp.party:7777"                          //测试服务器
 #define LoginURL                     @"/user/login"                                         //登陆
+
+//学习集
+#define knowledgeBox                 @"/knowledgeBox/box/%@"                            //通过学科获取所有box
+
+
 #define GetAllBookURL                @"/book/all/%@/%@"                                      //首页获取图书
 #define GetBookChapterURL            @"/book/chapter/%@/%@"                                 //获取所有章节
 #define GetBookChapterSectionURL     @"/book/sections/%@/%@"                                //获取章下所有的节

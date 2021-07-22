@@ -7,6 +7,7 @@
 
 #import "StudyCollectionViewCell.h"
 #import "SBookImageView.h"
+#import "SBox.h"
 
 @interface StudyCollectionViewCell()
 @property (nonatomic, strong) SBookImageView *imageView;
@@ -44,9 +45,10 @@
 
 - (void)setupCellWithModel:(id)model
 {
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"studyCell_bg"]];
-    self.studyTitleLabel.text = @"五年高考";
-    self.studyCountLabel.text = @"12门";
+    SBox *box = (SBox *)model;
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:box.boxPic] placeholderImage:[UIImage imageNamed:@"studyCell_bg"]];
+    self.studyTitleLabel.text = box.boxName;
+    self.studyCountLabel.text = box.totalCardsCount;
 }
 
 #pragma mark - LazyLoad -

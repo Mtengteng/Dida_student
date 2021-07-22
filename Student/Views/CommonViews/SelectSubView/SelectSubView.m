@@ -6,7 +6,7 @@
 //
 
 #import "SelectSubView.h"
-#import "SubModel.h"
+#import "SCDictModel.h"
 
 @interface SelectSubView()
 @property (nonatomic, strong) NSArray *itemList;
@@ -25,11 +25,11 @@
         UIButton *firstBtn = nil;
         for (NSInteger i = 0; i < itemList.count; i++) {
             
-            SubModel *model = [itemList safeObjectAtIndex:i];
+            SCDictInfoModel *model = [itemList safeObjectAtIndex:i];
             
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
             button.tag = i+1000;
-            [button setTitle:model.subName forState:UIControlStateNormal];
+            [button setTitle:model.dictValue forState:UIControlStateNormal];
             [button.titleLabel setFont:[UIFont systemFontOfSize:18.0]];
             [button addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
             [button setFrame:CGRectMake(i*(LAdaptation_x(40)+LAdaptation_x(48)), LAdaptation_y(44)/2 - LAdaptation_y(20)/2, LAdaptation_x(40), LAdaptation_y(20))];
@@ -63,12 +63,12 @@
     [self changeSelectStateWithBtn:button];
     
     if (self.selectSubBlock) {
-        self.selectSubBlock([self.itemList safeObjectAtIndex:0],button.tag-1000);
+        self.selectSubBlock([self.itemList safeObjectAtIndex:button.tag-1000],button.tag-1000);
     }
 
 }
 
-- (void)setFirstSub:(void (^)(SubModel * _Nonnull, NSInteger))selectFirst
+- (void)setFirstSub:(void (^)(SCDictInfoModel * _Nonnull, NSInteger))selectFirst
 {
     UIButton *firstBtn = (UIButton *)[self viewWithTag:1000];
     [self changeSelectStateWithBtn:firstBtn];

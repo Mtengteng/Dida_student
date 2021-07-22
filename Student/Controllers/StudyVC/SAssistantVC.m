@@ -8,7 +8,7 @@
 #import "SAssistantVC.h"
 #import "SCureView.h"
 #import "SelectSubView.h"
-#import "SubModel.h"
+#import "SCDictModel.h"
 #import "SelectWhiteBGBar.h"
 #import "SCAssistantCell.h"
 #import "SCPaperCell.h"
@@ -39,7 +39,7 @@
 //    [self startRequest];
     
     DefineWeakSelf;
-    self.selectView.selectSubBlock = ^(SubModel * _Nonnull model,NSInteger index) {
+    self.selectView.selectSubBlock = ^(SCDictInfoModel * _Nonnull model,NSInteger index) {
         weakSelf.currentIndex = index;
         
     };
@@ -195,14 +195,14 @@
 {
     if (!_selectView) {
         NSMutableArray *subArray = [[NSMutableArray alloc] init];
-        NSArray *array = @[@"数学",@"物理",@"化学"];
-        
-        for (NSInteger i = 0; i < array.count; i++) {
-            SubModel *model = [[SubModel alloc] init];
-            model.subId = [NSString stringWithFormat:@"%ld",i];
-            model.subName = [array safeObjectAtIndex:i];
-            [subArray addObject:model];
-        }
+//        NSArray *array = @[@"数学",@"物理",@"化学"];
+//
+//        for (NSInteger i = 0; i < array.count; i++) {
+//            SubModel *model = [[SubModel alloc] init];
+//            model.subId = [NSString stringWithFormat:@"%ld",i];
+//            model.subName = [array safeObjectAtIndex:i];
+//            [subArray addObject:model];
+//        }
         self.subArray = subArray;
         _selectView = [[SelectSubView alloc] initWithItemArray:subArray];
     }

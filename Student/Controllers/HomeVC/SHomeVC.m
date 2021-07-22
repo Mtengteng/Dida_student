@@ -6,7 +6,6 @@
 //
 
 #import "SHomeVC.h"
-#import "SubModel.h"
 #import "SelectSubView.h"
 #import "SAnswerCollectionViewCell.h"
 #import "StudyCollectionViewCell.h"
@@ -14,40 +13,30 @@
 
 #import "BWGetDictReq.h"
 #import "BWGetDictResp.h"
-
-#import "BWGetAllBookReq.h"
-#import "BWGetAllBookResp.h"
-#import "SBook.h"
+#import "BWKnowledgeBoxReq.h"
+#import "BWKnowledgeBoxResp.h"
 #import "ItemTabView.h"
 #import "ItemModel.h"
 
 #import "SChapterInfoVC.h"
 #import "SCDictModel.h"
-
-#import "SAddStudyClassVC.h"
-
-typedef enum _studyOrAnswerType
-{
-    answer_type = 0,
-    study_type = 1,
-}studyOrAnswerType;
+#import "EBDropdownListView.h"
+#import "SBoxInfoVC.h"
+#import "SBox.h"
 
 @interface SHomeVC ()<UICollectionViewDelegate,UICollectionViewDataSource>
-@property (nonatomic, assign) studyOrAnswerType type;
 @property (nonatomic, strong) UIImageView *bannerView;
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 @property (nonatomic, strong) SelectSubView *selectView;
 @property (nonatomic, assign) NSInteger currentIndex;
 @property (nonatomic, strong) SMenuView *menuView;
-@property (nonatomic, strong) ItemTabView *itemTab;
-@property (nonatomic, strong) ItemTabView *sortTab;
 @property (nonatomic, strong) NSArray *menuArray;//学段array
-@property (nonatomic, strong) NSArray *dataArray;//教辅data
 @property (nonatomic, strong) NSArray *subArray;//学科
-@property (nonatomic, strong) NSArray *itemArray;//学习集和答题集
-@property (nonatomic, strong) NSArray *sortArray;//必修1等
+@property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, strong) BWGetDictReq *dictReq;
+@property (nonatomic, strong) BWKnowledgeBoxReq *boxReq;
+@property (nonatomic, strong) EBDropdownListView *dropView;
 
 
 @end
@@ -70,32 +59,13 @@ typedef enum _studyOrAnswerType
 {
     DefineWeakSelf;
     
-    //答题集block
-    self.itemTab.selectBlock = ^(NSInteger index) {
-        
-        weakSelf.type = index == 0 ? answer_type : study_type;
-
-        [weakSelf.selectView setFirstSub:^(SubModel * _Nonnull model,NSInteger index) {
-            NSLog(@"复原 sub选项 subName = %@,index = %ld",model.subName,index);
-            //此处获取数据刷新
-            weakSelf.currentIndex = index;
-            [weakSelf.collectionView reloadData];
-        }];
-        
-        [weakSelf loadCollectViewType];
-        
-    };
-    
     //数学block
-    self.selectView.selectSubBlock = ^(SubModel * _Nonnull model,NSInteger index) {
-        weakSelf.currentIndex = index;
-        [weakSelf.collectionView reloadData];
-    };
-    
-    //必修一block
-    self.sortTab.selectBlock = ^(NSInteger index) {
+    self.selectView.selectSubBlock = ^(SCDictInfoModel * _Nonnull model,NSInteger index) {
+//        weakSelf.currentIndex = index;
+        [weakSelf getKnowledgeBoxWithSubject:model.dictKey];
         
     };
+    
     
     //高中、竞赛block
     self.menuView.select = ^(SCDictInfoModel * _Nonnull selectItem) {
@@ -109,8 +79,6 @@ typedef enum _studyOrAnswerType
     
     [self getDictPERIODRequest];
     
-    [self initBlock];
-
     
 }
 //获取学段
@@ -160,40 +128,43 @@ typedef enum _studyOrAnswerType
             
         if (weakSelf.subArray.count != 0) {
             SCDictInfoModel *infoModel = [dictModel.dictValueList safeObjectAtIndex:0];
-            [weakSelf getBookRequestWithBookSubject:infoModel.dictValue andGrade:@"SUBJECT"];
+            [weakSelf getKnowledgeBoxWithSubject:infoModel.dictKey];
         }else{
             [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
             [MBProgressHUD showMessag:@"无学科信息" toView:weakSelf.view hudModel:MBProgressHUDModeText hide:YES];
-
         }
+        [weakSelf createUI];
+
         
     } failure:^(BWBaseReq *req, NSError *error) {
         [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
         [MBProgressHUD showMessag:error.domain toView:weakSelf.view hudModel:MBProgressHUDModeText hide:YES];
     }];
 }
-//获取学科对应的教辅
-- (void)getBookRequestWithBookSubject:(NSString *)subject andGrade:(NSString *)grade
+//通过学科获取所有box
+- (void)getKnowledgeBoxWithSubject:(NSString *)subject
 {
-    
     DefineWeakSelf;
-    BWGetAllBookReq *bookReq = [[BWGetAllBookReq alloc] init];
-    bookReq.bookSubject = subject;
-    bookReq.grade = grade;
-    [NetManger sendRequest:bookReq withSucessed:^(BWBaseReq *req, BWBaseResp *resp) {
+    self.boxReq.subject = subject;
+    [NetManger sendRequest:self.boxReq withSucessed:^(BWBaseReq *req, BWBaseResp *resp) {
+        
         [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
 
-        BWGetAllBookResp *bookResp = (BWGetAllBookResp *)resp;
-        weakSelf.dataArray = bookResp.bookArray;
+        BWKnowledgeBoxResp *boxResp = (BWKnowledgeBoxResp *)resp;
+        weakSelf.dataArray = boxResp.data;
         
-        [weakSelf createUI];
+        EBDropdownListItem *item1 = [[EBDropdownListItem alloc] initWithItem:@"1" itemName:@"集合"];
+        EBDropdownListItem *item2 = [[EBDropdownListItem alloc] initWithItem:@"2" itemName:@"函数"];
+        EBDropdownListItem *item3 = [[EBDropdownListItem alloc] initWithItem:@"3" itemName:@"效率"];
+        EBDropdownListItem *item4 = [[EBDropdownListItem alloc] initWithItem:@"4" itemName:@"ABC"];
+
+        self.dropView.dataSource = @[item1,item2,item3,item4];
         
         [weakSelf.collectionView reloadData];
-      
-    } failure:^(BWBaseReq *req, NSError *error) {
-        [SCustomProgressHUD hideHUDForView:weakSelf.view animated:YES];
-        [MBProgressHUD showMessag:error.domain toView:weakSelf.view hudModel:MBProgressHUDModeText hide:YES];
         
+    } failure:^(BWBaseReq *req, NSError *error) {
+        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+        [MBProgressHUD showMessag:error.domain toView:weakSelf.view hudModel:MBProgressHUDModeText hide:YES];
     }];
 }
 - (void)createUI
@@ -206,39 +177,13 @@ typedef enum _studyOrAnswerType
         make.height.mas_equalTo(LAdaptation_y(233));
     }];
     
-    [self.view addSubview:self.itemTab];
-    [self.itemTab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.bannerView.mas_bottom).offset(LAdaptation_y(30));
-        make.left.equalTo(self.bannerView);
-        make.width.mas_equalTo(LAdaptation_x(100)*self.itemArray.count);
-        make.height.mas_equalTo(LAdaptation_y(24));
-    }];
-    
     [self.view addSubview:self.selectView];
     [self.selectView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.itemTab.mas_bottom).offset(LAdaptation_y(10));
-        make.left.equalTo(self.itemTab);
+        make.top.equalTo(self.bannerView.mas_bottom).offset(LAdaptation_y(10));
+        make.left.equalTo(self.bannerView);
         make.width.equalTo(self.view);
         make.height.mas_equalTo(LAdaptation_y(44));
     }];
-    
-    [self.view addSubview:self.sortTab];
-    [self.sortTab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.selectView.mas_bottom).offset(LAdaptation_y(10));
-        make.left.equalTo(self.bannerView);
-        make.width.mas_equalTo(LAdaptation_x(100)*self.sortArray.count);
-        make.height.mas_equalTo(LAdaptation_y(24));
-    }];
-    
-    [self.view addSubview:self.collectionView];
-    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.sortTab.mas_bottom).offset(LAdaptation_y(15));
-        make.left.equalTo(self.selectView);
-        make.right.equalTo(self.view.mas_right).offset(-LAdaptation_x(24));
-        make.bottom.equalTo(self.view.mas_bottom);
-    }];
-    [self loadCollectViewType];
-
     
     [self.navigationController.navigationBar addSubview:self.menuView];
     [self.menuView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -249,91 +194,73 @@ typedef enum _studyOrAnswerType
     }];
     
     
+    [self.view addSubview:self.dropView];
+    [self.dropView setDropdownListViewSelectedBlock:^(EBDropdownListView *dropdownListView) {
+        NSString *msgString = [NSString stringWithFormat:
+                               @"selected name:%@  id:%@  index:%ld"
+                               , dropdownListView.selectedItem.itemName
+                               , dropdownListView.selectedItem.itemId
+                               , dropdownListView.selectedIndex];
+
+        NSLog(@"%@",msgString);
+
+    }];
+    
+    [self.view addSubview:self.collectionView];
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.selectView.mas_bottom).offset(LAdaptation_y(84));
+        make.left.equalTo(self.bannerView);
+        make.width.equalTo(self.bannerView);
+        make.bottom.equalTo(self.view.mas_bottom);
+    }];
+    
+    [self loadCollectViewType];
+    [self initBlock];
+
 }
 
 - (void)loadCollectViewType
 {
     
-    if (self.type == answer_type) {
-        CGFloat itemW;
-        CGFloat itemH;
-        self.flowLayout.minimumInteritemSpacing = LAdaptation_x(20);
-        self.flowLayout.minimumLineSpacing = LAdaptation_y(53);
+    CGFloat itemW;
+    CGFloat itemH;
+    self.flowLayout.minimumInteritemSpacing = LAdaptation_x(20);
+    self.flowLayout.minimumLineSpacing = LAdaptation_y(20);
 
-        // 设置item的大小
-        itemW = LAdaptation_x(128);
-        itemH = LAdaptation_y(209);
-        
-        // 设置每个分区的 上左下右 的内边距
-        self.flowLayout.sectionInset = UIEdgeInsetsMake(0, 0 ,0, 0);
-        self.flowLayout.itemSize = CGSizeMake(itemW, itemH);
-        [self.collectionView registerClass:[SAnswerCollectionViewCell class] forCellWithReuseIdentifier:@"answerCell"];
-
-        
-    }else{
-        
-        CGFloat itemW;
-        CGFloat itemH;
-        self.flowLayout.minimumInteritemSpacing = LAdaptation_x(20);
-        self.flowLayout.minimumLineSpacing = LAdaptation_y(20);
-
-        // 设置item的大小
-        itemW = LAdaptation_x(220);
-        itemH = LAdaptation_y(165);
-        
-        // 设置每个分区的 上左下右 的内边距
-        self.flowLayout.sectionInset = UIEdgeInsetsMake(0, 0 ,0, 0);
-        self.flowLayout.itemSize = CGSizeMake(itemW, itemH);
-        [self.collectionView registerClass:[StudyCollectionViewCell class] forCellWithReuseIdentifier:@"studyCell"];
-
-    }
+    // 设置item的大小
+    itemW = LAdaptation_x(220);
+    itemH = LAdaptation_y(165);
+    
+    // 设置每个分区的 上左下右 的内边距
+    self.flowLayout.sectionInset = UIEdgeInsetsMake(0, 0 ,0, 0);
+    self.flowLayout.itemSize = CGSizeMake(itemW, itemH);
+    [self.collectionView registerClass:[StudyCollectionViewCell class] forCellWithReuseIdentifier:@"studyCell"];
     self.flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
 }
 
 #pragma mark - UICollectionViewDataSource -
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if (self.type == answer_type) {
-        return self.dataArray.count;
-    }else{
-        return 10;
-    }
-    return 0;
-
+    return self.dataArray.count;
 }
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.type == answer_type) {
-        static NSString * CellIdentifier = @"answerCell";
-        SAnswerCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
-        SBook *book = [self.dataArray safeObjectAtIndex:self.currentIndex];
-        [cell setupCellWithModel:book];
-        return cell;
-    }else{
-        static NSString * cellId = @"studyCell";
-        StudyCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
-        [cell setupCellWithModel:nil];
+    static NSString * cellId = @"studyCell";
+    
+    SBox *box = [self.dataArray safeObjectAtIndex:indexPath.row];
+    
+    StudyCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+    [cell setupCellWithModel:box];
 
-        return cell;
-    }
-
-    return nil;
+    return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.type == answer_type) {
-        SBook *book = [self.dataArray safeObjectAtIndex:self.currentIndex];
-        SChapterInfoVC *infoVC = [[SChapterInfoVC alloc] init];
-        infoVC.book = book;
-        infoVC.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:infoVC animated:YES];
-    }else{
-        SAddStudyClassVC *studyClassVC = [[SAddStudyClassVC alloc] init];
-        studyClassVC.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:studyClassVC animated:YES];
-    }
-
-    
+    SBox *box = [self.dataArray safeObjectAtIndex:indexPath.row];
+    SBoxInfoVC *infoVC = [[SBoxInfoVC alloc] init];
+    infoVC.box = box;
+    infoVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:infoVC animated:YES];
 }
 
 #pragma mark - LazyLoad -
@@ -353,57 +280,11 @@ typedef enum _studyOrAnswerType
     }
     return _menuView;
 }
-- (ItemTabView *)itemTab
-{
-    if (!_itemTab) {
-        NSMutableArray *array = [[NSMutableArray alloc] init];
-        NSArray *itemArray = @[@"答题集",@"学习集"];
-        for (NSInteger i = 0; i < itemArray.count; i++) {
-            ItemModel *model = [[ItemModel alloc] init];
-            model.itemId = [NSString stringWithFormat:@"%ld",i];
-            model.itemName = [itemArray safeObjectAtIndex:i];
-            [array addObject:model];
-        }
-        self.itemArray = array;
-        
-        _itemTab = [[ItemTabView alloc] initWithItemArray:array withFontSize:20 withEachItemWidth:LAdaptation_x(100) contentAlignment:ButtonContentAlignment_Left];
-    }
-    
-    return _itemTab;
-}
-- (ItemTabView *)sortTab
-{
-    if (!_sortTab) {
-        NSMutableArray *array = [[NSMutableArray alloc] init];
-        NSArray *itemArray = @[@"必修一",@"必修二",@"必修三",@"必须四"];
-        for (NSInteger i = 0; i < itemArray.count; i++) {
-            ItemModel *model = [[ItemModel alloc] init];
-            model.itemId = [NSString stringWithFormat:@"%ld",i];
-            model.itemName = [itemArray safeObjectAtIndex:i];
-            [array addObject:model];
-        }
-        self.sortArray = array;
-        
-        _sortTab = [[ItemTabView alloc] initWithItemArray:array withFontSize:16 withEachItemWidth:LAdaptation_x(100) contentAlignment:ButtonContentAlignment_Left];
-    }
-    
-    return _sortTab;
-}
+
 - (SelectSubView *)selectView
 {
     if (!_selectView) {
-        NSMutableArray *array = [[NSMutableArray alloc] init];
-        NSArray *subArray = @[@"数学",@"物理",@"化学"];
-        for (NSInteger i = 0; i < subArray.count; i++) {
-            SubModel *model = [[SubModel alloc] init];
-            model.subId = [NSString stringWithFormat:@"%ld",i];
-            model.subName = [subArray safeObjectAtIndex:i];
-            [array addObject:model];
-        }
-        
-        self.subArray = array;
-
-        _selectView = [[SelectSubView alloc] initWithItemArray:array];
+        _selectView = [[SelectSubView alloc] initWithItemArray:self.subArray];
     }
     return _selectView;
 }
@@ -418,6 +299,7 @@ typedef enum _studyOrAnswerType
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         //注册Cell，必须要有
+        [_collectionView registerClass:[StudyCollectionViewCell class] forCellWithReuseIdentifier:@"studyCell"];
     }
     return _collectionView;
 }
@@ -428,12 +310,28 @@ typedef enum _studyOrAnswerType
     }
     return _flowLayout;
 }
-
+- (EBDropdownListView *)dropView
+{
+    if (!_dropView) {
+        _dropView = [[EBDropdownListView alloc] init];
+        [_dropView setFrame:CGRectMake(LAdaptation_x(24), LAdaptation_y(321), LAdaptation_x(120), LAdaptation_y(30))];
+        [_dropView setViewBorder:0.5 borderColor:[UIColor grayColor] cornerRadius:2];
+        _dropView.selectedIndex = 0;
+    }
+    return _dropView;
+}
 - (BWGetDictReq *)dictReq
 {
     if (!_dictReq) {
         _dictReq = [[BWGetDictReq alloc] init];
     }
     return _dictReq;
+}
+- (BWKnowledgeBoxReq *)boxReq
+{
+    if (!_boxReq) {
+        _boxReq = [[BWKnowledgeBoxReq alloc] init];
+    }
+    return _boxReq;
 }
 @end

@@ -10,15 +10,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class SubModel;
-typedef void(^selectSubIndexBlock)(SubModel *model,NSInteger index);
+@class SCDictInfoModel;
+typedef void(^selectSubIndexBlock)(SCDictInfoModel *model,NSInteger index);
 
 @interface SelectSubView : UIView
 @property (nonatomic, copy) selectSubIndexBlock selectSubBlock;
 
 - (instancetype)initWithItemArray:(NSArray *)itemList;
 
-- (void)setFirstSub:(void(^)(SubModel *model,NSInteger index))selectFirst;
+- (void)setFirstSub:(void(^)(SCDictInfoModel *model,NSInteger index))selectFirst;
 
 @end
 
