@@ -14,7 +14,7 @@
     if (self = [super init]) {
         
         UIImageView *bgView = [[UIImageView alloc] init];
-        [bgView setImage:[UIImage imageNamed:@""]];
+        [bgView setImage:[UIImage imageNamed:@"chapterVC_headerBg"]];
         [self addSubview:bgView];
         
         [bgView mas_makeConstraints:^(MASConstraintMaker *make) {

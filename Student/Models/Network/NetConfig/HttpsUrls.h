@@ -14,7 +14,7 @@
 
 //学习集
 #define knowledgeBox                 @"/knowledgeBox/box/%@"                            //通过学科获取所有box
-
+#define knowledgeBoxGroup            @"/knowledgeBox/groups/%@"                            //通过boxID获取所有groups
 
 #define GetAllBookURL                @"/book/all/%@/%@"                                      //首页获取图书
 #define GetBookChapterURL            @"/book/chapter/%@/%@"                                 //获取所有章节
