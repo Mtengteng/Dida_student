@@ -12,7 +12,7 @@
 #import "SPromoteVC.h"
 #import "SMineVC.h"
 #import "BWMyTabBar.h"
-#import "SAddTestVC.h"
+#import "SAddStudyClassVC.h"
 
 @interface SRootVC ()<UITabBarControllerDelegate>
 @property (nonatomic, strong) NSArray *viewsArray;
@@ -75,7 +75,7 @@
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"createCourse" object:nil];
         
-        SAddTestVC *testVC = [[SAddTestVC alloc] init];
+        SAddStudyClassVC *testVC = [[SAddStudyClassVC alloc] init];
         SBaseNavigationVC *nav = [[SBaseNavigationVC alloc] initWithRootViewController:testVC];
         nav.modalPresentationStyle = 0;
         [self presentViewController:nav animated:YES completion:nil];

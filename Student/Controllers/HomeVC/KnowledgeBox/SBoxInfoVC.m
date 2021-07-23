@@ -16,6 +16,7 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, strong) UILabel *allLabel;
+@property (nonatomic, strong) UIButton *leftBtn;
 @end
 
 @implementation SBoxInfoVC
@@ -38,7 +39,6 @@
     [super viewDidLoad];
     
     
-    
     [self createUI];
 }
 - (void)createUI
@@ -49,6 +49,14 @@
         make.left.equalTo(self.view);
         make.width.equalTo(self.view);
         make.height.mas_equalTo(LAdaptation_y(245));
+    }];
+    
+    [self.headerView addSubview:self.leftBtn];
+    [self.leftBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.headerView).offset(LAdaptation_y(20));
+        make.left.equalTo(self.headerView).offset(LAdaptation_x(20));
+        make.width.mas_equalTo(40);
+        make.height.mas_equalTo(40);
     }];
     
     [self.view addSubview:self.allLabel];
@@ -65,7 +73,10 @@
         make.bottom.equalTo(self.view.mas_bottom);
     }];
 }
-
+- (void)backAction:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 #pragma mark - UITableViewDataSource -
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -120,5 +131,15 @@
         _allLabel.font = [UIFont systemFontOfSize:14.0];
     }
     return _allLabel;
+}
+- (UIButton *)leftBtn
+{
+    if (!_leftBtn) {
+        UIImage *image = [UIImage imageNamed:@"arrow_left_white"];
+        _leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_leftBtn setImage:image forState:UIControlStateNormal];
+        [_leftBtn addTarget:self action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _leftBtn;
 }
 @end
