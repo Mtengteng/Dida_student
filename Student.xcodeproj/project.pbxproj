@@ -16,6 +16,11 @@
 		9E41CEA226A9AB1C00BDEB01 /* BWKnowledgeBoxGroupResp.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E41CEA126A9AB1C00BDEB01 /* BWKnowledgeBoxGroupResp.m */; };
 		9E41CEA526A9AF5400BDEB01 /* SBoxGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E41CEA426A9AF5400BDEB01 /* SBoxGroupCell.m */; };
 		9E559E8A2653ABF0006523C6 /* SAddImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E559E892653ABF0006523C6 /* SAddImageView.m */; };
+		9E57F9BA26AA4F6B00C80B45 /* SAMenuBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E57F9B926AA4F6B00C80B45 /* SAMenuBarView.m */; };
+		9E57F9BE26AA95FA00C80B45 /* SANode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E57F9BD26AA95FA00C80B45 /* SANode.m */; };
+		9E57F9C426AA9CD700C80B45 /* SABaseInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E57F9C326AA9CD700C80B45 /* SABaseInfoView.m */; };
+		9E57F9C826AA9CEA00C80B45 /* SANodeInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E57F9C726AA9CEA00C80B45 /* SANodeInfoView.m */; };
+		9E57F9CC26AA9D0100C80B45 /* SAPublishView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E57F9CB26AA9D0100C80B45 /* SAPublishView.m */; };
 		9E5A0AA62656388F0023840C /* SContentImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A0AA52656388F0023840C /* SContentImageView.m */; };
 		9E6A8340267991B7002B2517 /* SMoreSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6A833F267991B7002B2517 /* SMoreSelectView.m */; };
 		9E6A834426799DAE002B2517 /* SCitySelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6A834326799DAE002B2517 /* SCitySelectView.m */; };
@@ -138,6 +143,16 @@
 		9E41CEA426A9AF5400BDEB01 /* SBoxGroupCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBoxGroupCell.m; sourceTree = "<group>"; };
 		9E559E882653ABF0006523C6 /* SAddImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAddImageView.h; sourceTree = "<group>"; };
 		9E559E892653ABF0006523C6 /* SAddImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAddImageView.m; sourceTree = "<group>"; };
+		9E57F9B826AA4F6B00C80B45 /* SAMenuBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAMenuBarView.h; sourceTree = "<group>"; };
+		9E57F9B926AA4F6B00C80B45 /* SAMenuBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAMenuBarView.m; sourceTree = "<group>"; };
+		9E57F9BC26AA95FA00C80B45 /* SANode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SANode.h; sourceTree = "<group>"; };
+		9E57F9BD26AA95FA00C80B45 /* SANode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SANode.m; sourceTree = "<group>"; };
+		9E57F9C226AA9CD700C80B45 /* SABaseInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SABaseInfoView.h; sourceTree = "<group>"; };
+		9E57F9C326AA9CD700C80B45 /* SABaseInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SABaseInfoView.m; sourceTree = "<group>"; };
+		9E57F9C626AA9CEA00C80B45 /* SANodeInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SANodeInfoView.h; sourceTree = "<group>"; };
+		9E57F9C726AA9CEA00C80B45 /* SANodeInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SANodeInfoView.m; sourceTree = "<group>"; };
+		9E57F9CA26AA9D0100C80B45 /* SAPublishView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAPublishView.h; sourceTree = "<group>"; };
+		9E57F9CB26AA9D0100C80B45 /* SAPublishView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAPublishView.m; sourceTree = "<group>"; };
 		9E5A0AA42656388F0023840C /* SContentImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SContentImageView.h; sourceTree = "<group>"; };
 		9E5A0AA52656388F0023840C /* SContentImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SContentImageView.m; sourceTree = "<group>"; };
 		9E6A833E267991B7002B2517 /* SMoreSelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMoreSelectView.h; sourceTree = "<group>"; };
@@ -382,6 +397,50 @@
 			path = TestImageView;
 			sourceTree = "<group>";
 		};
+		9E57F9B526AA4ECD00C80B45 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9EB0926026A95B7000743C0F /* SBoxInfoHeaderView.h */,
+				9EB0926126A95B7000743C0F /* SBoxInfoHeaderView.m */,
+				9E41CEA326A9AF5400BDEB01 /* SBoxGroupCell.h */,
+				9E41CEA426A9AF5400BDEB01 /* SBoxGroupCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9E57F9B626AA4EEB00C80B45 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9EB0925526A9187A00743C0F /* SBox.h */,
+				9EB0925626A9187A00743C0F /* SBox.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9E57F9B726AA4F2A00C80B45 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9E57F9B826AA4F6B00C80B45 /* SAMenuBarView.h */,
+				9E57F9B926AA4F6B00C80B45 /* SAMenuBarView.m */,
+				9E57F9C226AA9CD700C80B45 /* SABaseInfoView.h */,
+				9E57F9C326AA9CD700C80B45 /* SABaseInfoView.m */,
+				9E57F9C626AA9CEA00C80B45 /* SANodeInfoView.h */,
+				9E57F9C726AA9CEA00C80B45 /* SANodeInfoView.m */,
+				9E57F9CA26AA9D0100C80B45 /* SAPublishView.h */,
+				9E57F9CB26AA9D0100C80B45 /* SAPublishView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9E57F9C026AA95FE00C80B45 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9E57F9BC26AA95FA00C80B45 /* SANode.h */,
+				9E57F9BD26AA95FA00C80B45 /* SANode.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		9E6A833C26798B0D002B2517 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -475,10 +534,6 @@
 				9E6CCED9262D5CD2004B6B42 /* SectionTableViewCell.m */,
 				9EE50B49262FEF2900DC7D40 /* SAnswerSelectCell.h */,
 				9EE50B4A262FEF2900DC7D40 /* SAnswerSelectCell.m */,
-				9EB0926026A95B7000743C0F /* SBoxInfoHeaderView.h */,
-				9EB0926126A95B7000743C0F /* SBoxInfoHeaderView.m */,
-				9E41CEA326A9AF5400BDEB01 /* SBoxGroupCell.h */,
-				9E41CEA426A9AF5400BDEB01 /* SBoxGroupCell.m */,
 			);
 			path = HomeViews;
 			sourceTree = "<group>";
@@ -496,8 +551,6 @@
 				9E29F48B26314C0F00638047 /* SAnswer.m */,
 				9E81A154264BA176004B9557 /* SCDictModel.h */,
 				9E81A155264BA176004B9557 /* SCDictModel.m */,
-				9EB0925526A9187A00743C0F /* SBox.h */,
-				9EB0925626A9187A00743C0F /* SBox.m */,
 			);
 			path = HomeModels;
 			sourceTree = "<group>";
@@ -843,6 +896,8 @@
 		9EA1753526972E3800ECA2BD /* AddStudyClass */ = {
 			isa = PBXGroup;
 			children = (
+				9E57F9C026AA95FE00C80B45 /* Models */,
+				9E57F9B726AA4F2A00C80B45 /* Views */,
 				9EA1753626972E8200ECA2BD /* SAddStudyClassVC.h */,
 				9EA1753726972E8200ECA2BD /* SAddStudyClassVC.m */,
 			);
@@ -863,6 +918,8 @@
 		9EB0925A26A9584C00743C0F /* KnowledgeBox */ = {
 			isa = PBXGroup;
 			children = (
+				9E57F9B626AA4EEB00C80B45 /* Models */,
+				9E57F9B526AA4ECD00C80B45 /* Views */,
 				9EB0925B26A9587000743C0F /* SBoxInfoVC.h */,
 				9EB0925C26A9587000743C0F /* SBoxInfoVC.m */,
 			);
@@ -1069,6 +1126,7 @@
 				9E6A834426799DAE002B2517 /* SCitySelectView.m in Sources */,
 				9E905BFC25C13266009BB170 /* BWLoginResp.m in Sources */,
 				9EB0925D26A9587000743C0F /* SBoxInfoVC.m in Sources */,
+				9E57F9C426AA9CD700C80B45 /* SABaseInfoView.m in Sources */,
 				9E9B94C426297BF300CAE55D /* SCustomProgressHUD.m in Sources */,
 				9ECDD0EA261D8D5E0037A9FD /* SCureView.m in Sources */,
 				9E81A152264B6C61004B9557 /* BWGetDictResp.m in Sources */,
@@ -1078,6 +1136,7 @@
 				9E6CCEDF262D7794004B6B42 /* SAnswerPageVC.m in Sources */,
 				9ECDD0E6261D87D10037A9FD /* SExamVC.m in Sources */,
 				9E24C73626578BC9004BC1A7 /* SAddSelectView.m in Sources */,
+				9E57F9BE26AA95FA00C80B45 /* SANode.m in Sources */,
 				9EDE3BEE2628152400FFC3EF /* SChapterHeaderView.m in Sources */,
 				9E905BFB25C13266009BB170 /* BWBaseDownloadResp.m in Sources */,
 				9E81A156264BA176004B9557 /* SCDictModel.m in Sources */,
@@ -1133,7 +1192,10 @@
 				9E41CEA226A9AB1C00BDEB01 /* BWKnowledgeBoxGroupResp.m in Sources */,
 				9E905BD925C13121009BB170 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				9EB0926226A95B7000743C0F /* SBoxInfoHeaderView.m in Sources */,
+				9E57F9C826AA9CEA00C80B45 /* SANodeInfoView.m in Sources */,
+				9E57F9BA26AA4F6B00C80B45 /* SAMenuBarView.m in Sources */,
 				9E780133261C45C6006438DC /* BWGetAllBookResp.m in Sources */,
+				9E57F9CC26AA9D0100C80B45 /* SAPublishView.m in Sources */,
 				9E905BF925C13266009BB170 /* BWNetManager.m in Sources */,
 				9E77AC8A2626C01D007C4D2B /* ItemModel.m in Sources */,
 				9ECDD0C5261D39CD0037A9FD /* SMenuView.m in Sources */,
