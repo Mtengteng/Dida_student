@@ -111,6 +111,8 @@
 		9ECDD0E2261D87BE0037A9FD /* SAssistantVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECDD0E1261D87BE0037A9FD /* SAssistantVC.m */; };
 		9ECDD0E6261D87D10037A9FD /* SExamVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECDD0E5261D87D10037A9FD /* SExamVC.m */; };
 		9ECDD0EA261D8D5E0037A9FD /* SCureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECDD0E9261D8D5E0037A9FD /* SCureView.m */; };
+		9EDDA95626AE8AE600BD5A3E /* SBoxInfoScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDDA95526AE8AE600BD5A3E /* SBoxInfoScrollView.m */; };
+		9EDDA95A26AEA49E00BD5A3E /* SBoxGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDDA95926AEA49E00BD5A3E /* SBoxGroup.m */; };
 		9EDE3BDE2627E30D00FFC3EF /* SChapterInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDE3BDD2627E30D00FFC3EF /* SChapterInfoVC.m */; };
 		9EDE3BE2262806D400FFC3EF /* BWGetBookChapterReq.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDE3BE1262806D400FFC3EF /* BWGetBookChapterReq.m */; };
 		9EDE3BE6262806E000FFC3EF /* BWGetBookChapterResp.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDE3BE5262806E000FFC3EF /* BWGetBookChapterResp.m */; };
@@ -320,6 +322,10 @@
 		9ECDD0E5261D87D10037A9FD /* SExamVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SExamVC.m; sourceTree = "<group>"; };
 		9ECDD0E8261D8D5E0037A9FD /* SCureView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCureView.h; sourceTree = "<group>"; };
 		9ECDD0E9261D8D5E0037A9FD /* SCureView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCureView.m; sourceTree = "<group>"; };
+		9EDDA95426AE8AE600BD5A3E /* SBoxInfoScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBoxInfoScrollView.h; sourceTree = "<group>"; };
+		9EDDA95526AE8AE600BD5A3E /* SBoxInfoScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBoxInfoScrollView.m; sourceTree = "<group>"; };
+		9EDDA95826AEA49E00BD5A3E /* SBoxGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBoxGroup.h; sourceTree = "<group>"; };
+		9EDDA95926AEA49E00BD5A3E /* SBoxGroup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBoxGroup.m; sourceTree = "<group>"; };
 		9EDE3BDC2627E30D00FFC3EF /* SChapterInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SChapterInfoVC.h; sourceTree = "<group>"; };
 		9EDE3BDD2627E30D00FFC3EF /* SChapterInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SChapterInfoVC.m; sourceTree = "<group>"; };
 		9EDE3BE0262806D400FFC3EF /* BWGetBookChapterReq.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWGetBookChapterReq.h; sourceTree = "<group>"; };
@@ -404,6 +410,8 @@
 				9EB0926126A95B7000743C0F /* SBoxInfoHeaderView.m */,
 				9E41CEA326A9AF5400BDEB01 /* SBoxGroupCell.h */,
 				9E41CEA426A9AF5400BDEB01 /* SBoxGroupCell.m */,
+				9EDDA95426AE8AE600BD5A3E /* SBoxInfoScrollView.h */,
+				9EDDA95526AE8AE600BD5A3E /* SBoxInfoScrollView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -413,6 +421,8 @@
 			children = (
 				9EB0925526A9187A00743C0F /* SBox.h */,
 				9EB0925626A9187A00743C0F /* SBox.m */,
+				9EDDA95826AEA49E00BD5A3E /* SBoxGroup.h */,
+				9EDDA95926AEA49E00BD5A3E /* SBoxGroup.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1134,6 +1144,7 @@
 				9EDE3BE6262806E000FFC3EF /* BWGetBookChapterResp.m in Sources */,
 				9E905BF525C13266009BB170 /* BWBaseDownloadReq.m in Sources */,
 				9E6CCEDF262D7794004B6B42 /* SAnswerPageVC.m in Sources */,
+				9EDDA95A26AEA49E00BD5A3E /* SBoxGroup.m in Sources */,
 				9ECDD0E6261D87D10037A9FD /* SExamVC.m in Sources */,
 				9E24C73626578BC9004BC1A7 /* SAddSelectView.m in Sources */,
 				9E57F9BE26AA95FA00C80B45 /* SANode.m in Sources */,
@@ -1193,6 +1204,7 @@
 				9E905BD925C13121009BB170 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				9EB0926226A95B7000743C0F /* SBoxInfoHeaderView.m in Sources */,
 				9E57F9C826AA9CEA00C80B45 /* SANodeInfoView.m in Sources */,
+				9EDDA95626AE8AE600BD5A3E /* SBoxInfoScrollView.m in Sources */,
 				9E57F9BA26AA4F6B00C80B45 /* SAMenuBarView.m in Sources */,
 				9E780133261C45C6006438DC /* BWGetAllBookResp.m in Sources */,
 				9E57F9CC26AA9D0100C80B45 /* SAPublishView.m in Sources */,

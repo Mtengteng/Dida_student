@@ -6,6 +6,7 @@
 //
 
 #import "BWKnowledgeBoxGroupResp.h"
+#import "SBoxGroup.h"
 
 @implementation BWKnowledgeBoxGroupResp
 - (id)initWithJSONDictionary:(NSDictionary *)jsonDic
@@ -19,9 +20,9 @@
             NSArray *array = [jsonDic safeObjectForKey:@"data"];
             
             for (NSDictionary *dic in array) {
-//                SBox *box = [SBox mj_objectWithKeyValues:dic];
-//                box.bId = [dic safeObjectForKey:@"id"];
-//                [tempArray addObject:box];
+                SBoxGroup *group = [SBoxGroup mj_objectWithKeyValues:dic];
+                group.bId = [dic safeObjectForKey:@"id"];
+                [tempArray addObject:group];
             }
             self.data = tempArray;
 

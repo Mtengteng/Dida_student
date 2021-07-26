@@ -10,6 +10,7 @@
 #import "SBoxInfoHeaderView.h"
 #import "BWKnowledgeBoxGroupReq.h"
 #import "BWKnowledgeBoxGroupResp.h"
+#import "SBoxInfoScrollView.h"
 
 @interface SBoxInfoVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) SBoxInfoHeaderView *headerView;
@@ -17,6 +18,7 @@
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, strong) UILabel *allLabel;
 @property (nonatomic, strong) UIButton *leftBtn;
+@property (nonatomic, strong) SBoxInfoScrollView *groupScrollView;
 @end
 
 @implementation SBoxInfoVC
@@ -38,8 +40,38 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self startBoxGroupRequest];
     
     [self createUI];
+}
+- (void)startBoxGroupRequest
+{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    DefineWeakSelf;
+    BWKnowledgeBoxGroupReq *groupReq = [[BWKnowledgeBoxGroupReq alloc] init];
+    groupReq.boxId = self.box.bId;
+    [NetManger sendRequest:groupReq withSucessed:^(BWBaseReq *req, BWBaseResp *resp) {
+        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+        
+        BWKnowledgeBoxGroupResp *groupResp = (BWKnowledgeBoxGroupResp *)resp;
+        
+        [weakSelf createScrollViewWithArray:groupResp.data];
+        
+        
+    } failure:^(BWBaseReq *req, NSError *error) {
+        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+        [MBProgressHUD showMessag:@"无学段信息" toView:weakSelf.view hudModel:MBProgressHUDModeText hide:YES];
+    }];
+}
+- (void)createScrollViewWithArray:(NSArray *)array
+{
+    self.groupScrollView = [[SBoxInfoScrollView alloc] initWithFrame:CGRectMake(0, LAdaptation_y(245), SCREEN_WIDTH, LAdaptation_y(60)) WithArray:array];
+    [self.view addSubview:self.groupScrollView];
+    
+    self.groupScrollView.clickBlock = ^(SBoxGroup * _Nonnull group) {
+        
+    };
 }
 - (void)createUI
 {
@@ -59,15 +91,17 @@
         make.height.mas_equalTo(40);
     }];
     
-    [self.view addSubview:self.allLabel];
-    [self.allLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.headerView.mas_bottom).offset(LAdaptation_y(10));
-        make.left.equalTo(self.view).offset(LAdaptation_x(20));
-    }];
+//    [self.view addSubview:self.allLabel];
+//    [self.allLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self.headerView.mas_bottom).offset(LAdaptation_y(10));
+//        make.left.equalTo(self.view).offset(LAdaptation_x(20));
+//    }];
+    
+
     
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.allLabel.mas_bottom).offset(LAdaptation_y(10));
+        make.top.equalTo(self.headerView.mas_bottom).offset(LAdaptation_y(70));
         make.left.equalTo(self.view).offset(LAdaptation_x(20));
         make.right.equalTo(self.view.mas_right).offset(-LAdaptation_x(20));
         make.bottom.equalTo(self.view.mas_bottom);
@@ -142,4 +176,5 @@
     }
     return _leftBtn;
 }
+
 @end
