@@ -24,7 +24,7 @@
         [self.scrollView setFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
         [self addSubview:self.scrollView];
         
-        for (NSInteger i = 0; i < contentArray.count+10; i++) {
+        for (NSInteger i = 0; i < contentArray.count; i++) {
             
             SBoxGroup *group = [contentArray safeObjectAtIndex:i];
             
@@ -37,7 +37,7 @@
             [self.scrollView addSubview:button];
         }
         
-        [self.scrollView setContentSize:CGSizeMake((self.contentArray.count+10) *(LAdaptation_x(120)), 0)];
+        [self.scrollView setContentSize:CGSizeMake((self.contentArray.count) *(LAdaptation_x(120)), 0)];
     }
     return self;
 }

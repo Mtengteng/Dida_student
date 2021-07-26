@@ -19,5 +19,9 @@
 
 @implementation SABaseInfoView
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    self.nextBlock(@"", YES, @"");
+}
 
 @end

@@ -9,7 +9,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^nextActionBlock)(NSString *name,BOOL isPublic,NSString *gradeKey);
+
 @interface SANodeInfoView : UIView
+@property (nonatomic, copy) nextActionBlock nextBlock;
 
 @end
 
