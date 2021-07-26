@@ -10,7 +10,7 @@
 @implementation BWKnowledgeBoxReq
 - (NSURL *)url
 {
-    NSString *urlStr = [NSString stringWithFormat:knowledgeBox,self.subject];
+    NSString *urlStr = [NSString stringWithFormat:knowledgeBoxURL,self.subject];
     NSString *str = [NSString stringWithFormat:@"%@%@",BaseURL,urlStr];
     NSString *logStr = [str stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
 

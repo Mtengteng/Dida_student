@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SBoxGroupCell : UITableViewCell
+@interface SBoxNodeCell : UITableViewCell
 
 - (void)setupCellWithModel:(id)model;
 @end

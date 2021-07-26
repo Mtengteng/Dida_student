@@ -12,6 +12,13 @@
 #import "BWKnowledgeBoxGroupResp.h"
 #import "SBoxInfoScrollView.h"
 
+#import "BWGetGroupNodeReq.h"
+#import "BWGetGroupNodeResp.h"
+#import "SBoxGroup.h"
+#import "SBoxNode.h"
+#import "SBoxNodeCell.h"
+
+
 @interface SBoxInfoVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) SBoxInfoHeaderView *headerView;
 @property (nonatomic, strong) UITableView *tableView;
@@ -53,10 +60,12 @@
     groupReq.boxId = self.box.bId;
     [NetManger sendRequest:groupReq withSucessed:^(BWBaseReq *req, BWBaseResp *resp) {
         [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
-        
+
         BWKnowledgeBoxGroupResp *groupResp = (BWKnowledgeBoxGroupResp *)resp;
         
         [weakSelf createScrollViewWithArray:groupResp.data];
+        
+        [weakSelf loadGroupWithGroup:[groupResp.data safeObjectAtIndex:0]];
         
         
     } failure:^(BWBaseReq *req, NSError *error) {
@@ -64,13 +73,33 @@
         [MBProgressHUD showMessag:@"无学段信息" toView:weakSelf.view hudModel:MBProgressHUDModeText hide:YES];
     }];
 }
+- (void)loadGroupWithGroup:(SBoxGroup *)group
+{
+    DefineWeakSelf;
+    BWGetGroupNodeReq *getNodeReq = [[BWGetGroupNodeReq alloc] init];
+    getNodeReq.groupId = group.bId;
+    [NetManger sendRequest:getNodeReq withSucessed:^(BWBaseReq *req, BWBaseResp *resp) {
+        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+       
+        BWGetGroupNodeResp *getNodeResp = (BWGetGroupNodeResp *)resp;
+        weakSelf.dataArray = getNodeResp.data;
+        [weakSelf.tableView reloadData];
+
+    } failure:^(BWBaseReq *req, NSError *error) {
+        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+        [MBProgressHUD showMessag:@"无信息" toView:weakSelf.view hudModel:MBProgressHUDModeText hide:YES];
+    }];
+}
 - (void)createScrollViewWithArray:(NSArray *)array
 {
+    DefineWeakSelf;
     self.groupScrollView = [[SBoxInfoScrollView alloc] initWithFrame:CGRectMake(0, LAdaptation_y(245), SCREEN_WIDTH, LAdaptation_y(60)) WithArray:array];
     [self.view addSubview:self.groupScrollView];
     
     self.groupScrollView.clickBlock = ^(SBoxGroup * _Nonnull group) {
-        
+       
+        [weakSelf loadGroupWithGroup:group];
+
     };
 }
 - (void)createUI
@@ -114,16 +143,17 @@
 #pragma mark - UITableViewDataSource -
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.dataArray.count+10;
+    return self.dataArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellId = @"cellId";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    SBoxNodeCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+        cell = [[SBoxNodeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
     }
-    cell.textLabel.text = @"asdlkfjasdlf";
+    SBoxNode *node = [self.dataArray safeObjectAtIndex:indexPath.row];
+    [cell setupCellWithModel:node];
     return cell;
 }
 

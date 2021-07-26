@@ -13,8 +13,9 @@
 #define LoginURL                     @"/user/login"                                         //登陆
 
 //学习集
-#define knowledgeBox                 @"/knowledgeBox/box/%@"                            //通过学科获取所有box
-#define knowledgeBoxGroup            @"/knowledgeBox/groups/%@"                            //通过boxID获取所有groups
+#define knowledgeBoxURL                 @"/knowledgeBox/box/%@"                            //通过学科获取所有box
+#define knowledgeBoxGroupURL            @"/knowledgeBox/groups/%@"                         //通过boxID获取所有groups
+#define knowledgeBoxNodeURL             @"/knowledgeBox/node/%@"                           //通过groupsID获取所有nodes
 
 #define GetAllBookURL                @"/book/all/%@/%@"                                      //首页获取图书
 #define GetBookChapterURL            @"/book/chapter/%@/%@"                                 //获取所有章节

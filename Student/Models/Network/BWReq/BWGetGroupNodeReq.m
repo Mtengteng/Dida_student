@@ -1,16 +1,16 @@
 //
-//  BWKnowledgeBoxGroupReq.m
+//  BWGetGroupNodeReq.m
 //  Student
 //
-//  Created by mateng on 2021/7/22.
+//  Created by mateng on 2021/7/26.
 //
 
-#import "BWKnowledgeBoxGroupReq.h"
+#import "BWGetGroupNodeReq.h"
 
-@implementation BWKnowledgeBoxGroupReq
+@implementation BWGetGroupNodeReq
 - (NSURL *)url
 {
-    NSString *urlStr = [NSString stringWithFormat:knowledgeBoxGroupURL,self.boxId];
+    NSString *urlStr = [NSString stringWithFormat:knowledgeBoxNodeURL,self.groupId];
     NSString *str = [NSString stringWithFormat:@"%@%@",BaseURL,urlStr];
     NSString *logStr = [str stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
 

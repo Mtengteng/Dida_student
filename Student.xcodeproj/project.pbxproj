@@ -14,7 +14,10 @@
 		9E29F48C26314C0F00638047 /* SAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E29F48B26314C0F00638047 /* SAnswer.m */; };
 		9E41CE9F26A9AB0300BDEB01 /* BWKnowledgeBoxGroupReq.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E41CE9E26A9AB0300BDEB01 /* BWKnowledgeBoxGroupReq.m */; };
 		9E41CEA226A9AB1C00BDEB01 /* BWKnowledgeBoxGroupResp.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E41CEA126A9AB1C00BDEB01 /* BWKnowledgeBoxGroupResp.m */; };
-		9E41CEA526A9AF5400BDEB01 /* SBoxGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E41CEA426A9AF5400BDEB01 /* SBoxGroupCell.m */; };
+		9E41CEA526A9AF5400BDEB01 /* SBoxNodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E41CEA426A9AF5400BDEB01 /* SBoxNodeCell.m */; };
+		9E41CEA826AEE20100BDEB01 /* BWGetGroupNodeReq.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E41CEA726AEE20100BDEB01 /* BWGetGroupNodeReq.m */; };
+		9E41CEAB26AEE21500BDEB01 /* BWGetGroupNodeResp.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E41CEAA26AEE21500BDEB01 /* BWGetGroupNodeResp.m */; };
+		9E41CEAE26AEE5D800BDEB01 /* SBoxNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E41CEAD26AEE5D800BDEB01 /* SBoxNode.m */; };
 		9E559E8A2653ABF0006523C6 /* SAddImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E559E892653ABF0006523C6 /* SAddImageView.m */; };
 		9E57F9BA26AA4F6B00C80B45 /* SAMenuBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E57F9B926AA4F6B00C80B45 /* SAMenuBarView.m */; };
 		9E57F9BE26AA95FA00C80B45 /* SANode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E57F9BD26AA95FA00C80B45 /* SANode.m */; };
@@ -141,8 +144,14 @@
 		9E41CE9E26A9AB0300BDEB01 /* BWKnowledgeBoxGroupReq.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWKnowledgeBoxGroupReq.m; sourceTree = "<group>"; };
 		9E41CEA026A9AB1C00BDEB01 /* BWKnowledgeBoxGroupResp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWKnowledgeBoxGroupResp.h; sourceTree = "<group>"; };
 		9E41CEA126A9AB1C00BDEB01 /* BWKnowledgeBoxGroupResp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWKnowledgeBoxGroupResp.m; sourceTree = "<group>"; };
-		9E41CEA326A9AF5400BDEB01 /* SBoxGroupCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBoxGroupCell.h; sourceTree = "<group>"; };
-		9E41CEA426A9AF5400BDEB01 /* SBoxGroupCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBoxGroupCell.m; sourceTree = "<group>"; };
+		9E41CEA326A9AF5400BDEB01 /* SBoxNodeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBoxNodeCell.h; sourceTree = "<group>"; };
+		9E41CEA426A9AF5400BDEB01 /* SBoxNodeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBoxNodeCell.m; sourceTree = "<group>"; };
+		9E41CEA626AEE20100BDEB01 /* BWGetGroupNodeReq.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWGetGroupNodeReq.h; sourceTree = "<group>"; };
+		9E41CEA726AEE20100BDEB01 /* BWGetGroupNodeReq.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWGetGroupNodeReq.m; sourceTree = "<group>"; };
+		9E41CEA926AEE21500BDEB01 /* BWGetGroupNodeResp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWGetGroupNodeResp.h; sourceTree = "<group>"; };
+		9E41CEAA26AEE21500BDEB01 /* BWGetGroupNodeResp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWGetGroupNodeResp.m; sourceTree = "<group>"; };
+		9E41CEAC26AEE5D800BDEB01 /* SBoxNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBoxNode.h; sourceTree = "<group>"; };
+		9E41CEAD26AEE5D800BDEB01 /* SBoxNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBoxNode.m; sourceTree = "<group>"; };
 		9E559E882653ABF0006523C6 /* SAddImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAddImageView.h; sourceTree = "<group>"; };
 		9E559E892653ABF0006523C6 /* SAddImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAddImageView.m; sourceTree = "<group>"; };
 		9E57F9B826AA4F6B00C80B45 /* SAMenuBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAMenuBarView.h; sourceTree = "<group>"; };
@@ -408,8 +417,8 @@
 			children = (
 				9EB0926026A95B7000743C0F /* SBoxInfoHeaderView.h */,
 				9EB0926126A95B7000743C0F /* SBoxInfoHeaderView.m */,
-				9E41CEA326A9AF5400BDEB01 /* SBoxGroupCell.h */,
-				9E41CEA426A9AF5400BDEB01 /* SBoxGroupCell.m */,
+				9E41CEA326A9AF5400BDEB01 /* SBoxNodeCell.h */,
+				9E41CEA426A9AF5400BDEB01 /* SBoxNodeCell.m */,
 				9EDDA95426AE8AE600BD5A3E /* SBoxInfoScrollView.h */,
 				9EDDA95526AE8AE600BD5A3E /* SBoxInfoScrollView.m */,
 			);
@@ -423,6 +432,8 @@
 				9EB0925626A9187A00743C0F /* SBox.m */,
 				9EDDA95826AEA49E00BD5A3E /* SBoxGroup.h */,
 				9EDDA95926AEA49E00BD5A3E /* SBoxGroup.m */,
+				9E41CEAC26AEE5D800BDEB01 /* SBoxNode.h */,
+				9E41CEAD26AEE5D800BDEB01 /* SBoxNode.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -766,6 +777,8 @@
 				9EB0924E26A908E100743C0F /* BWKnowledgeBoxReq.m */,
 				9E41CE9D26A9AB0300BDEB01 /* BWKnowledgeBoxGroupReq.h */,
 				9E41CE9E26A9AB0300BDEB01 /* BWKnowledgeBoxGroupReq.m */,
+				9E41CEA626AEE20100BDEB01 /* BWGetGroupNodeReq.h */,
+				9E41CEA726AEE20100BDEB01 /* BWGetGroupNodeReq.m */,
 			);
 			path = BWReq;
 			sourceTree = "<group>";
@@ -802,6 +815,8 @@
 				9EB0925226A908F500743C0F /* BWKnowledgeBoxResp.m */,
 				9E41CEA026A9AB1C00BDEB01 /* BWKnowledgeBoxGroupResp.h */,
 				9E41CEA126A9AB1C00BDEB01 /* BWKnowledgeBoxGroupResp.m */,
+				9E41CEA926AEE21500BDEB01 /* BWGetGroupNodeResp.h */,
+				9E41CEAA26AEE21500BDEB01 /* BWGetGroupNodeResp.m */,
 			);
 			path = BWResp;
 			sourceTree = "<group>";
@@ -1148,11 +1163,13 @@
 				9ECDD0E6261D87D10037A9FD /* SExamVC.m in Sources */,
 				9E24C73626578BC9004BC1A7 /* SAddSelectView.m in Sources */,
 				9E57F9BE26AA95FA00C80B45 /* SANode.m in Sources */,
+				9E41CEA826AEE20100BDEB01 /* BWGetGroupNodeReq.m in Sources */,
 				9EDE3BEE2628152400FFC3EF /* SChapterHeaderView.m in Sources */,
 				9E905BFB25C13266009BB170 /* BWBaseDownloadResp.m in Sources */,
 				9E81A156264BA176004B9557 /* SCDictModel.m in Sources */,
 				9E6A8340267991B7002B2517 /* SMoreSelectView.m in Sources */,
 				9E81A14E264B6C53004B9557 /* BWGetDictReq.m in Sources */,
+				9E41CEAB26AEE21500BDEB01 /* BWGetGroupNodeResp.m in Sources */,
 				9ECDD0E2261D87BE0037A9FD /* SAssistantVC.m in Sources */,
 				9E905BCC25C13121009BB170 /* PrivacyPageController.m in Sources */,
 				9EB0925726A9187A00743C0F /* SBox.m in Sources */,
@@ -1161,6 +1178,7 @@
 				9E905BF725C13266009BB170 /* BWBaseReq.m in Sources */,
 				9E905C1F25C138BF009BB170 /* StudyVC.m in Sources */,
 				9ECDD0DA261D5A030037A9FD /* STabMenuView.m in Sources */,
+				9E41CEAE26AEE5D800BDEB01 /* SBoxNode.m in Sources */,
 				9E905C1C25C138AB009BB170 /* SHomeVC.m in Sources */,
 				9E77AC832626BB0F007C4D2B /* ItemTabView.m in Sources */,
 				9E905BCE25C13121009BB170 /* CustomPrivacyView.m in Sources */,
@@ -1199,7 +1217,7 @@
 				9E6CCED6262D5AA7004B6B42 /* SChapterSection.m in Sources */,
 				9EDE3BE2262806D400FFC3EF /* BWGetBookChapterReq.m in Sources */,
 				9E1A181E263544FA006E226B /* SelectWhiteBGBar.m in Sources */,
-				9E41CEA526A9AF5400BDEB01 /* SBoxGroupCell.m in Sources */,
+				9E41CEA526A9AF5400BDEB01 /* SBoxNodeCell.m in Sources */,
 				9E41CEA226A9AB1C00BDEB01 /* BWKnowledgeBoxGroupResp.m in Sources */,
 				9E905BD925C13121009BB170 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				9EB0926226A95B7000743C0F /* SBoxInfoHeaderView.m in Sources */,
