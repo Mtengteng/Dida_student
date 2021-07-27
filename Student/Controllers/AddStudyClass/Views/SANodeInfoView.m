@@ -7,11 +7,12 @@
 
 #import "SANodeInfoView.h"
 
+@interface SANodeInfoView()
+
+
+@end
+
 @implementation SANodeInfoView
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    self.nextBlock(@"", YES, @"");
-}
 
 @end

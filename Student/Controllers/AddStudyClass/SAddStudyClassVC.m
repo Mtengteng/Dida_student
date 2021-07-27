@@ -59,7 +59,7 @@
 
     
     SABaseInfoView *infoView = [[SABaseInfoView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - (BW_TopHeight+LAdaptation_y(10)))];
-    infoView.backgroundColor = [UIColor redColor];
+    infoView.backgroundColor = [UIColor whiteColor];
     [self.scrollView addSubview:infoView];
     
     infoView.nextBlock = ^(NSString * _Nonnull name, BOOL isPublic, NSString * _Nonnull gradeKey) {
@@ -68,7 +68,7 @@
     };
     
     SANodeInfoView *nodeView = [[SANodeInfoView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT - (BW_TopHeight+LAdaptation_y(10)))];
-    nodeView.backgroundColor = [UIColor yellowColor];
+    nodeView.backgroundColor = [UIColor whiteColor];
     [self.scrollView addSubview:nodeView];
     
     nodeView.nextBlock = ^(NSString * _Nonnull name, BOOL isPublic, NSString * _Nonnull gradeKey) {
@@ -76,7 +76,7 @@
     };
     
     SAPublishView *publishView = [[SAPublishView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*2, 0, SCREEN_WIDTH, SCREEN_HEIGHT - (BW_TopHeight+LAdaptation_y(10)))];
-    publishView.backgroundColor = [UIColor greenColor];
+    publishView.backgroundColor = [UIColor whiteColor];
     [self.scrollView addSubview:publishView];
     
 

@@ -125,7 +125,7 @@
         SCDictModel *dictModel = (SCDictModel *)dictResp.data;
         
         weakSelf.subArray = dictModel.dictValueList;
-            
+        
         if (weakSelf.subArray.count != 0) {
             SCDictInfoModel *infoModel = [dictModel.dictValueList safeObjectAtIndex:0];
             [weakSelf getKnowledgeBoxWithSubject:infoModel.dictKey];
