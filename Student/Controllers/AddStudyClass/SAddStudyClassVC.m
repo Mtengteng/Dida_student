@@ -57,7 +57,6 @@
     [self.scrollView setFrame:CGRectMake(0, BW_TopHeight+LAdaptation_y(10), SCREEN_WIDTH, SCREEN_HEIGHT - (BW_TopHeight+LAdaptation_y(10)))];
     [self.view addSubview:self.scrollView];
 
-    
     SABaseInfoView *infoView = [[SABaseInfoView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - (BW_TopHeight+LAdaptation_y(10)))];
     infoView.backgroundColor = [UIColor whiteColor];
     [self.scrollView addSubview:infoView];
@@ -78,8 +77,6 @@
     SAPublishView *publishView = [[SAPublishView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*2, 0, SCREEN_WIDTH, SCREEN_HEIGHT - (BW_TopHeight+LAdaptation_y(10)))];
     publishView.backgroundColor = [UIColor whiteColor];
     [self.scrollView addSubview:publishView];
-    
-
     
     [self.viewList addObjectsFromArray:@[infoView,nodeView,publishView]];
     

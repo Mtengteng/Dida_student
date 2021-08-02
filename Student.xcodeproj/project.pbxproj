@@ -395,6 +395,15 @@
 			path = SelectWhiteBgBar;
 			sourceTree = "<group>";
 		};
+		9E532E9A26B7C2CE0000BE0A /* NodeInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				9E57F9C626AA9CEA00C80B45 /* SANodeInfoView.h */,
+				9E57F9C726AA9CEA00C80B45 /* SANodeInfoView.m */,
+			);
+			path = NodeInfoView;
+			sourceTree = "<group>";
+		};
 		9E559E872653ABCD006523C6 /* TestImageView */ = {
 			isa = PBXGroup;
 			children = (
@@ -445,8 +454,7 @@
 				9E57F9B926AA4F6B00C80B45 /* SAMenuBarView.m */,
 				9E57F9C226AA9CD700C80B45 /* SABaseInfoView.h */,
 				9E57F9C326AA9CD700C80B45 /* SABaseInfoView.m */,
-				9E57F9C626AA9CEA00C80B45 /* SANodeInfoView.h */,
-				9E57F9C726AA9CEA00C80B45 /* SANodeInfoView.m */,
+				9E532E9A26B7C2CE0000BE0A /* NodeInfoView */,
 				9E57F9CA26AA9D0100C80B45 /* SAPublishView.h */,
 				9E57F9CB26AA9D0100C80B45 /* SAPublishView.m */,
 			);
