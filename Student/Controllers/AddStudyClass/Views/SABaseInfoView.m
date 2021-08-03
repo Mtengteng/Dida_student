@@ -146,10 +146,10 @@
 }
 - (void)nextAction:(id)sender
 {
-    if (self.titleField.text.length == 0 || self.selectGrade.length == 0) {
-        [MBProgressHUD showMessag:@"请输入内容" toView:self hudModel:MBProgressHUDModeText hide:YES];
-        return;
-    }
+//    if (self.titleField.text.length == 0 || self.selectGrade.length == 0) {
+//        [MBProgressHUD showMessag:@"请输入内容" toView:self hudModel:MBProgressHUDModeText hide:YES];
+//        return;
+//    }
     if (self.nextBlock) {
         self.nextBlock(self.titleField.text, self.isPublish, self.selectGrade);
     }

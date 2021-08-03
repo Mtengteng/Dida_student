@@ -13,6 +13,7 @@ typedef void(^nextActionBlock)(NSString *name,BOOL isPublic,NSString *gradeKey);
 
 @interface SANodeInfoView : UIView
 @property (nonatomic, copy) nextActionBlock nextBlock;
+@property (nonatomic, strong) UIViewController *superVC;
 
 @end
 

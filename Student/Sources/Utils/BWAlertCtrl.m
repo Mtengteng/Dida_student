@@ -15,9 +15,11 @@
 @implementation BWAlertCtrl
 
 
-+ (id)alertControllerWithTitle:(NSString *)title buttonArray:(NSArray *)array message:(NSString *)message preferredStyle:(UIAlertControllerStyle)preferredStyle clickBlock:(void (^)(NSString *buttonTitle))clickAction
++ (id)alertControllerWithTitle:(NSString *)title buttonArray:(NSArray *)array message:(NSString *)message preferredStyle:(UIAlertControllerStyle)preferredStyle withVC:(UIViewController *)viewController clickBlock:(void (^)(NSString *buttonTitle))clickAction
 {
     UIAlertController *alertCtrl = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:preferredStyle];
+    alertCtrl.popoverPresentationController.sourceView = viewController.view;
+    alertCtrl.popoverPresentationController.sourceRect = CGRectMake(0, viewController.view.bounds.size.height, viewController.view.bounds.size.width, LAdaptation_y(200));
     
     for (int i = 0;i < array.count;i++) {
         UIAlertAction *action ;
@@ -37,8 +39,7 @@
         [alertCtrl addAction:action];
     }
     
-    AppDelegate *app = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    [app.window.rootViewController presentViewController:alertCtrl animated:YES completion:nil];
+    [viewController presentViewController:alertCtrl animated:YES completion:nil];
     
     return alertCtrl;
 

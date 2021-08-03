@@ -10,6 +10,6 @@
 
 @interface BWAlertCtrl : UIAlertController
 
-+ (id)alertControllerWithTitle:(NSString *)title buttonArray:(NSArray *)array message:(NSString *)message preferredStyle:(UIAlertControllerStyle)preferredStyle clickBlock:(void (^)(NSString *buttonTitle))clickAction;
++ (id)alertControllerWithTitle:(NSString *)title buttonArray:(NSArray *)array message:(NSString *)message preferredStyle:(UIAlertControllerStyle)preferredStyle withVC:(UIViewController *)viewController clickBlock:(void (^)(NSString *buttonTitle))clickAction;
 
 @end

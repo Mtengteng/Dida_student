@@ -68,6 +68,7 @@
     
     SANodeInfoView *nodeView = [[SANodeInfoView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT - (BW_TopHeight+LAdaptation_y(10)))];
     nodeView.backgroundColor = [UIColor whiteColor];
+    nodeView.superVC = self;
     [self.scrollView addSubview:nodeView];
     
     nodeView.nextBlock = ^(NSString * _Nonnull name, BOOL isPublic, NSString * _Nonnull gradeKey) {
