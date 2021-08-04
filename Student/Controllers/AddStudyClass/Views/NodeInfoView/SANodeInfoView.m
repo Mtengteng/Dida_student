@@ -9,10 +9,14 @@
 #import "SANode.h"
 #import "SAddImageView.h"
 
-@interface SANodeInfoView()<UITableViewDelegate,UITableViewDataSource>
+typedef void(^addBlock)(UIImage *img);
+
+@interface SANodeInfoView()<UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *nodeArray;
 @property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UIImagePickerController *pickerView;
+@property (nonatomic, copy) addBlock addActionBlock;
 
 @end
 
@@ -22,10 +26,11 @@
 {
     if (self = [super initWithFrame:frame]) {
         
-        [self.titleLabel setFrame:CGRectMake(0, LAdaptation_y(20), self.bounds.size.width, LAdaptation_y(20))];
+        self.titleLabel.text = @"函数";
+        [self.titleLabel setFrame:CGRectMake(0, 0, self.bounds.size.width, LAdaptation_y(40))];
         [self addSubview:self.titleLabel];
         
-        [self.tableView setFrame:CGRectMake(0, LAdaptation_y(20), self.bounds.size.width, self.bounds.size.height - LAdaptation_y(20))];
+        [self.tableView setFrame:CGRectMake(0, LAdaptation_y(40), self.bounds.size.width, self.bounds.size.height - LAdaptation_y(40))];
         [self addSubview:self.tableView];
         
         [self initData];
@@ -85,7 +90,6 @@
     }
     if (node.type == NodeType_test) {
         [self loadCellTypeWithContentStyleByNode:node andCell:cell];
-
     }
     if (node.type == NodeType_end) {
         [self loadCellTypeWithEndStyleByNode:node andCell:cell];
@@ -292,51 +296,131 @@
         UIView *bgView = [[UIView alloc] init];
         bgView.backgroundColor = BWColor(239, 239, 239, 1.0);
         [cell.contentView addSubview:bgView];
-        
+
         [bgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(cell.contentView);
             make.left.equalTo(addView.mas_right).offset(LAdaptation_x(40));
             make.width.mas_equalTo(LAdaptation_x(100));
             make.height.mas_equalTo(LAdaptation_y(100));
         }];
-                                  
+
         UIImageView *iconAdd = [[UIImageView alloc] init];
         [iconAdd setImage:[UIImage imageNamed:@"nodecontent_add"]];
         [bgView addSubview:iconAdd];
-        
+
         [iconAdd mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.equalTo(bgView);
             make.width.mas_equalTo(LAdaptation_x(45));
             make.height.mas_equalTo(LAdaptation_y(45));
         }];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addContentAction:)];
+        [bgView addGestureRecognizer:tap];
+        
     }else{
-        for (NSInteger i = 0; i < node.imageList.count; i++) {
-            NSString *imageUrl = [node.imageList safeObjectAtIndex:i];
-            UIImageView *contentView = [[UIImageView alloc] init];
-            [contentView sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
-            [cell.contentView addSubview:contentView];
+        NSInteger myCount = 0;
+        if (node.imageList.count >3) {
+            myCount = 4;
+        }else{
+            myCount = node.imageList.count+1;
+        }
+
+        for (NSInteger i = 0; i < myCount; i++) {
             
-            [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.centerY.equalTo(cell.contentView);
-                if (i == 0) {
-                    make.left.equalTo(addView.mas_right).offset(LAdaptation_x(40));
-                }else{
-                    make.left.equalTo(contentView.mas_right).offset(LAdaptation_x(20));
-                }
-                make.width.mas_equalTo(100);
-                make.height.mas_equalTo(100);
-            }];
+            if (i == myCount - 1) {
+                UIView *bgView = [[UIView alloc] init];
+                bgView.backgroundColor = BWColor(239, 239, 239, 1.0);
+                bgView.userInteractionEnabled = YES;
+                [cell.contentView addSubview:bgView];
+
+                [bgView mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.centerY.equalTo(cell.contentView);
+                    make.left.mas_equalTo(LAdaptation_x(120)+i*LAdaptation_x(140));
+                    make.width.mas_equalTo(LAdaptation_x(100));
+                    make.height.mas_equalTo(LAdaptation_y(100));
+                }];
+
+                UIImageView *iconAdd = [[UIImageView alloc] init];
+                [iconAdd setImage:[UIImage imageNamed:@"nodecontent_add"]];
+                [bgView addSubview:iconAdd];
+
+                [iconAdd mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.center.equalTo(bgView);
+                    make.width.mas_equalTo(LAdaptation_x(45));
+                    make.height.mas_equalTo(LAdaptation_y(45));
+                }];
+                
+                UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addContentAction:)];
+                
+                [bgView addGestureRecognizer:tap];
+                
+            }else{
+                
+                UIImage *img = [node.imageList safeObjectAtIndex:i];
+                UIImageView *contentView = [[UIImageView alloc] init];
+    //            [contentView sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
+                [contentView setImage:img];
+                [cell.contentView addSubview:contentView];
+                
+                [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.centerY.equalTo(cell.contentView);
+                    make.left.mas_equalTo(LAdaptation_x(120)+i*LAdaptation_x(140));
+                    make.width.mas_equalTo(LAdaptation_x(120));
+                    make.height.mas_equalTo(LAdaptation_y(100));
+                }];
+            }
         }
     }
     
-
 }
+- (void)addContentAction:(UITapGestureRecognizer *)tap
+{
+    CGPoint currentPoint = [tap locationInView:self.tableView];
+      
+    NSIndexPath *currentPath = [self.tableView indexPathForRowAtPoint:currentPoint];
+    
+    SANode *node = [self.nodeArray safeObjectAtIndex:currentPath.row];
+    
+    DefineWeakSelf;
+    __block NSMutableArray *imgArray = [[NSMutableArray alloc] init];
+    [imgArray addObjectsFromArray:node.imageList];
+    
+    self.addActionBlock = ^(UIImage *img) {
+        [imgArray addObject:img];
+        node.imageList = imgArray;
+        [weakSelf.tableView reloadData];
+    };
+    
+    [BWAlertCtrl alertControllerWithTitle:@"提示" buttonArray:@[@"图片文件",@"收藏卡片",@"取消"] message:@"请选择来源" preferredStyle:UIAlertControllerStyleAlert withVC:self.superVC clickBlock:^(NSString *buttonTitle) {
+
+        if ([buttonTitle isEqualToString:@"图片文件"]) {
+
+            [self.superVC presentViewController:self.pickerView animated:YES completion:nil];
+
+        }
+        if ([buttonTitle isEqualToString:@"收藏卡片"]) {
+            
+        }
+            
+    }];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey, id> *)info
+{
+    UIImage *img = [info safeObjectForKey:@"UIImagePickerControllerOriginalImage"];
+    if (self.addActionBlock) {
+        self.addActionBlock(img);
+    }
+    [self.pickerView dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark - LazyLoad -
 - (UILabel *)titleLabel
 {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.font = [UIFont boldSystemFontOfSize:16.0];
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
     }
     return _titleLabel;
 }
@@ -349,5 +433,15 @@
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return _tableView;
+}
+- (UIImagePickerController *)pickerView
+{
+    if (!_pickerView) {
+        _pickerView = [[UIImagePickerController alloc] init];
+        _pickerView.allowsEditing = YES;
+        _pickerView.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        _pickerView.delegate = self;
+    }
+    return _pickerView;
 }
 @end
