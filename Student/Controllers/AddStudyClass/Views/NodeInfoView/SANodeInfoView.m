@@ -9,7 +9,7 @@
 #import "SANode.h"
 #import "SAddImageView.h"
 
-typedef void(^addBlock)(UIImage *img);
+typedef void(^addBlock)(NSString *imageUrl);
 
 @interface SANodeInfoView()<UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -17,6 +17,9 @@ typedef void(^addBlock)(UIImage *img);
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UIImagePickerController *pickerView;
 @property (nonatomic, copy) addBlock addActionBlock;
+@property (nonatomic, strong) UIButton *nextBtn;
+@property (nonatomic, strong) MBProgressHUD *hud;
+
 
 @end
 
@@ -30,8 +33,17 @@ typedef void(^addBlock)(UIImage *img);
         [self.titleLabel setFrame:CGRectMake(0, 0, self.bounds.size.width, LAdaptation_y(40))];
         [self addSubview:self.titleLabel];
         
-        [self.tableView setFrame:CGRectMake(0, LAdaptation_y(40), self.bounds.size.width, self.bounds.size.height - LAdaptation_y(40))];
+        [self.tableView setFrame:CGRectMake(0, LAdaptation_y(40), self.bounds.size.width, self.bounds.size.height - LAdaptation_y(130))];
         [self addSubview:self.tableView];
+        
+        [self.nextBtn setFrame:CGRectMake(self.bounds.size.width/2 - LAdaptation_x(120)/2, self.bounds.size.height - LAdaptation_y(80), LAdaptation_x(120), LAdaptation_y(44))];
+        [self addSubview:self.nextBtn];
+        
+        
+        _hud = [[MBProgressHUD alloc] initWithView:self];
+        _hud.mode = MBProgressHUDModeAnnularDeterminate;
+        _hud.label.text = NSLocalizedString(@"上传中", @"HUD loading title");
+        [self addSubview:_hud];
         
         [self initData];
     }
@@ -54,6 +66,13 @@ typedef void(^addBlock)(UIImage *img);
     [tempArray addObject:endNode];
     
     self.nodeArray = tempArray;
+}
+
+- (void)nextAction:(id)sender
+{
+    if (self.nextBlock) {
+        self.nextBlock(@"", YES, @"");
+    }
 }
 
 #pragma mark - UITableViewDataSource -
@@ -351,15 +370,14 @@ typedef void(^addBlock)(UIImage *img);
                 }];
                 
                 UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addContentAction:)];
-                
                 [bgView addGestureRecognizer:tap];
                 
             }else{
                 
-                UIImage *img = [node.imageList safeObjectAtIndex:i];
+                NSString *imageUrl = [node.imageList safeObjectAtIndex:i];
                 UIImageView *contentView = [[UIImageView alloc] init];
-    //            [contentView sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
-                [contentView setImage:img];
+                [contentView sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
+//                [contentView setImage:img];
                 [cell.contentView addSubview:contentView];
                 
                 [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -385,8 +403,8 @@ typedef void(^addBlock)(UIImage *img);
     __block NSMutableArray *imgArray = [[NSMutableArray alloc] init];
     [imgArray addObjectsFromArray:node.imageList];
     
-    self.addActionBlock = ^(UIImage *img) {
-        [imgArray addObject:img];
+    self.addActionBlock = ^(NSString *imageUrl) {
+        [imgArray addObject:imageUrl];
         node.imageList = imgArray;
         [weakSelf.tableView reloadData];
     };
@@ -408,12 +426,109 @@ typedef void(^addBlock)(UIImage *img);
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey, id> *)info
 {
     UIImage *img = [info safeObjectForKey:@"UIImagePickerControllerOriginalImage"];
-    if (self.addActionBlock) {
-        self.addActionBlock(img);
-    }
+   
+    [self uploadImg:img];
+
     [self.pickerView dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
+- (void)uploadImg:(UIImage *)image
+{
+    DefineWeakSelf;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [weakSelf.hud showAnimated:YES];
+    });
+    
+    NSString *upStr = [NSString stringWithFormat:@"%@/file",BaseURL];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:
+                                                         @"application/json",
+                                                         @"text/html",
+                                                         @"image/jpeg",
+                                                         @"image/png",
+                                                         @"application/octet-stream",
+                                                         @"text/json",
+                                                         @"charset/UTF-8",
+                                                         @"audio/x-wav",
+                                                         @"text/plain",
+                                                         nil];
+    
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:KEY_token];
+    
+    [manager POST:upStr parameters:@{} headers:@{@"token":token == nil ? @"":token} constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        
+        NSData *data = UIImageJPEGRepresentation(image, 0.5);
+        
+        [formData appendPartWithFileData:data
+
+                                    name:@"file"
+
+                                fileName:@"file.jpeg"
+
+                                mimeType:@"image/jpeg"];
+        
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+            
+        [uploadProgress addObserver:self forKeyPath:@"fractionCompleted" options:NSKeyValueObservingOptionNew context:nil];
+
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        [weakSelf.hud hideAnimated:YES];
+
+        
+        NSDictionary *respDic = [NSJSONSerialization JSONObjectWithData:(NSData*)responseObject options:NSJSONReadingMutableLeaves error:nil];
+
+        NSLog(@"%@",respDic);
+        
+        NSInteger code = [[respDic safeObjectForKey:@"code"] integerValue];
+        if (code == 1000) {
+            NSString *fileURL = [respDic safeObjectForKey:@"data"];
+            NSString *msd = [respDic safeObjectForKey:@"msg"];
+            
+            if (weakSelf.addActionBlock) {
+                weakSelf.addActionBlock(fileURL);
+            }
+        }else{
+            [weakSelf.hud hideAnimated:YES];
+            NSError *error = [NSError errorWithDomain:@"上传失败" code:-1 userInfo:nil];
+
+        }
+
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            
+        [weakSelf.hud hideAnimated:YES];
+        
+    }];
+    
+}
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+
+{
+    if ([keyPath isEqualToString:@"fractionCompleted"] && [object isKindOfClass:[NSProgress class]]) {
+        
+        
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+            // Do something useful in the background and update the HUD periodically.
+            NSProgress *progress = (NSProgress *)object;
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // Instead we could have also passed a reference to the HUD
+                // to the HUD to myProgressTask as a method parameter.
+                self->_hud.progress = progress.fractionCompleted;
+            });
+            
+        });
+        
+    }
+    
+}
 #pragma mark - LazyLoad -
 - (UILabel *)titleLabel
 {
@@ -443,5 +558,16 @@ typedef void(^addBlock)(UIImage *img);
         _pickerView.delegate = self;
     }
     return _pickerView;
+}
+- (UIButton *)nextBtn
+{
+    if (!_nextBtn) {
+        _nextBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+        [_nextBtn setTitle:@"下一步" forState:UIControlStateNormal];
+        [_nextBtn addTarget:self action:@selector(nextAction:) forControlEvents:UIControlEventTouchUpInside];
+        [_nextBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_nextBtn setBackgroundColor:[UIColor blueColor]];
+    }
+    return _nextBtn;
 }
 @end
