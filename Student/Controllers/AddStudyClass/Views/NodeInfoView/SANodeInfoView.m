@@ -177,7 +177,7 @@ typedef void(^addBlock)(NSString *imageUrl);
                         [tempArray insertObject:targetNode atIndex:idx+1];
                         
                         SANode *targetAddNode = [[SANode alloc] init];
-                        targetAddNode.type = NodeType_add;
+                        targetAddNode.type =  NodeType_add;
                         [tempArray insertObject:targetAddNode atIndex:idx+2];
                     }
                 }];
@@ -491,13 +491,14 @@ typedef void(^addBlock)(NSString *imageUrl);
         if (code == 1000) {
             NSString *fileURL = [respDic safeObjectForKey:@"data"];
             NSString *msd = [respDic safeObjectForKey:@"msg"];
-            
+            NSLog(@"%@",msd);
             if (weakSelf.addActionBlock) {
                 weakSelf.addActionBlock(fileURL);
             }
         }else{
             [weakSelf.hud hideAnimated:YES];
             NSError *error = [NSError errorWithDomain:@"上传失败" code:-1 userInfo:nil];
+            NSLog(@"%@",error.domain);
 
         }
 
