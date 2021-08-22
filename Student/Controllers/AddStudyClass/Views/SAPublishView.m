@@ -11,6 +11,8 @@
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *publicLabel;
 @property (nonatomic, strong) UILabel *gradeLabel;
+@property (nonatomic, strong) UILabel *pathLabel;
+
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UITextField *titleField;
 @property (nonatomic, assign) BOOL isPublish;
@@ -39,9 +41,21 @@
             make.left.equalTo(self.titleLabel.mas_right).offset(LAdaptation_x(30));
         }];
         
+        [self addSubview:self.pathLabel];
+        [self.pathLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.titleLabel.mas_bottom).offset(LAdaptation_y(20));
+            make.left.equalTo(self.titleLabel);
+        }];
+        
+        [self.scrollView setFrame:CGRectMake(LAdaptation_x(24), LAdaptation_y(150),self.bounds.size.width - LAdaptation_x(48), LAdaptation_y(120))];
+        [self addSubview:self.scrollView];
+        
+        
+
+        
         [self addSubview:self.publicLabel];
         [self.publicLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.titleLabel.mas_bottom).offset(LAdaptation_y(30));
+            make.top.equalTo(self.titleLabel.mas_bottom).offset(LAdaptation_y(200));
             make.left.equalTo(self.titleLabel);
             make.width.mas_equalTo(LAdaptation_x(50));
             make.height.mas_equalTo(LAdaptation_y(30));
@@ -178,10 +192,21 @@
     }
     return _gradeLabel;
 }
+- (UILabel *)pathLabel
+{
+    if (!_pathLabel) {
+        _pathLabel = [[UILabel alloc] init];
+        _pathLabel.text = @"路径节点";
+        _pathLabel.font = [UIFont systemFontOfSize:16.0];
+        _pathLabel.textColor = [UIColor lightGrayColor];
+    }
+    return _pathLabel;
+}
 - (UIScrollView *)scrollView
 {
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] init];
+        _scrollView.backgroundColor = [UIColor redColor];
     }
     return _scrollView;
 }

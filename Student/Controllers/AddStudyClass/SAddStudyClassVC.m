@@ -62,7 +62,7 @@
     [self.scrollView addSubview:infoView];
     
     infoView.nextBlock = ^(NSString * _Nonnull name, BOOL isPublic, NSString * _Nonnull gradeKey) {
-        
+        weakSelf.node
         [self.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH, 0) animated:YES];
     };
     
@@ -111,5 +111,12 @@
         _viewList = [[NSMutableArray alloc] init];
     }
     return _viewList;
+}
+- (SANode *)node
+{
+    if (!_node) {
+        _node = [[SANode alloc] init];
+    }
+    return _node;
 }
 @end
