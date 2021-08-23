@@ -70,8 +70,8 @@ typedef void(^addBlock)(NSString *imageUrl);
 
 - (void)nextAction:(id)sender
 {
-    if (self.nextBlock) {
-        self.nextBlock(@"", YES, @"");
+    if (self.next) {
+        self.next(self.nodeArray);
     }
 }
 

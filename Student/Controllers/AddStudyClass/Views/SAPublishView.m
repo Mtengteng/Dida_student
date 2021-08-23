@@ -6,6 +6,7 @@
 //
 
 #import "SAPublishView.h"
+#import "SANode.h"
 
 @interface SAPublishView()
 @property (nonatomic, strong) UILabel *titleLabel;
@@ -50,8 +51,6 @@
         [self.scrollView setFrame:CGRectMake(LAdaptation_x(24), LAdaptation_y(150),self.bounds.size.width - LAdaptation_x(48), LAdaptation_y(120))];
         [self addSubview:self.scrollView];
         
-        
-
         
         [self addSubview:self.publicLabel];
         [self.publicLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -118,6 +117,88 @@
         
     }
     return self;
+}
+- (void)setDataWith:(NSArray *)array
+{
+    for (NSInteger i = 0; i < array.count;i++) {
+        
+        SANode *node = [array safeObjectAtIndex:i];
+        if (node.type == NodeType_add) {
+            break;
+        }
+        if (node.type == NodeType_start) {
+            
+            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, LAdaptation_x(60), LAdaptation_y(60))];
+            [self.scrollView addSubview:view];
+            
+            UIImageView *pointView = [[UIImageView alloc] init];
+            [pointView setImage:[UIImage imageNamed:@"node_root"]];
+            [view addSubview:pointView];
+            
+            [pointView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerY.equalTo(view);
+                make.centerX.equalTo(view);
+                make.width.mas_equalTo(30);
+                make.height.mas_equalTo(30);
+            }];
+            
+            UIImageView *lineView = [[UIImageView alloc] init];
+            lineView.backgroundColor = [UIColor lightGrayColor];
+            [view addSubview:lineView];
+            
+            [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerY.equalTo(pointView);
+                make.left.equalTo(pointView.mas_right);
+                make.right.equalTo(view.mas_right);
+                make.height.equalTo(@1);
+            }];
+            
+            
+        }else if (node.type == NodeType_end) {
+            
+            
+            
+        }else{
+            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(i*LAdaptation_x(60), 0, LAdaptation_x(60), LAdaptation_y(60))];
+            [self.scrollView addSubview:view];
+            
+            UIImageView *addView = [[UIImageView alloc] init];
+            if (node.type == NodeType_kw) {
+                addView.backgroundColor = [UIColor blueColor];
+            }else{
+                addView.backgroundColor = [UIColor yellowColor];
+            }
+            [view addSubview:addView];
+            
+            [addView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.center.equalTo(view);
+                make.width.mas_equalTo(30);
+                make.height.mas_equalTo(30);
+            }];
+            
+            UIImageView *lineView1 = [[UIImageView alloc] init];
+            lineView1.backgroundColor = [UIColor lightGrayColor];
+            [view addSubview:lineView1];
+            
+            [lineView1 mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerY.equalTo(addView);
+                make.left.equalTo(view);
+                make.right.equalTo(addView.mas_left);
+                make.height.equalTo(@1);
+            }];
+            
+            UIImageView *lineView = [[UIImageView alloc] init];
+            lineView.backgroundColor = [UIColor lightGrayColor];
+            [view addSubview:lineView];
+            
+            [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerY.equalTo(addView);
+                make.left.equalTo(addView.mas_right);
+                make.right.equalTo(view.mas_left);
+                make.height.equalTo(@1);
+            }];
+        }
+    }
 }
 - (void)clickPublishAction:(UIButton *)button
 {

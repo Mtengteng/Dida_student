@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SAPublishView : UIView
 
+- (void)setDataWith:(NSArray *)array;
 @end
 
 NS_ASSUME_NONNULL_END

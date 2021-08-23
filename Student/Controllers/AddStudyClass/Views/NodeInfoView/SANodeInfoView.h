@@ -9,10 +9,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^nextActionBlock)(NSString *name,BOOL isPublic,NSString *gradeKey);
+
+typedef void(^nextBlock)(NSArray *nodeArray);
 
 @interface SANodeInfoView : UIView
-@property (nonatomic, copy) nextActionBlock nextBlock;
+@property (nonatomic, copy) nextBlock next;
 @property (nonatomic, strong) UIViewController *superVC;
 
 @end

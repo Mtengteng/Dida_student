@@ -17,7 +17,6 @@
 @property (nonatomic, strong) SAMenuBarView *menuBarView;
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) NSMutableArray *viewList;
-@property (nonatomic, strong) SANode *node;
 
 @end
 
@@ -61,23 +60,35 @@
     infoView.backgroundColor = [UIColor whiteColor];
     [self.scrollView addSubview:infoView];
     
+    __block NSString *stName;
+    __block BOOL public;
+    __block NSString *grade;
     infoView.nextBlock = ^(NSString * _Nonnull name, BOOL isPublic, NSString * _Nonnull gradeKey) {
-        weakSelf.node
+        stName = name;
+        public = isPublic;
+        grade = gradeKey;
         [self.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH, 0) animated:YES];
     };
+    
+    SAPublishView *publishView = [[SAPublishView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*2, 0, SCREEN_WIDTH, SCREEN_HEIGHT - (BW_TopHeight+LAdaptation_y(10)))];
+    publishView.backgroundColor = [UIColor whiteColor];
+    [self.scrollView addSubview:publishView];
     
     SANodeInfoView *nodeView = [[SANodeInfoView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT - (BW_TopHeight+LAdaptation_y(10)))];
     nodeView.backgroundColor = [UIColor whiteColor];
     nodeView.superVC = self;
     [self.scrollView addSubview:nodeView];
     
-    nodeView.nextBlock = ^(NSString * _Nonnull name, BOOL isPublic, NSString * _Nonnull gradeKey) {
+    __block NSArray *nodeList;
+    nodeView.next = ^(NSArray *nodeArray) {
+        nodeList = nodeArray;
+        
+        [publishView setDataWith:nodeList];
+        
         [self.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH*2, 0) animated:YES];
     };
     
-    SAPublishView *publishView = [[SAPublishView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*2, 0, SCREEN_WIDTH, SCREEN_HEIGHT - (BW_TopHeight+LAdaptation_y(10)))];
-    publishView.backgroundColor = [UIColor whiteColor];
-    [self.scrollView addSubview:publishView];
+
     
     [self.viewList addObjectsFromArray:@[infoView,nodeView,publishView]];
     
@@ -112,11 +123,5 @@
     }
     return _viewList;
 }
-- (SANode *)node
-{
-    if (!_node) {
-        _node = [[SANode alloc] init];
-    }
-    return _node;
-}
+
 @end
