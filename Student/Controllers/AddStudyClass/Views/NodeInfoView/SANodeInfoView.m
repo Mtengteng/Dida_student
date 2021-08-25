@@ -143,7 +143,6 @@ typedef void(^addBlock)(NSString *imageUrl);
     }
     if (node.type == NodeType_test) {
         return LAdaptation_y(120);
-
     }
     if (node.type == NodeType_end) {
         return LAdaptation_y(60);
