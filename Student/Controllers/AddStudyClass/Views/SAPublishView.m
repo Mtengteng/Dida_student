@@ -115,6 +115,13 @@
             }];
         }
         
+        [self addSubview:self.publishBtn];
+        [self.publishBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self);
+            make.bottom.equalTo(self.mas_bottom).offset(-LAdaptation_y(80));
+            make.width.mas_equalTo(LAdaptation_x(120));
+            make.height.mas_equalTo(LAdaptation_y(44));
+        }];
         
         
     }
@@ -316,15 +323,16 @@
 {
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] init];
-        _scrollView.backgroundColor = [UIColor redColor];
+        _scrollView.backgroundColor = [UIColor whiteColor];
     }
     return _scrollView;
 }
 - (UIButton *)publishBtn
 {
-    if (_publishBtn) {
+    if (!_publishBtn) {
         _publishBtn = [UIButton buttonWithType:UIButtonTypeSystem];
         [_publishBtn setTitle:@"提交" forState:UIControlStateNormal];
+        [_publishBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_publishBtn setBackgroundColor:[UIColor blueColor]];
         [_publishBtn addTarget:self action:@selector(publishAction:) forControlEvents:UIControlEventTouchUpInside];
     }
