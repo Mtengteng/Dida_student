@@ -88,6 +88,11 @@
         [self.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH*2, 0) animated:YES];
     };
     
+    
+    publishView.publish = ^(NSString * _Nonnull name, NSArray * _Nonnull nodeArray, NSString * _Nonnull backup) {
+        
+        [weakSelf queryPublishRequest:name nodeList:nodeArray public:public grade:grade];
+    };
 
     
     [self.viewList addObjectsFromArray:@[infoView,nodeView,publishView]];
@@ -96,7 +101,13 @@
     
 }
 
-
+- (void)queryPublishRequest:(NSString *)name
+                   nodeList:(NSArray *)nodeArray
+                     public:(BOOL)isPublic
+                      grade:(NSString *)gradeKey
+{
+    
+}
 
 #pragma mark - LazyLoad -
 - (SAMenuBarView *)menuBarView

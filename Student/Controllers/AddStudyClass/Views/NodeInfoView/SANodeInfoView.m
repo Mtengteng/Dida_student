@@ -70,8 +70,16 @@ typedef void(^addBlock)(NSString *imageUrl);
 
 - (void)nextAction:(id)sender
 {
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    
+    [self.nodeArray enumerateObjectsUsingBlock:^(SANode  *_Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.type != NodeType_add) {
+            [array addObject:obj];
+        }
+    }];
+    
     if (self.next) {
-        self.next(self.nodeArray);
+        self.next(array);
     }
 }
 
@@ -141,6 +149,25 @@ typedef void(^addBlock)(NSString *imageUrl);
         return LAdaptation_y(60);
     }
     return LAdaptation_y(60);
+}
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        if (self.nodeArray.count <= 3) {
+            [MBProgressHUD showMessag:@"不能删除" toView:self hudModel:MBProgressHUDModeText hide:YES];
+            return;
+        }
+        //删除数据源
+        SANode *node = self.nodeArray[indexPath.row];
+        SANode *nodeAdd = self.nodeArray[indexPath.row+1];
+
+        NSMutableArray *tempArray = [self.nodeArray mutableCopy];
+        [tempArray removeObject:node];
+        [tempArray removeObject:nodeAdd];
+        self.nodeArray = tempArray;
+        [self.tableView reloadData];
+
+    }
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

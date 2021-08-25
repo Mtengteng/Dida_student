@@ -9,8 +9,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^publishBlock)(NSString *name,NSArray *nodeArray,NSString *backup);
 
 @interface SAPublishView : UIView
+@property (nonatomic, copy) publishBlock publish;
 
 - (void)setDataWith:(NSArray *)array;
 @end

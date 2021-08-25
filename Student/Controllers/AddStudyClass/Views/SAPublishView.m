@@ -21,6 +21,8 @@
 @property (nonatomic, strong) NSString *selectGrade;
 @property (nonatomic, strong) UIButton *yesBtn;
 @property (nonatomic, strong) UIButton *noBtn;
+@property (nonatomic, strong) UIButton *publishBtn;
+@property (nonatomic, strong) NSArray *nodeArray;
 
 @end
 
@@ -120,15 +122,15 @@
 }
 - (void)setDataWith:(NSArray *)array
 {
+    self.nodeArray = array;
+    
     for (NSInteger i = 0; i < array.count;i++) {
         
         SANode *node = [array safeObjectAtIndex:i];
-        if (node.type == NodeType_add) {
-            break;
-        }
+
         if (node.type == NodeType_start) {
             
-            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, LAdaptation_x(60), LAdaptation_y(60))];
+            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.scrollView.bounds.size.width/array.count, self.scrollView.bounds.size.height)];
             [self.scrollView addSubview:view];
             
             UIImageView *pointView = [[UIImageView alloc] init];
@@ -156,10 +158,32 @@
             
         }else if (node.type == NodeType_end) {
             
+            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(i*self.scrollView.bounds.size.width/array.count, 0, self.scrollView.bounds.size.width/array.count, self.scrollView.bounds.size.height)];
+            [self.scrollView addSubview:view];
             
+            UIImageView *pointView = [[UIImageView alloc] init];
+            [pointView setImage:[UIImage imageNamed:@"node_root"]];
+            [view addSubview:pointView];
+            
+            [pointView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.center.equalTo(view);
+                make.width.mas_equalTo(30);
+                make.height.mas_equalTo(30);
+            }];
+            
+            UIImageView *lineView = [[UIImageView alloc] init];
+            lineView.backgroundColor = [UIColor lightGrayColor];
+            [view addSubview:lineView];
+            
+            [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerY.equalTo(pointView);
+                make.left.equalTo(view);
+                make.right.equalTo(pointView.mas_left);
+                make.height.equalTo(@1);
+            }];
             
         }else{
-            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(i*LAdaptation_x(60), 0, LAdaptation_x(60), LAdaptation_y(60))];
+            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(i*self.scrollView.bounds.size.width/array.count, 0, self.scrollView.bounds.size.width/array.count, self.scrollView.bounds.size.height)];
             [self.scrollView addSubview:view];
             
             UIImageView *addView = [[UIImageView alloc] init];
@@ -194,7 +218,7 @@
             [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.centerY.equalTo(addView);
                 make.left.equalTo(addView.mas_right);
-                make.right.equalTo(view.mas_left);
+                make.right.equalTo(view.mas_right);
                 make.height.equalTo(@1);
             }];
         }
@@ -231,7 +255,12 @@
         }
     }
 }
-
+- (void)publishAction:(id)sender
+{
+    if (self.publish) {
+        self.publish(self.titleField.text, self.nodeArray, @"");
+    }
+}
 
 #pragma mark - LazyLoad -
 - (UILabel *)titleLabel
@@ -291,5 +320,14 @@
     }
     return _scrollView;
 }
-
+- (UIButton *)publishBtn
+{
+    if (_publishBtn) {
+        _publishBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+        [_publishBtn setTitle:@"提交" forState:UIControlStateNormal];
+        [_publishBtn setBackgroundColor:[UIColor blueColor]];
+        [_publishBtn addTarget:self action:@selector(publishAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _publishBtn;
+}
 @end
