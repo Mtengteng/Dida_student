@@ -98,6 +98,7 @@
 		9E9B94C526297BF300CAE55D /* SCustomRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9B94C026297BF300CAE55D /* SCustomRefreshHeader.m */; };
 		9E9B94C626297BF300CAE55D /* loadiing_paperplane.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E9B94C126297BF300CAE55D /* loadiing_paperplane.json */; };
 		9EA1753826972E8200ECA2BD /* SAddStudyClassVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA1753726972E8200ECA2BD /* SAddStudyClassVC.m */; };
+		9EA7703D26DCCF650083D432 /* ShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA7703C26DCCF650083D432 /* ShowView.m */; };
 		9EB0924826A9006000743C0F /* dropdownFlag@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EB0924426A9006000743C0F /* dropdownFlag@3x.png */; };
 		9EB0924926A9006000743C0F /* dropdownFlag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EB0924526A9006000743C0F /* dropdownFlag@2x.png */; };
 		9EB0924A26A9006000743C0F /* EBDropdownListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB0924626A9006000743C0F /* EBDropdownListView.m */; };
@@ -304,6 +305,8 @@
 		9E9B94C226297BF300CAE55D /* SCustomRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCustomRefreshHeader.h; sourceTree = "<group>"; };
 		9EA1753626972E8200ECA2BD /* SAddStudyClassVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAddStudyClassVC.h; sourceTree = "<group>"; };
 		9EA1753726972E8200ECA2BD /* SAddStudyClassVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAddStudyClassVC.m; sourceTree = "<group>"; };
+		9EA7703B26DCCF650083D432 /* ShowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowView.h; sourceTree = "<group>"; };
+		9EA7703C26DCCF650083D432 /* ShowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowView.m; sourceTree = "<group>"; };
 		9EB0924426A9006000743C0F /* dropdownFlag@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropdownFlag@3x.png"; sourceTree = "<group>"; };
 		9EB0924526A9006000743C0F /* dropdownFlag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropdownFlag@2x.png"; sourceTree = "<group>"; };
 		9EB0924626A9006000743C0F /* EBDropdownListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBDropdownListView.m; sourceTree = "<group>"; };
@@ -886,6 +889,7 @@
 		9E905C1125C1365D009BB170 /* MineVC */ = {
 			isa = PBXGroup;
 			children = (
+				9EA7703A26DCCC660083D432 /* View */,
 				9E905C2325C138DF009BB170 /* SMineVC.h */,
 				9E905C2425C138DF009BB170 /* SMineVC.m */,
 			);
@@ -935,6 +939,15 @@
 				9EA1753726972E8200ECA2BD /* SAddStudyClassVC.m */,
 			);
 			path = AddStudyClass;
+			sourceTree = "<group>";
+		};
+		9EA7703A26DCCC660083D432 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9EA7703B26DCCF650083D432 /* ShowView.h */,
+				9EA7703C26DCCF650083D432 /* ShowView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		9EB0924326A9006000743C0F /* EBDropdownList */ = {
@@ -1171,6 +1184,7 @@
 				9ECDD0E6261D87D10037A9FD /* SExamVC.m in Sources */,
 				9E24C73626578BC9004BC1A7 /* SAddSelectView.m in Sources */,
 				9E57F9BE26AA95FA00C80B45 /* SANode.m in Sources */,
+				9EA7703D26DCCF650083D432 /* ShowView.m in Sources */,
 				9E41CEA826AEE20100BDEB01 /* BWGetGroupNodeReq.m in Sources */,
 				9EDE3BEE2628152400FFC3EF /* SChapterHeaderView.m in Sources */,
 				9E905BFB25C13266009BB170 /* BWBaseDownloadResp.m in Sources */,

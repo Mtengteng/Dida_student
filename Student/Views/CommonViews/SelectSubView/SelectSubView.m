@@ -32,7 +32,7 @@
             [button setTitle:model.dictValue forState:UIControlStateNormal];
             [button.titleLabel setFont:[UIFont systemFontOfSize:18.0]];
             [button addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
-            [button setFrame:CGRectMake(i*(LAdaptation_x(40)+LAdaptation_x(48)), LAdaptation_y(44)/2 - LAdaptation_y(20)/2, LAdaptation_x(40), LAdaptation_y(20))];
+            [button setFrame:CGRectMake(i*(LAdaptation_x(80)+LAdaptation_x(48)), LAdaptation_y(44)/2 - LAdaptation_y(20)/2, LAdaptation_x(80), LAdaptation_y(20))];
             if (i == 0) {
                 firstBtn = button;
                 [button setTitleColor:BWColor(44, 48, 81, 1) forState:UIControlStateNormal];
