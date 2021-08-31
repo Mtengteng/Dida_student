@@ -18,6 +18,7 @@
 		9E41CEA826AEE20100BDEB01 /* BWGetGroupNodeReq.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E41CEA726AEE20100BDEB01 /* BWGetGroupNodeReq.m */; };
 		9E41CEAB26AEE21500BDEB01 /* BWGetGroupNodeResp.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E41CEAA26AEE21500BDEB01 /* BWGetGroupNodeResp.m */; };
 		9E41CEAE26AEE5D800BDEB01 /* SBoxNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E41CEAD26AEE5D800BDEB01 /* SBoxNode.m */; };
+		9E524C9E26DE092A000588AF /* SettingInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E524C9D26DE092A000588AF /* SettingInfoVC.m */; };
 		9E559E8A2653ABF0006523C6 /* SAddImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E559E892653ABF0006523C6 /* SAddImageView.m */; };
 		9E57F9BA26AA4F6B00C80B45 /* SAMenuBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E57F9B926AA4F6B00C80B45 /* SAMenuBarView.m */; };
 		9E57F9BE26AA95FA00C80B45 /* SANode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E57F9BD26AA95FA00C80B45 /* SANode.m */; };
@@ -153,6 +154,8 @@
 		9E41CEAA26AEE21500BDEB01 /* BWGetGroupNodeResp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWGetGroupNodeResp.m; sourceTree = "<group>"; };
 		9E41CEAC26AEE5D800BDEB01 /* SBoxNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBoxNode.h; sourceTree = "<group>"; };
 		9E41CEAD26AEE5D800BDEB01 /* SBoxNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBoxNode.m; sourceTree = "<group>"; };
+		9E524C9C26DE092A000588AF /* SettingInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingInfoVC.h; sourceTree = "<group>"; };
+		9E524C9D26DE092A000588AF /* SettingInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingInfoVC.m; sourceTree = "<group>"; };
 		9E559E882653ABF0006523C6 /* SAddImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAddImageView.h; sourceTree = "<group>"; };
 		9E559E892653ABF0006523C6 /* SAddImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAddImageView.m; sourceTree = "<group>"; };
 		9E57F9B826AA4F6B00C80B45 /* SAMenuBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAMenuBarView.h; sourceTree = "<group>"; };
@@ -892,6 +895,8 @@
 				9EA7703A26DCCC660083D432 /* View */,
 				9E905C2325C138DF009BB170 /* SMineVC.h */,
 				9E905C2425C138DF009BB170 /* SMineVC.m */,
+				9E524C9C26DE092A000588AF /* SettingInfoVC.h */,
+				9E524C9D26DE092A000588AF /* SettingInfoVC.m */,
 			);
 			path = MineVC;
 			sourceTree = "<group>";
@@ -1223,6 +1228,7 @@
 				9EFCFE0C262BD29200C8FD43 /* StudyCollectionViewCell.m in Sources */,
 				9E905C0A25C13550009BB170 /* SBaseNavigationVC.m in Sources */,
 				9E905C0D25C1356F009BB170 /* SRootVC.m in Sources */,
+				9E524C9E26DE092A000588AF /* SettingInfoVC.m in Sources */,
 				9EB0924A26A9006000743C0F /* EBDropdownListView.m in Sources */,
 				9E905BD025C13121009BB170 /* BWTools.m in Sources */,
 				9EA1753826972E8200ECA2BD /* SAddStudyClassVC.m in Sources */,

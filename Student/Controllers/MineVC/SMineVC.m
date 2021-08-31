@@ -8,6 +8,8 @@
 #import "SMineVC.h"
 #import "SelectSubView.h"
 #import "SCDictModel.h"
+#import "ShowView.h"
+#import "SettingInfoVC.h"
 
 
 @interface SMineVC ()
@@ -17,6 +19,7 @@
 @property (nonatomic, strong) UILabel *desLabel;
 @property (nonatomic, strong) UIButton *settingBtn;
 @property (nonatomic, strong) SelectSubView *subView;
+@property (nonatomic, strong) ShowView *showView;
 
 @end
 
@@ -73,6 +76,24 @@
         make.height.mas_equalTo(LAdaptation_y(44));
     }];
     
+    [self.view addSubview:self.showView];
+    [self.showView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.subView.mas_bottom).offset(LAdaptation_y(20));
+        make.left.equalTo(self.view).offset(LAdaptation_x(40));
+        make.right.equalTo(self.view.mas_right).offset(-LAdaptation_x(40));
+        make.height.mas_equalTo(LAdaptation_y(80));
+    }];
+    
+    DefineWeakSelf;
+    self.subView.selectSubBlock = ^(SCDictInfoModel * _Nonnull model, NSInteger index) {
+        NSLog(@"点击%@",model.dictValue);
+    };
+    self.showView.label1.text = @"我的数据";
+    self.showView.label2.text = @"我的内容";
+
+    self.showView.numberLabel1.text = @"300";
+    self.showView.numberLabel2.text = @"400";
+
 //    [self.view addSubview:self.scrollView];
 //    [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.edges.equalTo(self.view);
@@ -80,7 +101,9 @@
 }
 - (void)gotoSettingAction:(id)sender
 {
-    
+    SettingInfoVC *setting = [[SettingInfoVC alloc] init];
+    setting.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:setting animated:YES];
 }
 #pragma mark - LazyLoad -
 - (UIScrollView *)scrollView
@@ -136,7 +159,6 @@
        
         for (NSInteger i = 0; i < array.count; i++) {
             SCDictInfoModel *model = [[SCDictInfoModel alloc] init];
-            model.dictValueId = [NSString stringWithFormat:@"%ld",i];
             model.dictValue = [array safeObjectAtIndex:i];
             [infoArray addObject:model];
         }
@@ -145,5 +167,12 @@
     }
     return _subView;
 }
-
+- (ShowView *)showView
+{
+    if (!_showView) {
+        _showView = [[ShowView alloc] init];
+        _showView.backgroundColor = [UIColor redColor];
+    }
+    return _showView;
+}
 @end

@@ -10,10 +10,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ShowView : UIView
-@property (nonatomic, strong) NSString *content1;
-@property (nonatomic, strong) NSString *content2;
-@property (nonatomic, strong) NSString *number1;
-@property (nonatomic, strong) NSString *number2;
+@property (nonatomic, strong) UILabel *label1;
+@property (nonatomic, strong) UILabel *label2;
+@property (nonatomic, strong) UILabel *numberLabel1;
+@property (nonatomic, strong) UILabel *numberLabel2;
 
 @end
 
